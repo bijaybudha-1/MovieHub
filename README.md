@@ -30,11 +30,9 @@ It provides movie lovers with a simple, interactive platform to **explore films,
 
 ---
 
+## 📂 Project Structure
 
-![## 📂 Project Structure](./assets/images/image.png)
-
-
----
+![Project Structure](./assets/images/image.png)
 
 ## 📸 Preview
 
