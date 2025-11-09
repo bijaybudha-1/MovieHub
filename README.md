@@ -34,41 +34,31 @@ It provides movie lovers with a simple, interactive platform to **explore films,
 
 MovieHub/
 │
-├── index.html # Homepage
-│
-├── pages/ # All sub-pages
-│ ├── about.html
-│ ├── movies.html
-│ ├── movie-details.html
-│ ├── ratings.html
-│ ├── gallery.html
-│ ├── reviews.html
-│ ├── news.html
-│ ├── contact.html
-│ └── login.html
+├── index.html
+├── movies.html
+├── movie-details.html
+├── ratings.html
+├── contact.html
 │
 ├── assets/
-│ ├── css/
-│ │ ├── style.css
-│ │ ├── responsive.css
-│ │ └── components.css
-│ ├── js/
-│ │ ├── main.js
-│ │ ├── form-validation.js
-│ │ ├── rating.js
-│ │ └── slider.js
-│ ├── images/
-│ │ ├── logo/
-│ │ ├── movies/
-│ │ ├── gallery/
-│ │ └── icons/
-│ └── videos/
-│ └── trailer1.mp4
+│   ├── images/
+│   │   ├── posters/
+│   │   └── logo.png
+│   ├── videos/
+│   │   └── trailers/
+│   ├── icons/
+│   └── favicon.ico
 │
-├── docs/
-│ ├── Project_Report.pdf
-│ └── Screenshots/
-│ └── homepage.png
+├── css/
+│   ├── style.css
+│   ├── responsive.css
+│   └── animation.css
+│
+├── js/
+│   ├── main.js
+│   ├── slider.js
+│   ├── rating.js
+│   └── validation.js
 │
 └── README.md
 
