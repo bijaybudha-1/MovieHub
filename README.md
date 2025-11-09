@@ -30,37 +30,8 @@ It provides movie lovers with a simple, interactive platform to **explore films,
 
 ---
 
-## 📂 Project Structure
 
-MovieHub/
-│
-├── index.html
-├── movies.html
-├── movie-details.html
-├── ratings.html
-├── contact.html
-│
-├── assets/
-│   ├── images/
-│   │   ├── posters/
-│   │   └── logo.png
-│   ├── videos/
-│   │   └── trailers/
-│   ├── icons/
-│   └── favicon.ico
-│
-├── css/
-│   ├── style.css
-│   ├── responsive.css
-│   └── animation.css
-│
-├── js/
-│   ├── main.js
-│   ├── slider.js
-│   ├── rating.js
-│   └── validation.js
-│
-└── README.md
+![## 📂 Project Structure](./assets/images/image.png)
 
 
 ---
