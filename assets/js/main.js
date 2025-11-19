@@ -38,3 +38,11 @@ mobileNav.addEventListener("click", (e) => {
   mobileLinks.forEach((el) => el.classList.remove("navbar-link-active"));
   target.classList.add("navbar-link-active");
 });
+
+
+// Footer Section
+const copyDate = document.getElementById("copy-date");
+const currentDate = new Date();
+
+
+copyDate.innerHTML =`&copy;${currentDate.getFullYear()}, `;

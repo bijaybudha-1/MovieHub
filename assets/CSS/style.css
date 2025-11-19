@@ -180,6 +180,10 @@ html {
   color: var(--text-black);
 }
 
+.text-logo {
+  color: var(--text-red);
+}
+
 /* Coloring Styling Stop */
 
 li,
@@ -382,7 +386,7 @@ a {
 }
 
 .mt-3 {
-  margin-top: 1rem;
+  margin-top: 3rem;
 }
 
 .mx-1 {
@@ -479,6 +483,41 @@ a {
   font-weight: 400;
 }
 
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+/* Transition Styling CSS Start */
+.ease {
+  transition: all ease 0.5s;
+}
+
+.ease-in {
+  transition: all ease-in 0.5s;
+}
+
+.ease-in-out {
+  transition: all ease-in-out 0.5s;
+}
+
+.ease-out {
+  transition: all ease-out 0.5s;
+}
+
+/* Transition Styling CSS End */
+
 /* Border radius CSS */
 .rounded {
   border-radius: 50%;
@@ -503,7 +542,6 @@ a {
 
 /* Hover CSS */
 
-
 /* Header Section Styling Start */
 
 .navbar-content {
@@ -516,12 +554,14 @@ a {
   /* font-size: 1.8rem; */
 }
 
-.navbar-content .navbar-link:hover, .mobile-navbar .navbar-link:hover {
+.navbar-content .navbar-link:hover,
+.mobile-navbar .navbar-link:hover {
   background-color: var(--bg-gray-600);
   color: var(--text-red);
 }
 
-.navbar-content .navbar-link-active, .mobile-navbar .navbar-link-active {
+.navbar-content .navbar-link-active,
+.mobile-navbar .navbar-link-active {
   background-color: var(--bg-gray-600);
   color: var(--text-red);
 }
@@ -546,7 +586,7 @@ a {
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;
   background-color: var(--fill-white);
-  border-left: .1rem solid var(--border-gray-transparent);
+  border-left: 0.1rem solid var(--border-gray-transparent);
   color: var(--fill-red);
   transition: all ease-out 0.5s;
   cursor: pointer;
@@ -561,35 +601,38 @@ a {
   height: 5rem;
 }
 
-
-
-
 /* Mobile Navbar Section */
 .mobile-navbar {
   display: none;
   width: 40rem;
   height: 100dvh;
-  margin-top: .1rem;
-  position: relative;
-  top: 0;
+  margin-top: 0.1rem;
+  position: absolute;
+  top: 10dvh;
   left: -200rem;
   background-color: var(--bg-black);
-  transition: all ease-in-out .4s;
+  transition: all ease-in-out 0.4s;
 }
 
 .mobile-navbar-active {
   left: 0;
 }
 
-
-
-
-
 #menu-bar {
-    display: none;
+  display: none;
 }
 
 /* Header Section Styling End */
+
+/* Footer Section Styling Start */
+.footer-section .sub-heading {
+  font-size: 3rem;
+}
+
+.footer-links-content .footer-link:hover, .copy-developed-section a:hover {
+  text-decoration: 0.1rem solid underline;
+}
+/* Footer Section Styling End */
 
 /* Responsive Styling Section Start*/
 
@@ -615,18 +658,32 @@ a {
     padding: 0 3rem;
   }
 
-  .navbar-content .menu-bar-icon .bx-menu, .navbar-content .menu-bar-icon .bx-x {
+  .navbar-content .menu-bar-icon .bx-menu,
+  .navbar-content .menu-bar-icon .bx-x {
     font-size: 4rem;
   }
 
   /* for Screen */
 
   .mobile-navbar {
-  display: block;
+    display: block;
   }
-  
 }
 
+/* For Mobile Screen  */
+@media (width < 576px) {
+  .mobile-navbar-active {
+    top: 7rem;
+    left: 0;
+  }
 
+  .footer-links-content {
+    gap: 1rem;
+  }
+
+  .footer-links-content .footer-link {
+    font-size: 1.6rem;
+  }
+}
 
 /* Responsive Styling Section End*/
