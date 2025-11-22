@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MovieHub | Home</title>
+  <title>MovieHub | Series</title>
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="./assets/CSS/style.css" />
+  <link rel="stylesheet" href="../assets/CSS/style.css" />
 </head>
 
 <body>
@@ -15,38 +15,40 @@
     <nav class="nav bg-color text-white h-fit-content w-full">
       <div class="navbar-container container">
         <div class="navbar-content d-flex item-center justify-between">
-          <div class="navbar-logo pointer">MovieHub</div>
+          <div>
+            <a  class="navbar-logo pointer" href="../movies.html">MovieHub</a>
+          </div>
           <ul class="navbar-items d-flex">
             <li>
-              <a href="#" class="navbar-link d-flex justify-center item-center p-x-1-half p-y-2">
+              <a href="../movies.html" class="navbar-link d-flex justify-center item-center p-x-1-half p-y-2">
                 <i class='bx bx-film'></i>
                 <span>Movies</span>
               </a>
             </li>
 
             <li>
-              <a href="#" class="navbar-link d-flex justify-center item-center p-x-1-half p-y-2">
+              <a href="./tv-shows.html" class="navbar-link d-flex justify-center item-center p-x-1-half p-y-2">
                 <i class='bx bx-tv'></i>
                 <span>TV Shows</span>
               </a>
             </li>
 
             <li>
-              <a href="#" class="navbar-link d-flex justify-center item-center p-x-1-half p-y-2">
+              <a href="./series.html" class="navbar-link d-flex justify-center item-center p-x-1-half p-y-2">
                 <i class='bx bx-collection'></i>
                 <span>Series</span>
               </a>
             </li>
 
             <li>
-              <a href="#" class="navbar-link d-flex justify-center item-center p-x-1-half p-y-2">
+              <a href="./people.html" class="navbar-link d-flex justify-center item-center p-x-1-half p-y-2">
                 <i class='bx bx-user'></i>
                 <span>People</span>
               </a>
             </li>
 
             <li>
-              <a href="#" class="navbar-link d-flex justify-center item-center p-x-1-half p-y-2">
+              <a href="./popular.html" class="navbar-link d-flex justify-center item-center p-x-1-half p-y-2">
                 <i class='bx bx-star'></i>
                 <span>Popular</span>
               </a>
@@ -82,28 +84,28 @@
         <div class="mobile-navbar">
           <ul class="navbar-items">
             <li>
-              <a href="#" class="navbar-link text-white w-full h-fit-content mt-1 p-x-2 p-y-2 d-inline-block">
+              <a href="../movies.html" class="navbar-link text-white w-full h-fit-content mt-1 p-x-2 p-y-2 d-inline-block">
                 <i class='bx bx-film'></i>
                 <span>Movies</span>
               </a>
             </li>
 
             <li>
-              <a href="#" class="navbar-link text-white w-full h-fit-content mt-1 p-x-2 p-y-2 d-inline-block">
+              <a href="./tv-shows.html" class="navbar-link text-white w-full h-fit-content mt-1 p-x-2 p-y-2 d-inline-block">
                 <i class='bx bx-tv'></i>
                 <span>TV Shows</span>
               </a>
             </li>
 
             <li>
-              <a href="#" class="navbar-link text-white w-full h-fit-content mt-1 p-x-2 p-y-2 d-inline-block">
+              <a href="./people.html" class="navbar-link text-white w-full h-fit-content mt-1 p-x-2 p-y-2 d-inline-block">
                 <i class='bx bx-user'></i>
                 <span>People</span>
               </a>
             </li>
 
             <li>
-              <a href="#" class="navbar-link text-white w-full h-fit-content mt-1 p-x-2 p-y-2 d-inline-block">
+              <a href="./popular.html" class="navbar-link text-white w-full h-fit-content mt-1 p-x-2 p-y-2 d-inline-block">
                 <i class='bx bx-star'></i>
                 <span>Popular</span>
               </a>
@@ -127,7 +129,9 @@
       <div class="footer-container container">
         <div class="footer-content">
           <div class="footer-logo">
-            <h2 class="sub-heading pointer text-logo text-center">MovieHub</h2>
+            <a href="../movies.html">
+              <h2 class="sub-heading pointer text-logo text-center">MovieHub</h2>
+            </a>
           </div>
 
           <ul class="footer-links-content d-flex justify-center gap-3 mt-1">
@@ -140,7 +144,7 @@
           <div class="copy-developed-section d-flex gap-1 justify-center mt-1">
             <div class="copyright">
               <h3 class="main-para text-normal text-white d-inline-block" id="copy-date"></h3>
-              <a class="text-logo ml-1" href="./index.html">MovieHub</a>
+              <a class="text-logo ml-1" href="../movies.html">MovieHub</a>
             </div>
             <a target="_blank" class="text-white" href="https://github.com/bijaybudha-1">Bijay Budha</a>
           </div>
@@ -150,6 +154,6 @@
   </footer>
 
 </body>
-<script src="./assets/js/main.js"></script>
+<script src="../assets/js/main.js"></script>
 
 </html>
