@@ -33,7 +33,7 @@ html {
   --fill-white-muted: #ffffffb3;
   --fill-red: #e50914;
   --border-gray-transparent: #808080b3;
-   --stat-0:  hsl(0 100% 50%);
+  --stat-0: hsl(0 100% 50%);
   --stat-10: hsl(12 100% 50%);
   --stat-20: hsl(24 100% 50%);
   --stat-30: hsl(36 100% 50%);
@@ -128,22 +128,22 @@ html {
 /* Flexbox Styling Stop */
 
 /* Grid Styling Starting */
-  .grid {
-    display: grid;
-    gap: 2.4rem;
-  }
+.grid {
+  display: grid;
+  gap: 2.4rem;
+}
 
-  .grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(35.6rem, 1fr));
-  }
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(35.6rem, 1fr));
+}
 
-  .grid-cols-autofill {
-    grid-template-columns: repeat(auto-fill, minmax(22.6rem, 1fr));
-  }
+.grid-cols-autofill {
+  grid-template-columns: repeat(auto-fill, minmax(22.6rem, 1fr));
+}
 
-  .grid-rows-3 {
-    grid-template-rows: repeat(3, minmax(30rem, 1fr));
-  }
+.grid-rows-3 {
+  grid-template-rows: repeat(3, minmax(30rem, 1fr));
+}
 /* Grid Styling Ending */
 
 /* height Styling Start */
@@ -320,8 +320,8 @@ a {
 }
 
 .p-y-half {
-  padding-top: .5rem;;
-  padding-bottom: .5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .p-y-1 {
@@ -448,8 +448,6 @@ a {
 .mb-3 {
   margin-bottom: 3rem;
 }
-
-
 
 .mx-1 {
   margin: 0 1rem;
@@ -695,7 +693,7 @@ a {
 
 .trending-container .content-title {
   border-radius: 3rem;
-  border: .3rem solid var(--bg-black);
+  border: 0.3rem solid var(--bg-black);
   cursor: pointer;
 }
 
@@ -705,7 +703,7 @@ a {
   color: var(--text-white);
 }
 
-.movie-card-section, .top-rated-card-section {
+.movie-card-section {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 22rem;
@@ -735,14 +733,15 @@ a {
   border-radius: 1rem;
   /* background-color: var(--bg-gray-100-transparent); */
   z-index: 1;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .more-icon {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  height:3rem;
+  height: 3rem;
   width: 3rem;
   color: var(--text-white);
   background-color: var(--bg-gray-300);
@@ -758,13 +757,14 @@ a {
   height: fit-content;
   background-color: var(--bg-white);
   border-radius: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   z-index: 4;
 }
 
 .option-content .option-link {
-  padding: 1rem 2rem ;
-  transition: all .5s ease;
+  padding: 1rem 2rem;
+  transition: all 0.5s ease;
   color: var(--text-black);
   cursor: pointer;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
@@ -773,13 +773,14 @@ a {
 .option-content .option-link:hover {
   background-color: var(--bg-gray-150);
   color: var(--text-white);
+  border-radius: 1rem;
 }
 
 .more-icon .bx-dots-horizontal-rounded {
   position: relative;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%);
 }
 
 .movie-card-content .movie-poster {
@@ -817,7 +818,6 @@ a {
 }
 
 /* Movie Card Section Style Ending */
-
 
 /* Rating Circle */
 .rating-circle {
@@ -872,7 +872,6 @@ a {
 
 /* Movie Card Section Ending */
 
-
 /* Header Section Styling End */
 
 /* Footer Section Styling Start */
@@ -880,7 +879,8 @@ a {
   font-size: 3rem;
 }
 
-.footer-links-content .footer-link:hover, .copy-developed-section a:hover {
+.footer-links-content .footer-link:hover,
+.copy-developed-section a:hover {
   text-decoration: 0.1rem solid underline;
 }
 /* Footer Section Styling End */
@@ -890,6 +890,10 @@ a {
 /* For Laptop / Desktop Screen */
 @media (width < 1400px) {
   .navbar-content {
+    padding: 0 2rem;
+  }
+
+  .card-collection-section {
     padding: 0 2rem;
   }
 }
@@ -934,6 +938,43 @@ a {
 
   .footer-links-content .footer-link {
     font-size: 1.6rem;
+  }
+
+  /* Movies Card Content */
+  .movie-card-section {
+    grid-auto-columns: 17rem;
+  }
+
+  .movie-card-content {
+    width: 16rem;
+    height: 27.5rem;
+  }
+
+  .movie-card-content .movie-poster {
+    width: 16rem;
+    height: 20.5rem;
+  }
+
+  .movie-description .movie-name {
+    font-size: 1.4rem;
+  }
+
+  .movie-description .relase-date {
+    font-size: 1rem;
+  }
+
+  /* More Option Icons */
+  .more-icon .option-content {
+    top: 3.5rem;
+    right: 1rem;
+    width: 12rem;
+    height: fit-content;
+    font-size: 1.4rem;
+  }
+
+  .option-content .option-link {
+    font-size: 1.4rem;
+    padding: .5rem 2rem;
   }
 }
 
