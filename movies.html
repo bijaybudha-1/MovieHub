@@ -129,7 +129,7 @@
 
   <section class="trending-card-section">
     <div class="trending-container container">
-      <div class="content-header d-flex justify-left item-center mt-2 gap-2">
+      <div class="content-header d-flex justify-left item-center mt-3 gap-2">
         <h2 class="sub-heading">Trending</h2>
         <div class="content-title d-flex item-center h-fit-content">
           <h3 class="today-btn para p-x-1-half p-y-half trending-active">Today</h3>
@@ -137,38 +137,22 @@
         </div>
       </div>
 
-      <div class="movie-card-section mt-1">
-
-        <div class="movie-card-content">
-          <div class="movie-poster">
-            <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/aWxwnYoe8p2d2fcxOqtvAtJ72Rw.jpg"
-              alt="movie poster">
-            <div class="rating-circle" style="--rating: 59;">
-              <svg class="progress-ring" width="40" height="40">
-                <circle class="ring-bg" cx="20" cy="20" r="15" />
-                <circle class="ring-progress" cx="20" cy="20" r="15" />
-              </svg>
-              <span class="rating-text">59%</span>
-            </div>
-            <div class="more-icon sub-heading">
-              <i class='bx  bx-dots-horizontal-rounded'></i>
-              <ul class="option-content hidden">
-                <li class="option-link"><span>Add to List</span></li>
-                <li class="option-link"><span>Favourite</span></li>
-                <li class="option-link"><span>Watchlist</span></li>
-                <li class="option-link"><span>Your Rating</span></li>
-              </ul>
-            </div>
-          </div>
-          <div class="movie-description text-white p-x-1 p-y-2">
-            <h2 class="movie-name sub-para pointer text-black">Harry Potter</h2>
-            <h3 class="relase-date mini-para text-gray">27 April 2005</h3>
-          </div>
-        </div>
-        
-      </div>  
-    </div>  
+      <div class="trending-movie-card-section movie-card-section mt-1">
+      </div>
+    </div>
   </section>
+
+  <section class="trending-card-section">
+    <div class="trending-container container">
+      <div class="content-header d-flex justify-left item-center mt-3">
+        <h2 class="sub-heading">Top Rated</h2>
+      </div>
+
+      <div class="top-rated-card-section movie-card-section  mt-1">
+      </div>
+    </div>
+  </section>
+
 
   <footer>
     <div class="footer-section bg-color w-full mt-3 h-fit-content p-2">
@@ -201,5 +185,6 @@
 
 </body>
 <script src="./assets/js/main.js"></script>
+<script src="./assets/js/api.js"></script>
 
 </html>

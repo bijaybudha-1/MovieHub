@@ -1,18 +1,19 @@
+// ============================
 // Responsive Navbar
+// ============================
 const menubar = document.querySelector(".menu-bar-icon");
 const mobileNavbar = document.querySelector(".mobile-navbar");
 const bar = document.querySelector(".bx-menu");
 
 menubar.addEventListener("click", () => {
   mobileNavbar.classList.toggle("mobile-navbar-active");
-});
-
-menubar.addEventListener("click", () => {
   bar.classList.toggle("bx-menu");
   bar.classList.toggle("bx-x");
 });
 
-// ---- Desktop Navbar Active State ----
+// ============================
+// Desktop Navbar Active State
+// ============================
 const desktopNavbar = document.querySelector(".navbar-content .navbar-items");
 const desktopLinks = desktopNavbar.querySelectorAll(".navbar-link");
 
@@ -24,7 +25,9 @@ desktopNavbar.addEventListener("click", (e) => {
   target.classList.add("navbar-link-active");
 });
 
-// ---- Mobile Navbar Active State ----
+// ============================
+// Mobile Navbar Active State
+// ============================
 const mobileNav = document.querySelector(".mobile-navbar .navbar-items");
 const mobileLinks = mobileNavbar.querySelectorAll(".navbar-link");
 
@@ -36,68 +39,53 @@ mobileNav.addEventListener("click", (e) => {
   target.classList.add("navbar-link-active");
 });
 
-// Footer Section
+// ============================
+// Footer Date
+// ============================
 const copyDate = document.getElementById("copy-date");
 const currentDate = new Date();
+copyDate.innerHTML = `&copy;${currentDate.getFullYear()}, `;
 
-copyDate.innerHTML =`&copy;${currentDate.getFullYear()}, `;
 
-// Trending Today and This Week Btn Script
-const todayBtn = document.querySelector(".today-btn");
-const thisWeekBtn = document.querySelector(".this-week-btn");
-const contentTitle = document.querySelector(".content-title");
+document.addEventListener("click", (e) => {
+  const clickedIcon = e.target.closest(".more-icon");
 
-contentTitle.addEventListener("click", (e) => {
-  console.log(e.target.classList[0]);
-  if (e.target.classList[0] === "today-btn") {
-    todayBtn.classList.add("trending-active");
-    thisWeekBtn.classList.remove("trending-active");
-  } else {
-    thisWeekBtn.classList.add("trending-active");
-    todayBtn.classList.remove("trending-active");
+  // Get currently open menu (if any)
+  const openMenu = document.querySelector(".option-content.d-block");
+
+  // ----------------------------------------------
+  // If click is OUTSIDE → Close all menus
+  // ----------------------------------------------
+  if (!clickedIcon) {
+    if (openMenu) {
+      openMenu.classList.add("hidden");
+      openMenu.classList.remove("d-block");
+    }
+    return;
   }
-});
 
+  // ----------------------------------------------
+  // If clicked on an icon having a menu
+  // ----------------------------------------------
+  const menu = clickedIcon.querySelector(".option-content");
 
-// Poster Image More Option Icon Hidden and Display Script
-const moreIcons = document.querySelectorAll(".more-icon");
-const allMenus = document.querySelectorAll(".option-content");
+  if (!menu) return;
 
-// Close all menus function
-function closeAllMenus() {
-  allMenus.forEach(menu => {
+  // If clicked the same menu → Toggle close
+  if (menu === openMenu) {
     menu.classList.add("hidden");
     menu.classList.remove("d-block");
-  });
-}
+    return;
+  }
 
-// Add event to each more icon
-moreIcons.forEach(icon => {
-  const menu = icon.querySelector(".option-content");
+  // If another menu was open → Close it
+  if (openMenu) {
+    openMenu.classList.add("hidden");
+    openMenu.classList.remove("d-block");
+  }
 
-  // Click on the more icon
-  icon.addEventListener("click", (e) => {
-    e.stopPropagation();
-
-    // If this menu is already open → close all
-    const isOpen = menu.classList.contains("d-block");
-    closeAllMenus();
-
-    // If it was closed before → open it
-    if (!isOpen) {
-      menu.classList.remove("hidden");
-      menu.classList.add("d-block");
-    }
-  });
-
-  // Click inside the menu (option clicked)
-  menu.addEventListener("click", (e) => {
-    e.stopPropagation();   // prevent document click
-    closeAllMenus();       // close after selecting an option
-  });
+  // Open the newly clicked menu
+  menu.classList.remove("hidden");
+  menu.classList.add("d-block");
 });
 
-// Close when clicking outside
-document.addEventListener("click", () => {
-  closeAllMenus();
-});
