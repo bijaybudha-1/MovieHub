@@ -79,20 +79,20 @@ thisWeekBtn.addEventListener("click", () => {
 
 loadTrending("day");
 
-const topRatedSection = document.querySelector(".top-rated-card-section");
+const topRatedContent = document.querySelector(".top-rated-card-content");
 const topRatedUrl = 'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1'
 
 fetch(topRatedUrl, options)
 .then(res => res.json())
 .then(topRated => {
-  topRatedSection.innerHTML = "";
+  topRatedContent.innerHTML = "";
 
   topRated.results.forEach( topRatedMovie => {
     const ratedImageUrl = `https://image.tmdb.org/t/p/w500${topRatedMovie.poster_path}`;
 
     const rating = Math.round(topRatedMovie.vote_average * 10);
     
-    topRatedSection.innerHTML += `
+    topRatedContent.innerHTML += `
           <div class="movie-card-content">
             <div class="movie-poster">
               <img src="${ratedImageUrl}" alt="${topRatedMovie.title}" />
@@ -127,51 +127,52 @@ fetch(topRatedUrl, options)
 })
 .catch(err => {
   console.error("ERROR: ", err)
+});
+
+
+const upcomingContent = document.querySelector(".upcoming-card-content");
+const upcomingURL = 'https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1';
+
+fetch(upcomingURL, options)
+.then(res => res.json())
+.then( upcoming => {
+  upcomingContent.innerHTML = "";
+
+  upcoming.results.forEach(upcomingMovie => {
+    const ratedImageUrl = `https://image.tmdb.org/t/p/w500${upcomingMovie.poster_path}`;
+
+    const rating = Math.round(upcomingMovie.vote_average * 10);
+
+    upcomingContent.innerHTML += `
+    <div class="movie-card-content">
+            <div class="movie-poster">
+              <img src="${ratedImageUrl}" alt="${upcomingMovie.title}" />
+
+              <div class="rating-circle" style="--rating: ${rating};">
+                <svg class="progress-ring" width="40" height="40">
+                  <circle class="ring-bg" cx="20" cy="20" r="15" />
+                  <circle class="ring-progress" cx="20" cy="20" r="15" />
+                </svg>
+                <span class="rating-text">${rating}%</span>
+              </div>
+
+              <div class="more-icon sub-heading">
+                <i class='bx bx-dots-horizontal-rounded'></i>
+                <ul class="option-content hidden">
+                  <li class="option-link"><span>Add to List</span></li>
+                  <li class="option-link"><span>Favourite</span></li>
+                  <li class="option-link"><span>Watchlist</span></li>
+                  <li class="option-link"><span>Your Rating</span></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="movie-description text-white p-x-1 p-y-2">
+              <h2 class="movie-name sub-para pointer text-black">${upcomingMovie.title}</h2>
+              <h3 class="relase-date mini-para text-gray">${upcomingMovie.release_date}</h3>
+            </div>
+          </div>
+        `;
+  })
 })
-
-
-// const topRatedSection = document.querySelector(".top-rated-card-section");
-// const topRatedUrl = 'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1';
-
-// fetch(topRatedUrl, options)
-//   .then(res => res.json())
-//   .then(topRated => {
-//     topRatedSection.innerHTML = "";
-
-//     topRated.results.forEach(topRatedMovie => {
-//       const ratedImageUrl = `https://image.tmdb.org/t/p/w500${topRatedMovie.poster_path}`;
-//       const rating = Math.round(topRatedMovie.vote_average * 10);
-
-//       topRatedSection.innerHTML += `
-//         <div class="movie-card-content">
-//           <div class="movie-poster">
-//             <img src="${ratedImageUrl}" alt="${topRatedMovie.title}" />
-
-//             <div class="rating-circle" style="--rating: ${rating};">
-//               <svg class="progress-ring" width="40" height="40">
-//                 <circle class="ring-bg" cx="20" cy="20" r="15" />
-//                 <circle class="ring-progress" cx="20" cy="20" r="15" />
-//               </svg>
-//               <span class="rating-text">${rating}%</span>
-//             </div>
-
-//             <div class="more-icon sub-heading">
-//               <i class='bx bx-dots-horizontal-rounded'></i>
-//               <ul class="option-content hidden">
-//                 <li class="option-link"><span>Add to List</span></li>
-//                 <li class="option-link"><span>Favourite</span></li>
-//                 <li class="option-link"><span>Watchlist</span></li>
-//                 <li class="option-link"><span>Your Rating</span></li>
-//               </ul>
-//             </div>
-//           </div>
-
-//           <div class="movie-description text-white p-x-1 p-y-2">
-//             <h2 class="movie-name sub-para pointer text-black">${topRatedMovie.title}</h2>
-//             <h3 class="relase-date mini-para text-gray">${topRatedMovie.release_date}</h3>
-//           </div>
-//         </div>
-//       `;
-//     });
-//   })
-//   .catch(err => console.error("ERROR: ", err));
+.catch(err => console.error(err))
