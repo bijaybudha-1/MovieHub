@@ -88,4 +88,3 @@ document.addEventListener("click", (e) => {
   menu.classList.remove("hidden");
   menu.classList.add("d-block");
 });
-

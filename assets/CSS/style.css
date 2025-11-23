@@ -855,9 +855,10 @@ a {
 /* Progress ring */
 .ring-progress {
   fill: none;
-  stroke: #21d07a; /* green color */
+  stroke: #21d07a;
   stroke-width: 5;
   stroke-linecap: round;
+  animation: progress 0.1s ease;
 
   /* C = 2πr = 94.25 for r = 15 */
   --circumference: 94.25;
