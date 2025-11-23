@@ -54,6 +54,7 @@ function loadTrending(type = "day") {
             </div>
           </div>
         `;
+        applyRatingColors()
       });
     })
     .catch((err) => console.error(err));
@@ -123,6 +124,7 @@ fetch(popularUrl, options)
         </div>
       </div>
     `;
+    applyRatingColors()
     });
   })
   .catch((err) => {
@@ -173,6 +175,7 @@ fetch(topRatedUrl, options)
             </div>
           </div>
         `;
+        applyRatingColors()
     });
   })
   .catch((err) => {
@@ -223,6 +226,41 @@ fetch(upcomingURL, options)
             </div>
           </div>
         `;
+        applyRatingColors()
     });
   })
   .catch((err) => console.error(err));
+
+function applyRatingColors() {
+  const circles = document.querySelectorAll(".rating-circle");
+
+  circles.forEach(circle => {
+    const rating = parseInt(circle.style.getPropertyValue("--rating"));
+    const ring = circle.querySelector(".ring-progress");
+    
+    if (rating === 0 ) {
+      ring.style.stroke = `var(--stat-0)`;
+    } else if (rating > 0 && rating < 10){
+      ring.style.stroke = `var(--stat-10)`;
+    } else if (rating > 10 && rating < 20){
+      ring.style.stroke = `var(--stat-20)`;
+    } else if (rating > 20 && rating < 30){
+      ring.style.stroke = `var(--stat-30)`;
+    } else if (rating > 30 && rating < 40){
+      ring.style.stroke = `var(--stat-40)`;
+    } else if (rating > 40 && rating < 50){
+      ring.style.stroke = `var(--stat-50)`;
+    } else if (rating > 50 && rating < 60){
+      ring.style.stroke = `var(--stat-60)`;
+    } else if (rating > 60 && rating < 70){
+      ring.style.stroke = `var(--stat-70)`;
+    } else if (rating > 70 && rating < 80){
+      ring.style.stroke = `var(--stat-80)`;
+    } else if (rating > 80 && rating < 90){
+      ring.style.stroke = `var(--stat-90)`;
+    } else if (rating > 90 && rating < 100){
+      ring.style.stroke = `var(--stat-100)`;
+    }
+    
+  });
+}
