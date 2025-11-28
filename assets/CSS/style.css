@@ -130,11 +130,17 @@ html {
 /* Grid Styling Starting */
 .grid {
   display: grid;
-  gap: 2.4rem;
+  gap: 3.4rem;
 }
 
 .grid-cols-3 {
   grid-template-columns: repeat(3, minmax(35.6rem, 1fr));
+}
+
+.grid-cols-5 {
+  grid-template-columns: repeat(5, minmax(25rem, 1fr));
+  align-items: center;
+  justify-content: center;
 }
 
 .grid-cols-autofill {
@@ -707,7 +713,7 @@ a {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 22rem;
-  gap: 1.5rem;
+  column-gap: 5rem;
   overflow-x: auto;
   overflow-y: hidden;
   padding: 1rem 0;
@@ -728,7 +734,7 @@ a {
 }
 
 .movie-card-content {
-  width: 20rem;
+  width: 23rem;
   height: 33rem;
   border-radius: 1rem;
   /* background-color: var(--bg-gray-100-transparent); */
@@ -784,7 +790,7 @@ a {
 }
 
 .movie-card-content .movie-poster {
-  width: 20rem;
+  width: 23rem;
   height: 26.5rem;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
@@ -873,7 +879,27 @@ a {
 
 /* Movie Card Section Ending */
 
-/* Header Section Styling End */
+/* Series Page Styling */
+.series-list-container .content-title {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: .7rem;
+}
+
+.series-active:first-child {
+  border-top-left-radius: .7rem;
+  border-bottom-left-radius: .7rem;
+}
+
+.series-active:last-child {
+  border-top-right-radius: .7rem;
+  border-bottom-right-radius: .7rem;
+}
+
+.series-active {
+  background-color: var(--bg-gray-150);
+  color: var(--text-white);
+  padding: 1rem;
+}
 
 /* Footer Section Styling Start */
 .footer-section .sub-heading {
