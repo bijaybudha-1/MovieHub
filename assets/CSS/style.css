@@ -143,6 +143,12 @@ html {
   justify-content: center;
 }
 
+.grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(20rem, 1fr));
+  align-items: center;
+  justify-content: center;
+}
+
 .grid-cols-autofill {
   grid-template-columns: repeat(auto-fill, minmax(22.6rem, 1fr));
 }
@@ -709,7 +715,18 @@ a {
   color: var(--text-white);
 }
 
-.movie-card-section {
+.trending-card-section .movie-card-section, .popular-card-section .movie-card-section, .rated-card-section .movie-card-section, .upcoming-card-section  .movie-card-section {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 20rem;
+  column-gap: 2.4rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1rem 0;
+  z-index: 1;
+}
+
+.series-list-section .movie-card-section {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 22rem;
@@ -734,7 +751,17 @@ a {
 }
 
 .movie-card-content {
-  width: 23rem;
+  width: 20rem;
+  height: 33rem;
+  border-radius: 1rem;
+  /* background-color: var(--bg-gray-100-transparent); */
+  z-index: 1;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.series-list-section .movie-card-content, .all-tvShows-section .movie-card-content {
+  width: 25rem;
   height: 33rem;
   border-radius: 1rem;
   /* background-color: var(--bg-gray-100-transparent); */
@@ -790,7 +817,20 @@ a {
 }
 
 .movie-card-content .movie-poster {
-  width: 23rem;
+  width: 20rem;
+  height: 26.5rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  position: relative;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  aspect-ratio: 2 / 3;
+  cursor: pointer;
+}
+
+.series-list-section .movie-card-content .movie-poster, .all-tvShows-section .movie-card-content .movie-poster {
+  width: 25rem;
   height: 26.5rem;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
