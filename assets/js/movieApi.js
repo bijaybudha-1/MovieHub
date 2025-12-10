@@ -1,3 +1,5 @@
+// import movieDescription from "./movieDetails.js";
+
 // Today Trending and This Week Trending Movie
 const options = {
   method: "GET",
@@ -18,6 +20,8 @@ function loadTrending(type = "day") {
   fetch(url, options)
     .then((res) => res.json())
     .then((data) => {
+      const movieData = data;
+
       movieSection.innerHTML = "";
 
       data.results.forEach((movie) => {
@@ -26,8 +30,8 @@ function loadTrending(type = "day") {
 
         movieSection.innerHTML += `
           <div class="movie-card-content">
-            <div class="movie-poster">
-              <img src="${imageUrl}" alt="${movie.title}" />
+            <div class="movie-poster" id="${movie.id}">
+              <img class="movie-img" src="${imageUrl}" alt="${movie.title}" />
 
               <div class="rating-circle" style="--rating: ${rating};">
                 <svg class="progress-ring" width="40" height="40">
@@ -54,7 +58,28 @@ function loadTrending(type = "day") {
             </div>
           </div>
         `;
-        applyRatingColors()
+        applyRatingColors();
+
+        const movieImg = document.querySelectorAll(".movie-img");
+        movieImg.forEach((eachImg) => {
+          eachImg.addEventListener("click", () => {
+            const imageCard = eachImg.parentNode;
+
+            const params = {
+              id: imageCard.id,
+            };
+
+            // Construct the query string from the parameters
+            const queryString = new URLSearchParams(params).toString();
+
+            // Combine the base URL and the query string
+            const newUrl = `http://127.0.0.1:5500/pages/movies-details.html?${queryString}`;
+
+            // Navigate to the new URL
+            window.location.href = newUrl;
+            movieCardDetails(movieData, imageCard.id);
+          });
+        });
       });
     })
     .catch((err) => console.error(err));
@@ -124,7 +149,7 @@ fetch(popularUrl, options)
         </div>
       </div>
     `;
-    applyRatingColors()
+      applyRatingColors();
     });
   })
   .catch((err) => {
@@ -175,7 +200,7 @@ fetch(topRatedUrl, options)
             </div>
           </div>
         `;
-        applyRatingColors()
+      applyRatingColors();
     });
   })
   .catch((err) => {
@@ -226,7 +251,7 @@ fetch(upcomingURL, options)
             </div>
           </div>
         `;
-        applyRatingColors()
+      applyRatingColors();
     });
   })
   .catch((err) => console.error(err));
@@ -234,33 +259,44 @@ fetch(upcomingURL, options)
 function applyRatingColors() {
   const circles = document.querySelectorAll(".rating-circle");
 
-  circles.forEach(circle => {
+  circles.forEach((circle) => {
     const rating = parseInt(circle.style.getPropertyValue("--rating"));
     const ring = circle.querySelector(".ring-progress");
-    
-    if (rating === 0 ) {
+
+    if (rating === 0) {
       ring.style.stroke = `var(--stat-0)`;
-    } else if (rating > 0 && rating < 10){
+    } else if (rating > 0 && rating < 10) {
       ring.style.stroke = `var(--stat-10)`;
-    } else if (rating > 10 && rating < 20){
+    } else if (rating > 10 && rating < 20) {
       ring.style.stroke = `var(--stat-20)`;
-    } else if (rating > 20 && rating < 30){
+    } else if (rating > 20 && rating < 30) {
       ring.style.stroke = `var(--stat-30)`;
-    } else if (rating > 30 && rating < 40){
+    } else if (rating > 30 && rating < 40) {
       ring.style.stroke = `var(--stat-40)`;
-    } else if (rating > 40 && rating < 50){
+    } else if (rating > 40 && rating < 50) {
       ring.style.stroke = `var(--stat-50)`;
-    } else if (rating > 50 && rating < 60){
+    } else if (rating > 50 && rating < 60) {
       ring.style.stroke = `var(--stat-60)`;
-    } else if (rating > 60 && rating < 70){
+    } else if (rating > 60 && rating < 70) {
       ring.style.stroke = `var(--stat-70)`;
-    } else if (rating > 70 && rating < 80){
+    } else if (rating > 70 && rating < 80) {
       ring.style.stroke = `var(--stat-80)`;
-    } else if (rating > 80 && rating < 90){
+    } else if (rating > 80 && rating < 90) {
       ring.style.stroke = `var(--stat-90)`;
-    } else if (rating > 90 && rating < 100){
+    } else if (rating > 90 && rating < 100) {
       ring.style.stroke = `var(--stat-100)`;
     }
-    
   });
 }
+
+// movieDescription()
+
+const movieCardDetails = (movieCardDetails, movieID) => {
+  // movieDescription()
+
+  movieCardDetails.results.filter((eachMovie) => {
+    if (eachMovie.id === Number(movieID)) {
+      console.log(eachMovie);
+    }
+  });
+};
