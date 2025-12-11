@@ -479,6 +479,10 @@ a {
   margin-bottom: 0.5rem;
 }
 
+.mx-half {
+  margin: 0 .5rem;
+}
+
 .mb-1 {
   margin-bottom: 1rem;
 }
@@ -1084,15 +1088,22 @@ a {
 }
 
 /* Top Cast Section */
+
+.top-cast-content,
+.movie-description-content {
+  height: fit-content;
+  margin-top: 4rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  padding: 3rem 2rem;
+  border-radius: 1rem;
+}
+
 .cast-card-content {
-  width: 100%;
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   overflow-x: auto;
-  overflow-y: hidden;
-  padding-bottom: 1rem;
-  scroll-behavior: smooth;
-  scrollbar-width: thin;
+  padding: 0.5rem 0;
 }
 
 .cast-card-content::-webkit-scrollbar {
@@ -1109,30 +1120,53 @@ a {
   border-radius: 1rem;
 }
 
-.top-cast-content,
-.movie-description-content {
-  margin-top: 4rem;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-  padding: 3rem 2rem;
-  border-radius: 1rem;
+.people-content {
+  justify-content: space-around;
+    width: 100%;
+    flex-wrap: wrap;
 }
 
+ .people-content .people-profile {
+  width: 25rem;
+  padding: 1rem 2rem;
+ }
+
+
+
+
 .cast-card {
-  min-width: 13.5rem;
-  height: fit-content;
-  background-color: var(--bg-white-transparent);
+  min-width: 18rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
+  border-radius: 1rem;
 }
 
 .cast-card-image img {
   width: 100%;
-  height: 100%;
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
+  height: 20rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: .6rem;
 }
+
+.actor-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+
+.actor-role {
+  font-size: .9rem;
+  color: var(--bg-gray-150);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 
 .movie-desc-card .keywords {
   display: inline-block;
@@ -1275,6 +1309,7 @@ a {
   .people-content {
     width: 100%;
     flex-wrap: wrap;
+    gap: 1rem;
   }
 
   .people-content .people-profile .main-para {
