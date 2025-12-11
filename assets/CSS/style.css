@@ -873,6 +873,8 @@ a {
   z-index: 2;
   aspect-ratio: 2 / 3;
   cursor: pointer;
+  overflow: hidden; /* hide image overflow here */
+  position: relative;
 }
 
 .series-list-section .movie-card-content .movie-poster,
@@ -894,10 +896,14 @@ a {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
   cursor: pointer;
+  transition: transform 0.5s linear;
 }
+
+.movie-poster img:hover {
+  transform: scale(1.1);
+}
+
 
 .movie-description {
   width: 100%;
@@ -916,7 +922,7 @@ a {
 .rating-circle {
   position: absolute;
   left: 2rem;
-  bottom: -2rem;
+  top: 1rem;
   width: 4rem;
   height: 4rem;
   background: white;
