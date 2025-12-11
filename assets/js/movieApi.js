@@ -2,7 +2,8 @@ const options = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization: "'Bearer YOUR_API_KEY_HERE'",
+    Authorization:
+      "'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzM2Q1NTY0ODQyMWQyYTY5NDM1YmIxZGQxMTFiZGZlMiIsIm5iZiI6MTc2MjM5NTUxMC4zMDcwMDAyLCJzdWIiOiI2OTBjMDU3NmI5YzdlODM4MTU5MzRmZTIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.RixiipK_9oFs9wwUGOmiQFCEw2SiTTXu0qyiUOvArY0",
   },
 };
 
@@ -12,9 +13,18 @@ const todayBtn = document.querySelector(".today-btn");
 const thisWeekBtn = document.querySelector(".this-week-btn");
 
 const sections = [
-  { container: document.querySelector(".top-rated-card-content"), url: "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1" },
-  { container: document.querySelector(".popular-card-content"), url: "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1" },
-  { container: document.querySelector(".upcoming-card-content"), url: "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1" },
+  {
+    container: document.querySelector(".top-rated-card-content"),
+    url: "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
+  },
+  {
+    container: document.querySelector(".popular-card-content"),
+    url: "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
+  },
+  {
+    container: document.querySelector(".upcoming-card-content"),
+    url: "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1",
+  },
 ];
 
 // Helper: render movies
@@ -24,13 +34,17 @@ const renderMovies = (container, movies) => {
       (m) => `
       <div class="movie-card-content">
         <div class="movie-poster" id="${m.id}">
-          <img class="movie-img" src="https://image.tmdb.org/t/p/w500${m.poster_path}" alt="${m.title}" />
-          <div class="rating-circle" style="--rating:${Math.round(m.vote_average*10)};">
+          <img class="movie-img" src="https://image.tmdb.org/t/p/w500${
+            m.poster_path
+          }" alt="${m.title}" />
+          <div class="rating-circle" style="--rating:${Math.round(
+            m.vote_average * 10
+          )};">
             <svg class="progress-ring" width="40" height="40">
               <circle class="ring-bg" cx="20" cy="20" r="15"/>
               <circle class="ring-progress" cx="20" cy="20" r="15"/>
             </svg>
-            <span class="rating-text">${Math.round(m.vote_average*10)}%</span>
+            <span class="rating-text">${Math.round(m.vote_average * 10)}%</span>
           </div>
           <div class="more-icon sub-heading">
             <i class='bx bx-dots-horizontal-rounded'></i>
@@ -64,12 +78,16 @@ function applyRatingColors() {
   document.querySelectorAll(".rating-circle").forEach((circle) => {
     const r = parseInt(circle.style.getPropertyValue("--rating"));
     const ring = circle.querySelector(".ring-progress");
-    ring.style.stroke = `var(--stat-${Math.floor(r/10)*10})`;
+    ring.style.stroke = `var(--stat-${Math.floor(r / 10) * 10})`;
   });
 }
 
 // Trending
-const loadTrending = (type = "day") => fetchMovies(`https://api.themoviedb.org/3/trending/movie/${type}?language=en-US`, trendingSection);
+const loadTrending = (type = "day") =>
+  fetchMovies(
+    `https://api.themoviedb.org/3/trending/movie/${type}?language=en-US`,
+    trendingSection
+  );
 
 todayBtn.addEventListener("click", () => {
   todayBtn.classList.add("trending-active");

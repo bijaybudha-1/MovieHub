@@ -12,7 +12,7 @@ const container = document.getElementById("movie-details");
 const urlParams = new URLSearchParams(window.location.search);
 
 const showMovieDetails = () => {
-  const movieID = urlParams.get("id" || 1255775);
+  const movieID = urlParams.get("id");
 
 fetch(`https://api.themoviedb.org/3/movie/${movieID}?language=en-US`, options)
     .then((res) => res.json())
