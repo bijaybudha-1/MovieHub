@@ -1,6 +1,3 @@
-// import movieDescription from "./movieDetails.js";
-
-// Today Trending and This Week Trending Movie
 const options = {
   method: "GET",
   headers: {
@@ -20,7 +17,6 @@ function loadTrending(type = "day") {
   fetch(url, options)
     .then((res) => res.json())
     .then((data) => {
-      const movieData = data;
 
       movieSection.innerHTML = "";
 
@@ -62,7 +58,7 @@ function loadTrending(type = "day") {
 
         const movieImg = document.querySelectorAll(".movie-img");
         movieImg.forEach((eachImg) => {
-          eachImg.addEventListener("click", () => {
+          eachImg.addEventListener("click", (e) => {
             const imageCard = eachImg.parentNode;
 
             const params = {
@@ -73,11 +69,10 @@ function loadTrending(type = "day") {
             const queryString = new URLSearchParams(params).toString();
 
             // Combine the base URL and the query string
-            const newUrl = `http://127.0.0.1:5500/pages/movies-details.html?${queryString}`;
+            const newUrl = `http://127.0.0.1:5501/pages/movies-details.html?${queryString}`;
 
             // Navigate to the new URL
             window.location.href = newUrl;
-            movieCardDetails(movieData, imageCard.id);
           });
         });
       });
@@ -288,15 +283,3 @@ function applyRatingColors() {
     }
   });
 }
-
-// movieDescription()
-
-const movieCardDetails = (movieCardDetails, movieID) => {
-  // movieDescription()
-
-  movieCardDetails.results.filter((eachMovie) => {
-    if (eachMovie.id === Number(movieID)) {
-      console.log(eachMovie);
-    }
-  });
-};
