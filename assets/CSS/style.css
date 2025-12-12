@@ -1061,9 +1061,19 @@ a {
 
 .icons-content-div .play-icon {
   width: fit-content;
-  background-color: var(--text-gray);
+  background-color: var(--bg-gray-100-transparent);
   border-radius: 2rem;
   padding: 0 2rem;
+  cursor: pointer;
+  transition: background-color 0.5s ease-in;
+}
+
+.icons-content-div .play-icon:hover {
+  background-color: var(--fill-red);
+}
+
+.icons-content-div .play-icon:visited span {
+  color: blue;
 }
 
 .icon-content {
@@ -1188,6 +1198,65 @@ a {
 }
 
 /* Movie Details Styling End */
+
+
+/* Play Trailer Section Video  Styling*/
+.trailer-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.trailer-content {
+  width: 70%;
+  max-width: 900px;
+  position: relative;
+}
+
+.trailer-content iframe {
+  width: 100%;
+  height: 450px;
+  border-radius: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  top: -35px;
+  right: 0;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.popup-message {
+  position: fixed;
+  top: 8rem;
+  right: -30rem;
+  background: var(--bg-red);
+  color: var(--text-white);
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: all 0.5s ease;
+  z-index: 999999;
+}
+
+.popup-message.show {
+  right: 20px;
+  opacity: 1;
+}
+
+
 
 /* Footer Section Styling Start */
 .footer-section .sub-heading {
