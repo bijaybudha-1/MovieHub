@@ -19,11 +19,11 @@ fetch(allTVShowsUrl, options)
     tvShows.results.forEach((allTVShows) => {
       const ratedImageUrl = `https://image.tmdb.org/t/p/w500${allTVShows.poster_path}`;
       const rating = Math.round(allTVShows.vote_average * 10);
-
+      
       allTVShowsContent.innerHTML += `
           <div class="movie-card-content mt-2">
-            <div class="movie-poster">
-              <img src="${ratedImageUrl}" alt="${allTVShows.name}" />
+            <div class="movie-poster" id="${allTVShows.id}">
+              <img class="tv-show-img" src="${ratedImageUrl}" alt="${allTVShows.name}" />
 
               <div class="rating-circle" style="--rating: ${rating};">
                 <svg class="progress-ring" width="40" height="40">
@@ -51,6 +51,7 @@ fetch(allTVShowsUrl, options)
           </div>
         `;
         applyRatingColors()
+  
     });
   })
   .catch((err) => {
@@ -90,3 +91,12 @@ function applyRatingColors() {
     
   });
 }
+
+
+// Movie click navigation
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("tv-show-img")) {
+    const id = e.target.parentNode.id;
+    window.location.href = `http://127.0.0.1:5501/pages/tvshowDetails.html?id=${id}`;
+  }
+});

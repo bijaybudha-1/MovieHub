@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MovieHub | People</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/CSS/style.css" />
+
+</head>
+
+<body>
+    <!-------- Header Section --------->
+    <header class="nav-section">
+        <nav class="nav bg-color text-white h-fit-content w-full">
+            <div class="navbar-container container">
+                <div class="navbar-content d-flex item-center justify-between">
+                    <div>
+                        <a class="navbar-logo pointer" href="../movies.html">MovieHub</a>
+                    </div>
+                    <ul class="navbar-items d-flex">
+                        <li>
+                            <a href="../movies.html"
+                                class="navbar-link d-flex justify-center item-center p-x-1-half p-y-2">
+                                <i class='bx bx-film'></i>
+                                <span>Movies</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./tv-shows.html"
+                                class="navbar-link d-flex justify-center item-center p-x-1-half p-y-2">
+                                <i class='bx bx-tv'></i>
+                                <span>TV Shows</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./series.html"
+                                class="navbar-link d-flex justify-center item-center p-x-1-half p-y-2">
+                                <i class='bx bx-collection'></i>
+                                <span>Series</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./people.html"
+                                class="navbar-link d-flex justify-center item-center p-x-1-half p-y-2">
+                                <i class='bx bx-user'></i>
+                                <span>People</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./popular.html"
+                                class="navbar-link d-flex justify-center item-center p-x-1-half p-y-2">
+                                <i class='bx bx-star'></i>
+                                <span>Popular</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="navbar-right d-flex justify-center item-center">
+                        <!-------- Search Section --------->
+                        <div class="search-content d-flex">
+                            <input type="text" class="border-none outline-none p-y-1 p-x-1-half heading"
+                                placeholder="Search for movies, shows..." />
+                            <button class="search-btn outline-none border-none p-x-1-half heading mr-1">Search</button>
+                        </div>
+
+                        <!-------- Profile Section --------->
+                        <div class="profile-content ml-1 h-fit-content">
+                            <div class="profile pointer">
+                                <img src="../assets/images/avatar-images.avif" alt="User Profile"
+                                    class="profile-img rounded" />
+                            </div>
+                        </div>
+
+                        <div class="menu-bar-icon main-heading text-white ml-1 pointer" id="menu-bar">
+                            <i class='bx bx-menu'></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Navbar Section -->
+        <div class="mobile-navbar-section h-full">
+            <div class="mobile-navbar">
+                <ul class="navbar-items">
+                    <li>
+                        <a href="../movies.html"
+                            class="navbar-link text-white w-full h-fit-content mt-1 p-x-2 p-y-2 d-inline-block">
+                            <i class='bx bx-film'></i>
+                            <span>Movies</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./tv-shows.html"
+                            class="navbar-link text-white w-full h-fit-content mt-1 p-x-2 p-y-2 d-inline-block">
+                            <i class='bx bx-tv'></i>
+                            <span>TV Shows</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./people.html"
+                            class="navbar-link text-white w-full h-fit-content mt-1 p-x-2 p-y-2 d-inline-block">
+                            <i class='bx bx-user'></i>
+                            <span>People</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./popular.html"
+                            class="navbar-link text-white w-full h-fit-content mt-1 p-x-2 p-y-2 d-inline-block">
+                            <i class='bx bx-star'></i>
+                            <span>Popular</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="mobile-navbar-right mt-1">
+                    <!-------- Search Section --------->
+                    <div class="search-content d-flex">
+                        <input type="text" class="border-none outline-none p-y-1 p-x-1-half heading"
+                            placeholder="Search for movies, shows..." />
+                        <button class="search-btn outline-none border-none p-x-1-half heading mr-1">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="movie-details-section p-x-2 p-y-3 card-collection-section">
+        <div class="movie-details-container container">
+            <div id="movie-details" class="first-rows-content grid grid-cols-2">
+
+            </div>
+        </div>
+    </section>
+
+    <section class="top-cast-section mt-2">
+        <div class="top-cast-container container">
+            <div class="top-cast-content">
+                <h2 class="sub-heading mb-2">Top Billed Cast</h2>
+                <div class="cast-card-content d-flex">
+                    <!-- Dynamically Crew member fetching the card -->
+                </div>
+            </div>
+            <div class="movie-description-content">
+                <!-- Dynamically Movie Description fetching the card -->
+            </div>
+        </div>
+    </section>
+    <!-- Trailer video Play -->
+    <section>
+        <!-- Trailer Modal -->
+        <div id="trailerModal" class="trailer-modal">
+            <div class="trailer-content">
+                <span class="close-btn">&times;</span>
+                <iframe id="trailerVideo" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="footer-section bg-color w-full mt-3 h-fit-content p-2">
+            <div class="footer-container container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <a href="../movies.html">
+                            <h2 class="sub-heading pointer text-logo text-center">MovieHub</h2>
+                        </a>
+                    </div>
+
+                    <ul class="footer-links-content d-flex justify-center gap-3 mt-1">
+                        <li><a href="#" class="footer-link ease-in-out text-white">Terms and Privacy</a></li>
+                        <li><a href="#" class="footer-link ease-in-out text-white">Help</a></li>
+                        <li><a href="#" class="footer-link ease-in-out text-white">Notice</a></li>
+                        <li><a href="#" class="footer-link ease-in-out text-white">Send us Feedback</a></li>
+                    </ul>
+
+                    <div class="copy-developed-section d-flex gap-1 justify-center mt-1">
+                        <div class="copyright">
+                            <h3 class="main-para text-normal text-white d-inline-block" id="copy-date"></h3>
+                            <a class="text-logo ml-1" href="../movies.html">MovieHub</a>
+                        </div>
+                        <a target="_blank" class="text-white" href="https://github.com/bijaybudha-1">Bijay Budha</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/tvShowsDetails.js"></script>
+
+</html>
