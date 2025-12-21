@@ -198,3 +198,72 @@ const showKeywords = () => {
   await showCastProfile();
   await showKeywords();
 })();
+
+
+// Play Movie Trailer Video Script
+const playTrailerBtn = document.querySelector(".play-icon");
+const trailerModal = document.getElementById("trailerModal");
+const trailerVideo = document.getElementById("trailerVideo");
+const closeBtn = document.querySelector(".close-btn");
+
+// ----------- Popup Function -----------
+function showPopup(message) {
+  let popup = document.createElement("div");
+  popup.className = "popup-message";
+  popup.textContent = message;
+
+  document.body.appendChild(popup);
+
+  // Show animation
+  setTimeout(() => {
+    popup.classList.add("show");
+  }, 10);
+
+  // Remove after 5 seconds
+  setTimeout(() => {
+    popup.classList.remove("show");
+    setTimeout(() => popup.remove(), 500);
+  }, 2000);
+}
+
+// ----------- Fetch Trailer -----------
+const fetchTrailer = async () => {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/movie/${movieID}/videos?language=en-US`,
+    options
+  );
+
+  const data = await res.json();
+  const trailers = data.results.filter((item) => item.type === "Trailer");
+
+  if (trailers.length === 0) {
+    showPopup("No trailer available for this TV show");
+    return;
+  }
+
+  const youtubeKey = trailers[0].key;
+  const youtubeURL = `https://www.youtube.com/embed/${youtubeKey}?autoplay=1`;
+
+  trailerVideo.src = youtubeURL;
+  trailerModal.style.display = "flex";
+};
+
+// ----------- Event Listeners -----------
+document.addEventListener("click", (e) => {
+  if (e.target.closest(".play-icon")) {
+    fetchTrailer();
+  }
+});
+
+closeBtn.addEventListener("click", () => {
+  trailerModal.style.display = "none";
+  trailerVideo.src = "";
+});
+
+trailerModal.addEventListener("click", (e) => {
+  if (e.target === trailerModal) {
+    trailerModal.style.display = "none";
+    trailerVideo.src = "";
+  }
+});
+
