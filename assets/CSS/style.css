@@ -998,6 +998,19 @@ a {
   color: var(--text-white);
   padding: 1rem;
 }
+
+.view-more-series-btn {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: var(--bg-black);
+  color: var(--bg-white);
+  font-size: 2rem;
+  font-weight: bolder;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
 /* Series Page Styling Starting */
 
 /* Movie Details Styling Start */
