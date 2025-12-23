@@ -1,102 +1,142 @@
-// Today Trending and This Week Trending Movie
+// ================= TMDB OPTIONS =================
 const options = {
   method: "GET",
   headers: {
     accept: "application/json",
     Authorization:
-      "'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzM2Q1NTY0ODQyMWQyYTY5NDM1YmIxZGQxMTFiZGZlMiIsIm5iZiI6MTc2MjM5NTUxMC4zMDcwMDAyLCJzdWIiOiI2OTBjMDU3NmI5YzdlODM4MTU5MzRmZTIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.RixiipK_9oFs9wwUGOmiQFCEw2SiTTXu0qyiUOvArY0",
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzM2Q1NTY0ODQyMWQyYTY5NDM1YmIxZGQxMTFiZGZlMiIsIm5iZiI6MTc2MjM5NTUxMC4zMDcwMDAyLCJzdWIiOiI2OTBjMDU3NmI5YzdlODM4MTU5MzRmZTIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.RixiipK_9oFs9wwUGOmiQFCEw2SiTTXu0qyiUOvArY0",
   },
 };
 
+// ================= DOM ELEMENTS =================
 const allTVShowsContent = document.querySelector(".all-tvShows-card-content");
-const allTVShowsUrl = 'https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc';
+const viewMoreBtn = document.querySelector(".view-more-series-btn");
 
-fetch(allTVShowsUrl, options)
-  .then((res) => res.json())
-  .then((tvShows) => {
-    allTVShowsContent.innerHTML = "";
+// ================= LOADING SPINNER =================
+const spinner = document.createElement("div");
+spinner.className = "loading-spinner";
+spinner.innerHTML = "⏳ Loading...";
+spinner.style.textAlign = "center";
+spinner.style.padding = "20px";
+spinner.style.display = "none";
+allTVShowsContent.after(spinner);
 
-    tvShows.results.forEach((allTVShows) => {
-      const ratedImageUrl = `https://image.tmdb.org/t/p/w500${allTVShows.poster_path}`;
-      const rating = Math.round(allTVShows.vote_average * 10);
-      
+// ================= STATE =================
+let currentPage = 1;
+let isLoading = false;
+let infiniteScrollEnabled = false;
+
+// ================= API URL =================
+function getTVShowsUrl(page) {
+  return `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${page}&sort_by=popularity.desc`;
+}
+
+// ================= FETCH & RENDER =================
+async function loadTVShows(page) {
+  if (isLoading) return;
+  isLoading = true;
+  spinner.style.display = "block";
+
+  try {
+    const res = await fetch(getTVShowsUrl(page), options);
+    const data = await res.json();
+
+    data.results.forEach((tv) => {
+      const poster = tv.poster_path
+        ? `https://image.tmdb.org/t/p/w500${tv.poster_path}`
+        : "../assets/images/no-image.png";
+
+      const rating = Math.round(tv.vote_average * 10);
+
       allTVShowsContent.innerHTML += `
-          <div class="movie-card-content mt-2">
-            <div class="movie-poster" id="${allTVShows.id}">
-              <img class="tv-show-img" src="${ratedImageUrl}" alt="${allTVShows.name}" />
+        <div class="movie-card-content mt-2">
+          <div class="movie-poster" id="${tv.id}">
+            <img class="tv-show-img" src="${poster}" alt="${tv.name}" />
 
-              <div class="rating-circle" style="--rating: ${rating};">
-                <svg class="progress-ring" width="40" height="40">
-                  <circle class="ring-bg" cx="20" cy="20" r="15" />
-                  <circle class="ring-progress" cx="20" cy="20" r="15" />
-                </svg>
-                <span class="rating-text">${rating}%</span>
-              </div>
-
-              <div class="more-icon sub-heading">
-                <i class='bx bx-dots-horizontal-rounded'></i>
-                <ul class="option-content hidden">
-                  <li class="option-link"><span>Add to List</span></li>
-                  <li class="option-link"><span>Favourite</span></li>
-                  <li class="option-link"><span>Watchlist</span></li>
-                  <li class="option-link"><span>Your Rating</span></li>
-                </ul>
-              </div>
+            <div class="rating-circle" style="--rating:${rating};">
+              <svg class="progress-ring" width="40" height="40">
+                <circle class="ring-bg" cx="20" cy="20" r="15"></circle>
+                <circle class="ring-progress" cx="20" cy="20" r="15"></circle>
+              </svg>
+              <span class="rating-text">${rating}%</span>
             </div>
 
-            <div class="movie-description text-white p-x-1 p-y-2">
-              <h2 class="movie-name sub-para pointer text-black">${allTVShows.name}</h2>
-              <h3 class="relase-date mini-para text-gray">${allTVShows.first_air_date}</h3>
+            <div class="more-icon sub-heading">
+              <i class='bx bx-dots-horizontal-rounded'></i>
+              <ul class="option-content hidden">
+                <li class="option-link">Add to List</li>
+                <li class="option-link">Favourite</li>
+                <li class="option-link">Watchlist</li>
+                <li class="option-link">Your Rating</li>
+              </ul>
             </div>
           </div>
-        `;
-        applyRatingColors()
-  
+
+          <div class="movie-description text-white p-x-1 p-y-2">
+            <h2 class="movie-name sub-para pointer text-black">${tv.name}</h2>
+            <h3 class="relase-date mini-para text-gray">${tv.first_air_date || "N/A"}</h3>
+          </div>
+        </div>
+      `;
     });
-  })
-  .catch((err) => {
-    console.error("ERROR: ", err);
-  });
 
+    applyRatingColors();
+    currentPage++;
+  } catch (err) {
+    console.error("ERROR:", err);
+  }
+
+  spinner.style.display = "none";
+  isLoading = false;
+}
+
+// ================= RATING COLORS =================
 function applyRatingColors() {
-  const circles = document.querySelectorAll(".rating-circle");
-
-  circles.forEach(circle => {
+  document.querySelectorAll(".rating-circle").forEach((circle) => {
     const rating = parseInt(circle.style.getPropertyValue("--rating"));
     const ring = circle.querySelector(".ring-progress");
-    
-    if (rating === 0 ) {
-      ring.style.stroke = `var(--stat-0)`;
-    } else if (rating > 0 && rating < 10){
-      ring.style.stroke = `var(--stat-10)`;
-    } else if (rating > 10 && rating < 20){
-      ring.style.stroke = `var(--stat-20)`;
-    } else if (rating > 20 && rating < 30){
-      ring.style.stroke = `var(--stat-30)`;
-    } else if (rating > 30 && rating < 40){
-      ring.style.stroke = `var(--stat-40)`;
-    } else if (rating > 40 && rating < 50){
-      ring.style.stroke = `var(--stat-50)`;
-    } else if (rating > 50 && rating < 60){
-      ring.style.stroke = `var(--stat-60)`;
-    } else if (rating > 60 && rating < 70){
-      ring.style.stroke = `var(--stat-70)`;
-    } else if (rating > 70 && rating < 80){
-      ring.style.stroke = `var(--stat-80)`;
-    } else if (rating > 80 && rating < 90){
-      ring.style.stroke = `var(--stat-90)`;
-    } else if (rating > 90 && rating < 100){
-      ring.style.stroke = `var(--stat-100)`;
-    }
-    
+
+    if (rating <= 10) ring.style.stroke = "var(--stat-10)";
+    else if (rating <= 20) ring.style.stroke = "var(--stat-20)";
+    else if (rating <= 30) ring.style.stroke = "var(--stat-30)";
+    else if (rating <= 40) ring.style.stroke = "var(--stat-40)";
+    else if (rating <= 50) ring.style.stroke = "var(--stat-50)";
+    else if (rating <= 60) ring.style.stroke = "var(--stat-60)";
+    else if (rating <= 70) ring.style.stroke = "var(--stat-70)";
+    else if (rating <= 80) ring.style.stroke = "var(--stat-80)";
+    else if (rating <= 90) ring.style.stroke = "var(--stat-90)";
+    else ring.style.stroke = "var(--stat-100)";
   });
 }
 
+// ================= FIRST LOAD =================
+loadTVShows(currentPage);
 
-// Movie click navigation
+// ================= VIEW MORE BUTTON =================
+if (viewMoreBtn) {
+  viewMoreBtn.addEventListener("click", () => {
+    loadTVShows(currentPage);
+    infiniteScrollEnabled = true;
+    viewMoreBtn.style.display = "none";
+  });
+}
+
+// ================= INFINITE SCROLL =================
+window.addEventListener("scroll", () => {
+  if (!infiniteScrollEnabled || isLoading) return;
+
+  if (
+    window.innerHeight + window.scrollY >=
+    document.body.offsetHeight - 300
+  ) {
+    loadTVShows(currentPage);
+  }
+});
+
+// ================= NAVIGATION =================
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("tv-show-img")) {
-    const id = e.target.parentNode.id;
-    window.location.href = `http://127.0.0.1:5501/pages/tvshowDetails.html?id=${id}`;
+    const id = e.target.closest(".movie-poster").id;
+    window.location.href = `tvshowDetails.html?id=${id}`;
   }
 });

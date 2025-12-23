@@ -1010,6 +1010,12 @@ a {
   font-size: 2rem;
   font-weight: bolder;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  cursor: pointer;
+  transition: color .5s ease-in;
+}
+
+.view-more-series-btn:hover {
+  color: var(--text-red);
 }
 /* Series Page Styling Starting */
 
