@@ -181,7 +181,7 @@ function applyRatingColors() {
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("series-img")) {
     const id = e.target.parentNode.id;
-    window.location.href = `/pages/tvshowDetails.html?id=${id}`;
+    window.location.href = `/pages/tvShowDetails.html?id=${id}`;
   }
 });
 

@@ -137,6 +137,6 @@ window.addEventListener("scroll", () => {
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("tv-show-img")) {
     const id = e.target.closest(".movie-poster").id;
-    window.location.href = `tvshowDetails.html?id=${id}`;
+    window.location.href = `tvShowDetails.html?id=${id}`;
   }
 });
