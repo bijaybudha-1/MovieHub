@@ -188,7 +188,7 @@ html {
 }
 
 .w-screen {
-  width: 100dvh;
+  width: 100dvw;
 }
 
 /* height Styling Stop */
@@ -1276,6 +1276,119 @@ a {
 }
 
 
+/* User Registration and Login Styling */
+
+.login-section {
+  background: 
+  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)),
+  url("../images/login-bg-images.jpg");
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login-form {
+  max-width: 50rem;
+  min-width: 33rem;
+  height: fit-content;
+  padding: 2rem;
+  border-radius: 1rem;
+  background: radial-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5));
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+} 
+
+.login-form .main-text {
+  color: var(--text-white);
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.main-text .para {
+  color: #dbd9d9;
+}
+
+.login-form .form-content {
+  margin: 2rem 0;
+}
+
+.login-form label {
+  font-size: 2rem;
+  color: var(--bg-white);
+}
+
+.form-content input {
+  width: 100%;
+  font-size: 2rem;
+  padding: .8rem;
+  border-radius: .5rem;
+  margin-top: .5rem;
+  background-color: #f6f6f6 ;
+}
+
+.forgot-password {
+  text-align: right;
+  color: var(--text-red);
+}
+
+.forgot-password:hover {
+  color: rgba(255, 0, 0, .8);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.login-form .login-btn {
+  width: 100%;
+  padding: 1rem 0;
+  background: linear-gradient(
+    to left,
+    #d96f1c,
+    #e13f38,
+    #a6121e
+  );
+  color: var(--bg-white);
+  font-size: 2rem;
+  font-weight: 600;
+  border-radius: 1rem;
+  border: none;
+  transition: all 1s ease-out;
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.login-form .login-btn:hover {
+  background: linear-gradient(
+    to right,
+    #f68220,
+    #f84a41,
+    #cd1624); 
+}
+
+.sign-up {
+  color: var(--bg-white);
+  text-align: center;
+}
+
+.highlight {
+  color: #f84a41;
+}
+
+.highlight:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.sign-up {
+  display: flex;
+}
+
+.sign-up input {
+  /* display: block; */
+  width: fit-content;
+}
+
+
 
 /* Footer Section Styling Start */
 .footer-section .sub-heading {
@@ -1485,6 +1598,10 @@ a {
     font-size: 1.4rem;
     padding: 0.5rem 2rem;
   }
+
+  .login-form {
+    margin: 0 2rem;
+} 
 }
 
 /* Responsive Styling Section End*/

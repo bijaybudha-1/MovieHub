@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MovieHub | User Login</title>
+    <title>MovieHub | User Register</title>
     <link rel="stylesheet" href="../assets/CSS/style.css" />
   </head>
   <body>
@@ -13,9 +13,17 @@
       >
         <form action="#" class="login-form">
           <div class="main-text">
-            <h1 class="sub-heading">Sign in to MovieHub</h1>
-            <p class="para mt-1">Continue to your movie</p>
+            <h1 class="sub-heading">Create an Account</h1>
           </div>
+          <div class="form-content">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              placeholder="Enter Your Name"
+              name="name"
+              id="name"
+              required
+            />
           <div class="form-content">
             <label for="email">Email</label>
             <input
@@ -38,14 +46,16 @@
             />
           </div>
 
-          <div class="forgot-password para">
-            <p>forgot password</p>
+          
+          <div class="sign-up d-flex gap-1 justify-left item-center mb-1">
+            <input type="checkbox" name="agreement" value="agree" required>
+            <p class="para">I agree to the <span class="highlight">Terms of Service</span></p>
           </div>
 
           <button class="btn login-btn">Login</button>
 
-          <div class="sign-up para mt-3 mb-2">
-            <p>Don't have an account? <a href="./register.html" class="highlight para">Sign up free</a></p>
+          <div class="sign-up d-flex gap-1 justify-center item-center mt-3">
+            <p class="para">Already have an account? <a href="./login.html" class="highlight para">Sign In</a></p>
           </div>
         </form>
       </div>
