@@ -1379,12 +1379,8 @@ a {
   cursor: pointer;
 }
 
-.sign-up {
-  display: flex;
-}
-
 .sign-up input {
-  /* display: block; */
+  display: block;
   width: fit-content;
 }
 
