@@ -12,6 +12,34 @@ menubar.addEventListener("click", () => {
 });
 
 // ============================
+// Function to set active navbar link based on current page
+// ============================
+function setActiveNavbarLink() {
+  const currentPage = window.location.pathname;
+  
+  // Get all navbar links (desktop and mobile)
+  const allNavbarLinks = document.querySelectorAll(".navbar-link");
+  
+  allNavbarLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+    
+    // Normalize paths for comparison
+    const normalizedCurrentPage = currentPage.replace(/\\/g, "/").toLowerCase();
+    const normalizedHref = href.replace(/\\/g, "/").toLowerCase();
+    
+    // Check if the link matches the current page
+    if (normalizedCurrentPage.includes(normalizedHref.replace(/^\.\//, "").replace(/^pages\//, ""))) {
+      link.classList.add("navbar-link-active");
+    } else {
+      link.classList.remove("navbar-link-active");
+    }
+  });
+}
+
+// Set active link on page load
+document.addEventListener("DOMContentLoaded", setActiveNavbarLink);
+
+// ============================
 // Desktop Navbar Active State
 // ============================
 const desktopNavbar = document.querySelector(".navbar-content .navbar-items");
