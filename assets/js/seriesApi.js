@@ -185,6 +185,61 @@ document.addEventListener("click", (e) => {
   }
 });
 
+// ---- More-icon dropdown and quick actions (favorite / watchlist / rating) ----
+function showToast(message, type = "success") {
+  const existing = document.querySelector('.toast-notification'); if (existing) existing.remove();
+  const toast = document.createElement('div'); toast.className = `toast-notification ${type}`;
+  let icon = '✓'; if (type === 'error') icon = '✕'; if (type === 'info') icon = 'ℹ';
+  toast.innerHTML = `<span class="toast-notification-icon">${icon}</span><span class="toast-notification-message">${message}</span>`;
+  document.body.appendChild(toast);
+  setTimeout(()=>{ toast.classList.add('hide'); setTimeout(()=>toast.remove(),300); }, 3000);
+}
+
+function safeParse(key){ try{ return JSON.parse(localStorage.getItem(key))||[] }catch(e){return []} }
+function safeWrite(key,val){ try{ localStorage.setItem(key, JSON.stringify(val)) }catch(e){} }
+
+document.addEventListener('click', (e)=>{
+  const more = e.target.closest('.more-icon');
+  if (more && !e.target.closest('.option-link')) {
+    const option = more.querySelector('.option-content');
+    document.querySelectorAll('.option-content').forEach(o=>{ if (o !== option) o.classList.add('hidden'); });
+    option.classList.toggle('hidden');
+    return;
+  }
+
+  const opt = e.target.closest('.option-link');
+  if (!opt) return;
+  const poster = opt.closest('.movie-poster'); if (!poster) return;
+  const id = poster.id;
+  const card = opt.closest('.movie-card-content');
+  const titleEl = card && card.querySelector('.movie-name');
+  const imgEl = poster.querySelector('img');
+  const title = titleEl ? titleEl.textContent.trim() : 'Series';
+  const posterSrc = imgEl ? imgEl.src : '';
+
+  const actionText = opt.textContent.trim().toLowerCase();
+  if (actionText.includes('favourite') || actionText.includes('favorite')) {
+    const fav = safeParse('moviehub_favorites');
+    if (fav.find(m=>String(m.id)===String(id))) { showToast(`Already in favorites: ${title}`,'info'); }
+    else { fav.unshift({id,title,poster_path:posterSrc}); safeWrite('moviehub_favorites',fav); showToast(`Your "${title}" added a favorite`,'success'); }
+  } else if (actionText.includes('watchlist')) {
+    const wl = safeParse('moviehub_watchlist');
+    if (wl.find(m=>String(m.id)===String(id))) { showToast(`Already in watchlist: ${title}`,'info'); }
+    else { wl.unshift({id,title,poster_path:posterSrc}); safeWrite('moviehub_watchlist',wl); showToast(`Added to watch list "${title}"`,'success'); }
+  } else if (actionText.includes('add to list')) {
+    const al = safeParse('moviehub_addtolist');
+    if (al.find(m=>String(m.id)===String(id))) { showToast(`Already in your list: ${title}`,'info'); }
+    else { al.unshift({id,title,poster_path:posterSrc}); safeWrite('moviehub_addtolist',al); showToast(`Added to your list "${title}"`,'success'); }
+  } else if (actionText.includes('rating') || actionText.includes('your rating')) {
+    const val = prompt(`Rate "${title}" (1-10):`);
+    if (val === null) return;
+    const n = Number(val);
+    if (!n || n<1 || n>10) return showToast('Please enter a number between 1 and 10','error');
+    const ratings = safeParse('moviehub_ratings'); ratings.unshift({id,title,rating:n}); safeWrite('moviehub_ratings',ratings); showToast(`You rated "${title}" ${n}/10`,'success');
+  }
+  document.querySelectorAll('.option-content').forEach(o=>o.classList.add('hidden'));
+});
+
 // INITIAL LOAD
 airingTodayBtn.classList.add("series-active");
 seriesList("airing_today");

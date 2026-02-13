@@ -10,6 +10,10 @@ const options = {
 const movieID = new URLSearchParams(window.location.search).get("id");
 const container = document.getElementById("movie-details");
 
+// localStorage helpers
+function readList(key){ try{ return JSON.parse(localStorage.getItem(key))||[] }catch(e){ return [] } }
+function writeList(key,data){ localStorage.setItem(key, JSON.stringify(data)); }
+
 // Fetch TV Show Details
 const showMovieDetails = async () => {
   try {
@@ -65,6 +69,19 @@ const showMovieDetails = async () => {
         <div class="people-content d-flex justify-between gap-2"></div>
       </div>
     `;
+
+    // attach quick-action icon handlers
+    const addIcon = container.querySelector('.icons-content-div .bx-list-plus');
+    const heartIcon = container.querySelector('.icons-content-div .bx-heart');
+    const bookmarkIcon = container.querySelector('.icons-content-div .bx-bookmark');
+
+    const minimal = { id: tv.id, title: tv.name, poster_path: `https://image.tmdb.org/t/p/w500${tv.poster_path}` };
+
+    function addToKey(key, item, msg){ const list = readList(key); if(!list.find(x=>String(x.id)===String(item.id))){ list.unshift(item); writeList(key,list); showPopup(msg); } else showPopup('Already added'); }
+
+    if(addIcon) addIcon.addEventListener('click', (e)=>{ e.preventDefault(); addToKey('moviehub_addtolist', minimal, `Added to your list "${tv.name}"`); });
+    if(heartIcon) heartIcon.addEventListener('click', (e)=>{ e.preventDefault(); addToKey('moviehub_favorites', minimal, `Added to favorites "${tv.name}"`); });
+    if(bookmarkIcon) bookmarkIcon.addEventListener('click', (e)=>{ e.preventDefault(); addToKey('moviehub_watchlist', minimal, `Added to watchlist "${tv.name}"`); });
 
     const movieDescription = document.querySelector(".movie-description-content");
     movieDescription.innerHTML = `

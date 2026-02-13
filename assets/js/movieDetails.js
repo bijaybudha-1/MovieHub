@@ -9,6 +9,12 @@ const options = {
 
 const container = document.getElementById("movie-details");
 
+// localStorage helpers for quick-add buttons
+function readList(key) {
+  try { return JSON.parse(localStorage.getItem(key)) || []; } catch (e) { return []; }
+}
+function writeList(key, data) { localStorage.setItem(key, JSON.stringify(data)); }
+
 const urlParams = new URLSearchParams(window.location.search);
 const movieID = urlParams.get("id");
 
@@ -78,6 +84,28 @@ const showMovieDetails = () => {
           </div>
         </div>
         `;
+
+      // --- quick action icons (add to list / favorite / watchlist) ---
+      const addIcon = container.querySelector('.icons-content-div .bx-list-plus');
+      const heartIcon = container.querySelector('.icons-content-div .bx-heart');
+      const bookmarkIcon = container.querySelector('.icons-content-div .bx-bookmark');
+
+      function addToKey(key, item, successMsg) {
+        const list = readList(key);
+        if (!list.find(x => String(x.id) === String(item.id))) {
+          list.unshift(item);
+          writeList(key, list);
+          showPopup(successMsg);
+        } else {
+          showPopup('Already added');
+        }
+      }
+
+      const minimal = { id: movie.id, title: movie.title, poster_path: `https://image.tmdb.org/t/p/w500${movie.poster_path}` };
+
+      if (addIcon) addIcon.addEventListener('click', (e)=>{ e.preventDefault(); addToKey('moviehub_addtolist', minimal, `Added to your list "${movie.title}"`); });
+      if (heartIcon) heartIcon.addEventListener('click', (e)=>{ e.preventDefault(); addToKey('moviehub_favorites', minimal, `Added to favorites "${movie.title}"`); });
+      if (bookmarkIcon) bookmarkIcon.addEventListener('click', (e)=>{ e.preventDefault(); addToKey('moviehub_watchlist', minimal, `Added to watchlist "${movie.title}"`); });
 
       const movieDescription = document.querySelector(
         ".movie-description-content"
