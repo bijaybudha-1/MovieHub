@@ -1,337 +1,191 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MovieHub | Profile</title>
-    <link rel="stylesheet" href="../assets/CSS/style.css" />
-  </head>
-  <body>
-    <!-- User Details Section -->
-    <section class="user-details-section">
-      <div class="user-details-container container">
-        <div class="user-details-content">
-          <div class="user-details-card d-flex gap-2">
-            <div class="user-images-content">
-              <div class="user-images">
-                <figure>
-                  <img
-                    src="../assets/images/avatar-images.avif"
-                    alt="User Profile Images"
-                  />
-                </figure>
-              </div>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieHub — Profile</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="nav-logo">MovieHub</a>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link"><i class="bx bx-home-alt"></i><span>Home</span></a>
+                <a href="movies.html" class="nav-link"><i class="bx bx-film"></i><span>Movies</span></a>
+                <a href="tvshows.html" class="nav-link"><i class="bx bx-tv"></i><span>TV Shows</span></a>
+                <a href="watchlist.html" class="nav-link"><i class="bx bx-bookmark"></i><span>Watchlist</span></a>
+                <a href="contact.html" class="nav-link"><i class="bx bx-envelope"></i><span>Contact</span></a>
             </div>
-            <div class="user-data-content">
-              <h2 class="sub-heading">User Details</h2>
-              <div class="user-fullname main-para">User Fullname</div>
-              <div class="user-email main-para">User Email</div>
+            <div class="nav-right">
+                <div class="nav-search-wrapper">
+                    <div class="nav-search"><i class="bx bx-search"></i><input type="text" class="search-input"
+                            placeholder="Search..."></div>
+                </div>
+                <button class="theme-toggle"><i class="bx bx-sun"></i></button>
+                <a href="profile.html" class="nav-profile"><img
+                        src="https://ui-avatars.com/api/?name=User&background=e50914&color=fff&size=36"
+                        alt="Profile"></a>
+                <div class="nav-hamburger"><span></span><span></span><span></span></div>
             </div>
-          </div>
         </div>
-      </div>
+    </nav>
+    <div class="mobile-nav">
+        <a href="../index.html" class="nav-link"><i class="bx bx-home-alt"></i><span>Home</span></a>
+        <a href="movies.html" class="nav-link"><i class="bx bx-film"></i><span>Movies</span></a>
+        <a href="tvshows.html" class="nav-link"><i class="bx bx-tv"></i><span>TV Shows</span></a>
+        <a href="watchlist.html" class="nav-link"><i class="bx bx-bookmark"></i><span>Watchlist</span></a>
+        <a href="contact.html" class="nav-link"><i class="bx bx-envelope"></i><span>Contact</span></a>
+    </div>
+
+    <!-- 1. Profile Header Card -->
+    <section class="section">
+        <div class="container">
+            <div class="profile-header reveal">
+                <img src="https://ui-avatars.com/api/?name=Bijay+Budha&background=e50914&color=fff&size=120&font-size=0.4"
+                    alt="Profile" class="profile-avatar-lg">
+                <div class="profile-details">
+                    <h1>Bijay Budha</h1>
+                    <p class="username">@bijaybudha</p>
+                    <p class="member-since"><i class="bx bx-calendar"></i> Member since January 2026</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- User Setting section -->
-    <section class="section user-setting-section mt-2">
-      <div class="container user-setting-container">
-        <div class="user-setting-content">
-          <ul class="setting-nav-area d-flex">
-            <li>Add to List</li>
-            <li>Favorite</li>
-            <li>Watch List</li>
-            <li>Rating</li>
-            <li>Setting</li>
-          </ul>
+    <!-- 2. Dashboard Analytics -->
+    <section class="section" style="padding-top:0;">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-title"><span class="accent-dot"></span> Dashboard</div>
+            </div>
+            <div class="stats-grid" id="stats-grid">
+                <div class="stat-card reveal delay-1">
+                    <div class="stat-icon"><i class="bx bx-bookmark"></i></div>
+                    <div class="stat-number count-up" id="stat-watchlist" data-count="0">0</div>
+                    <div class="stat-label">Watchlist</div>
+                </div>
+                <div class="stat-card reveal delay-2">
+                    <div class="stat-icon"><i class="bx bx-star"></i></div>
+                    <div class="stat-number count-up" id="stat-rated" data-count="0">0</div>
+                    <div class="stat-label">Rated</div>
+                </div>
+                <div class="stat-card reveal delay-3">
+                    <div class="stat-icon"><i class="bx bx-heart"></i></div>
+                    <div class="stat-number count-up" id="stat-favorites" data-count="0">0</div>
+                    <div class="stat-label">Favorites</div>
+                </div>
+                <div class="stat-card reveal delay-4">
+                    <div class="stat-icon"><i class="bx bx-bar-chart-alt-2"></i></div>
+                    <div class="stat-number" id="stat-avg">0</div>
+                    <div class="stat-label">Avg Rating</div>
+                </div>
+            </div>
         </div>
-
-        <!-- User Add to list section content -->
-        <section class="add-to-list-section mt-2">
-          <div class="add-to-list-content">
-            <div class="add-to-list-card">
-              <div class="atl-images-content">
-                <div class="image-card">
-                  <figure>
-                    <img
-                      src="../assets/images/movie-images.jpg"
-                      alt="Watch list Movie Images"
-                    />
-                  </figure>
-                </div>
-              </div>
-              <div class="atl-movie-content">
-                <div class="alt-movie-details p-1">
-                  <h4 class="main-para">Movie Name</h4>
-                  <p class="release-date">01 jan</p>
-                  <p class="mini-para">Movie Description</p>
-                </div>
-
-                <div class="movie-card-btns-content">
-                  <div class="movie-card-btn">
-                    <button class="">Rating It</button>
-                    <button>Favorite</button>
-                    <button>Add to List</button>
-                    <button>Remove</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="add-to-list-card">
-              <div class="atl-images-content">
-                <div class="image-card">
-                  <figure>
-                    <img
-                      src="../assets/images/movie-images.jpg"
-                      alt="Watch list Movie Images"
-                    />
-                  </figure>
-                </div>
-              </div>
-              <div class="atl-movie-content">
-                <div class="alt-movie-details p-1">
-                  <h4 class="main-para">Movie Name</h4>
-                  <p class="release-date">01 jan</p>
-                  <p class="mini-para">Movie Description</p>
-                </div>
-
-                <div class="movie-card-btns-content">
-                  <div class="movie-card-btn">
-                    <button class="">Rating It</button>
-                    <button>Favorite</button>
-                    <button>Add to List</button>
-                    <button>Remove</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="add-to-list-card">
-              <div class="atl-images-content">
-                <div class="image-card">
-                  <figure>
-                    <img
-                      src="../assets/images/movie-images.jpg"
-                      alt="Watch list Movie Images"
-                    />
-                  </figure>
-                </div>
-              </div>
-              <div class="atl-movie-content">
-                <div class="alt-movie-details p-1">
-                  <h4 class="main-para">Movie Name</h4>
-                  <p class="release-date">01 jan</p>
-                  <p class="mini-para">Movie Description</p>
-                </div>
-
-                <div class="movie-card-btns-content">
-                  <div class="movie-card-btn">
-                    <button class="">Rating It</button>
-                    <button>Favorite</button>
-                    <button>Add to List</button>
-                    <button>Remove</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- User My Favorite section content -->
-        <section class="favorite-section mt-2">
-          <div class="favorite-content">
-            <div class="favorite-card">
-              <div class="favorite-images-content">
-                <div class="image-card">
-                  <figure>
-                    <img
-                      src="../assets/images/movie-images.jpg"
-                      alt="Watch list Movie Images"
-                    />
-                  </figure>
-                </div>
-              </div>
-              <div class="favorite-movie-content">
-                <div class="favorite-movie-details p-1">
-                  <h4 class="main-para">Movie Name</h4>
-                  <p class="release-date">01 jan</p>
-                  <p class="mini-para">Movie Description</p>
-                </div>
-
-                <div class="movie-card-btns-content">
-                  <div class="movie-card-btn">
-                    <button class="">Rating It</button>
-                    <button>Favorite</button>
-                    <button>Add to List</button>
-                    <button>Remove</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="favorite-card">
-              <div class="favorite-images-content">
-                <div class="image-card">
-                  <figure>
-                    <img
-                      src="../assets/images/movie-images.jpg"
-                      alt="Watch list Movie Images"
-                    />
-                  </figure>
-                </div>
-              </div>
-              <div class="favorite-movie-content">
-                <div class="favorite-movie-details p-1">
-                  <h4 class="main-para">Movie Name</h4>
-                  <p class="release-date">01 jan</p>
-                  <p class="mini-para">Movie Description</p>
-                </div>
-
-                <div class="movie-card-btns-content">
-                  <div class="movie-card-btn">
-                    <button class="">Rating It</button>
-                    <button>Favorite</button>
-                    <button>Add to List</button>
-                    <button>Remove</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="favorite-card">
-              <div class="favorite-images-content">
-                <div class="image-card">
-                  <figure>
-                    <img
-                      src="../assets/images/movie-images.jpg"
-                      alt="Watch list Movie Images"
-                    />
-                  </figure>
-                </div>
-              </div>
-              <div class="favorite-movie-content">
-                <div class="favorite-movie-details p-1">
-                  <h4 class="main-para">Movie Name</h4>
-                  <p class="release-date">01 jan</p>
-                  <p class="mini-para">Movie Description</p>
-                </div>
-
-                <div class="movie-card-btns-content">
-                  <div class="movie-card-btn">
-                    <button class="">Rating It</button>
-                    <button>Favorite</button>
-                    <button>Add to List</button>
-                    <button>Remove</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- User watch list section content -->
-        <section class="watchlist-section mt-2">
-          <div class="watchlist-content">
-            <div class="watchlist-card">
-              <div class="watchlist-images-content">
-                <div class="image-card">
-                  <figure>
-                    <img
-                      src="../assets/images/movie-images.jpg"
-                      alt="Watch list Movie Images"
-                    />
-                  </figure>
-                </div>
-              </div>
-              <div class="watchlist-movie-content">
-                <div class="watchlist-movie-details p-1">
-                  <h4 class="main-para">Movie Name</h4>
-                  <p class="release-date">01 jan</p>
-                  <p class="mini-para">Movie Description</p>
-                </div>
-
-                <div class="movie-card-btns-content">
-                  <div class="movie-card-btn">
-                    <button class="">Rating It</button>
-                    <button>Favorite</button>
-                    <button>Add to List</button>
-                    <button>Remove</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="watchlist-card">
-              <div class="watchlist-images-content">
-                <div class="image-card">
-                  <figure>
-                    <img
-                      src="../assets/images/movie-images.jpg"
-                      alt="Watch list Movie Images"
-                    />
-                  </figure>
-                </div>
-              </div>
-              <div class="watchlist-movie-content">
-                <div class="watchlist-movie-details p-1">
-                  <h4 class="main-para">Movie Name</h4>
-                  <p class="release-date">01 jan</p>
-                  <p class="mini-para">Movie Description</p>
-                </div>
-
-                <div class="movie-card-btns-content">
-                  <div class="movie-card-btn">
-                    <button class="">Rating It</button>
-                    <button>Favorite</button>
-                    <button>Add to List</button>
-                    <button>Remove</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="watchlist-card">
-              <div class="watchlist-images-content">
-                <div class="image-card">
-                  <figure>
-                    <img
-                      src="../assets/images/movie-images.jpg"
-                      alt="Watch list Movie Images"
-                    />
-                  </figure>
-                </div>
-              </div>
-              <div class="watchlist-movie-content">
-                <div class="watchlist-movie-details p-1">
-                  <h4 class="main-para">Movie Name</h4>
-                  <p class="release-date">01 jan</p>
-                  <p class="mini-para">Movie Description</p>
-                </div>
-
-                <div class="movie-card-btns-content">
-                  <div class="movie-card-btn">
-                    <button class="">Rating It</button>
-                    <button>Favorite</button>
-                    <button>Add to List</button>
-                    <button>Remove</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <div class="user-rating-section">
-          <h1 class="main-heading">User Rating</h1>
-        </div>
-
-        <section class="user-setting-section">
-          <div class="user-setting-section-content">
-            <h1 class="main-heading">User Setting</h1>
-          </div>
-        </section>
-      </div>
     </section>
-    <script src="../assets/js/profile-fixed.js"></script>
-  </body>
+
+    <!-- 3. Watchlist Section -->
+    <section class="section" style="background:var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header-row reveal">
+                <div class="section-title"><span class="accent-dot"></span> My Watchlist</div>
+                <a href="watchlist.html" class="view-all">View All <i class="bx bx-right-arrow-alt"></i></a>
+            </div>
+            <div class="watchlist-preview-grid" id="profile-watchlist"></div>
+        </div>
+    </section>
+
+    <!-- 4. Rated Movies -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header-row reveal">
+                <div class="section-title"><span class="accent-dot"></span> My Ratings</div>
+                <a href="ratings.html" class="view-all">View All <i class="bx bx-right-arrow-alt"></i></a>
+            </div>
+            <div class="watchlist-preview-grid" id="profile-ratings"></div>
+        </div>
+    </section>
+
+    <!-- 5. Account Settings -->
+    <section class="section" style="background:var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-title"><span class="accent-dot"></span> Settings</div>
+            </div>
+            <div class="settings-section reveal">
+                <h3>Preferences</h3>
+                <div class="settings-row">
+                    <label>Dark Mode</label>
+                    <div class="toggle-switch"><input type="checkbox" id="dark-mode-toggle" checked><label
+                            class="toggle-slider" for="dark-mode-toggle"></label></div>
+                </div>
+                <div class="settings-row">
+                    <label>Email Notifications</label>
+                    <div class="toggle-switch"><input type="checkbox" id="email-notif" checked><label
+                            class="toggle-slider" for="email-notif"></label></div>
+                </div>
+                <div class="settings-row">
+                    <label>Smooth Scrolling</label>
+                    <div class="toggle-switch"><input type="checkbox" id="smooth-scroll-toggle" checked><label
+                            class="toggle-slider" for="smooth-scroll-toggle"></label></div>
+                </div>
+            </div>
+            <div class="settings-section reveal">
+                <h3>Account</h3>
+                <div class="settings-row"><label>Email</label><span
+                        style="color:var(--text-secondary);font-size:var(--fs-sm);">bijay@example.com</span></div>
+                <div class="settings-row"><label>Username</label><span
+                        style="color:var(--text-secondary);font-size:var(--fs-sm);">@bijaybudha</span></div>
+                <div class="settings-row">
+                    <label>Clear All Data</label>
+                    <button class="btn btn-sm btn-outline"
+                        style="color:var(--rating-low);border-color:var(--rating-low);"
+                        onclick="if(confirm('Clear all saved data?')){localStorage.clear();showToast('All data cleared','success');setTimeout(()=>location.reload(),1000);}">
+                        <i class="bx bx-trash"></i> Clear
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><a href="../index.html" class="nav-logo">MovieHub</a>
+                    <p>Your destination for movies and entertainment.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4><a href="../index.html">Home</a><a href="movies.html">Movies</a><a
+                        href="tvshows.html">TV Shows</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Account</h4><a href="profile.html">Profile</a><a href="watchlist.html">Watchlist</a><a
+                        href="ratings.html">Ratings</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4><a href="#">Terms</a><a href="#">Privacy</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="footer-year"></span> MovieHub.</p>
+                <p>By <a href="https://github.com/bijaybudha-1" target="_blank">Bijay Budha</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/watchlist.js"></script>
+    <script src="../js/rating.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/animation.js"></script>
+    <script src="../js/profile-page.js"></script>
+</body>
+
 </html>

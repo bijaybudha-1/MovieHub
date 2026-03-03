@@ -1,46 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Signup</title>
-  <link rel="stylesheet" href="../assets/CSS/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieHub — Create Account</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
 </head>
-<body class="register-page">
-  <div class="form-content d-flex justify-center item-center container h-screen">
-    <div class="wrapper">
-    <h1>Signup</h1>
-    <p id="error-message"></p>
-    <form id="form">
-      <div>
-        <label for="fullname-input">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
-        </label>
-        <input type="text" name="fullname" id="fullname-input" placeholder="fullname">
-      </div>
-      <div>
-        <label for="email-input">
-          <span>@</span>
-        </label>
-        <input type="email" name="email" id="email-input" placeholder="Email">
-      </div>
-      <div>
-        <label for="password-input">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm240-200q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80Z"/></svg>
-        </label>
-        <input type="password" name="password" id="password-input" placeholder="Password">
-      </div>
-      <div>
-        <label for="repeat-password-input">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm240-200q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80Z"/></svg>
-        </label>
-        <input type="password" name="repeat-password" id="repeat-password-input" placeholder="Repeat Password">
-      </div>
-      <button class="btn signup-btn" type="submit">Signup</button>
-    </form>
-    <p class="para text-white">Already have an Account? <a class="para" href="./login.html">login</a> </p>
-  </div>
-  </div>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="nav-logo">MovieHub</a>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link"><i class="bx bx-home-alt"></i><span>Home</span></a>
+                <a href="movies.html" class="nav-link"><i class="bx bx-film"></i><span>Movies</span></a>
+                <a href="tvshows.html" class="nav-link"><i class="bx bx-tv"></i><span>TV Shows</span></a>
+            </div>
+            <div class="nav-right">
+                <button class="theme-toggle"><i class="bx bx-sun"></i></button>
+                <div class="nav-hamburger"><span></span><span></span><span></span></div>
+            </div>
+        </div>
+    </nav>
+    <div class="mobile-nav">
+        <a href="../index.html" class="nav-link"><i class="bx bx-home-alt"></i><span>Home</span></a>
+        <a href="movies.html" class="nav-link"><i class="bx bx-film"></i><span>Movies</span></a>
+        <a href="tvshows.html" class="nav-link"><i class="bx bx-tv"></i><span>TV Shows</span></a>
+    </div>
+
+    <!-- Auth Section -->
+    <section class="auth-section">
+        <div class="auth-bg"></div>
+        <div class="container" style="max-width:480px;">
+            <div class="auth-card reveal-scale">
+                <div class="auth-header">
+                    <a href="../index.html" class="nav-logo"
+                        style="font-size:var(--fs-2xl);margin-bottom:var(--space-sm);display:inline-block;">MovieHub</a>
+                    <h1 style="font-size:var(--fs-xl);font-weight:700;">Create Account</h1>
+                    <p style="color:var(--text-secondary);font-size:var(--fs-sm);">Join MovieHub to track your favorite
+                        movies and shows</p>
+                </div>
+
+                <form id="register-form">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" placeholder="John Doe" required id="reg-name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-input" placeholder="you@example.com" required id="reg-email">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Username</label>
+                        <input type="text" class="form-input" placeholder="@cooluser" required id="reg-username">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <div style="position:relative;">
+                            <input type="password" class="form-input" placeholder="Minimum 8 characters" required
+                                id="reg-password" minlength="8">
+                            <button type="button" class="password-toggle" id="toggle-reg-password"
+                                style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1.2rem;">
+                                <i class="bx bx-hide"></i>
+                            </button>
+                        </div>
+                        <div class="password-strength" id="pw-strength" style="margin-top:var(--space-xs);">
+                            <div class="strength-bars" style="display:flex;gap:4px;">
+                                <div class="strength-bar"
+                                    style="flex:1;height:4px;border-radius:2px;background:var(--border-color);transition:0.3s;">
+                                </div>
+                                <div class="strength-bar"
+                                    style="flex:1;height:4px;border-radius:2px;background:var(--border-color);transition:0.3s;">
+                                </div>
+                                <div class="strength-bar"
+                                    style="flex:1;height:4px;border-radius:2px;background:var(--border-color);transition:0.3s;">
+                                </div>
+                                <div class="strength-bar"
+                                    style="flex:1;height:4px;border-radius:2px;background:var(--border-color);transition:0.3s;">
+                                </div>
+                            </div>
+                            <span class="strength-text"
+                                style="font-size:var(--fs-xs);color:var(--text-muted);margin-top:4px;display:block;"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Confirm Password</label>
+                        <input type="password" class="form-input" placeholder="Repeat your password" required
+                            id="reg-confirm">
+                    </div>
+                    <label
+                        style="display:flex;align-items:flex-start;gap:var(--space-xs);margin-bottom:var(--space-lg);font-size:var(--fs-sm);cursor:pointer;">
+                        <input type="checkbox" required style="accent-color:var(--primary);margin-top:3px;">
+                        <span>I agree to the <a href="#" style="color:var(--primary);text-decoration:none;">Terms of
+                                Service</a> and <a href="#" style="color:var(--primary);text-decoration:none;">Privacy
+                                Policy</a></span>
+                    </label>
+                    <button type="submit" class="btn btn-primary btn-lg" style="width:100%;"><i
+                            class="bx bx-user-plus"></i> Create Account</button>
+                </form>
+
+                <div class="divider"
+                    style="display:flex;align-items:center;gap:var(--space-md);margin:var(--space-xl) 0;">
+                    <hr style="flex:1;border:none;border-top:1px solid var(--border-color);">
+                    <span style="color:var(--text-muted);font-size:var(--fs-xs);">OR</span>
+                    <hr style="flex:1;border:none;border-top:1px solid var(--border-color);">
+                </div>
+
+                <div class="social-btns">
+                    <button class="btn btn-outline" style="width:100%;"
+                        onclick="showToast('Google sign-up not available in demo','info')"><i class="bx bxl-google"></i>
+                        Sign up with Google</button>
+                    <button class="btn btn-outline" style="width:100%;"
+                        onclick="showToast('GitHub sign-up not available in demo','info')"><i class="bx bxl-github"></i>
+                        Sign up with GitHub</button>
+                </div>
+
+                <p
+                    style="text-align:center;margin-top:var(--space-xl);font-size:var(--fs-sm);color:var(--text-secondary);">
+                    Already have an account? <a href="login.html"
+                        style="color:var(--primary);font-weight:600;text-decoration:none;">Sign In</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/watchlist.js"></script>
+    <script src="../js/rating.js"></script>
+    <script src="../js/animation.js"></script>
+    <script src="../js/register-page.js"></script>
 </body>
-  <script type="text/javascript" src="../assets/js/form-validation.js" defer></script>
+
 </html>

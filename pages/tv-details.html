@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MovieHub — Reviews</title>
+    <title>MovieHub — TV Show Details</title>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/components.css">
@@ -19,7 +19,7 @@
             <div class="nav-links">
                 <a href="../index.html" class="nav-link"><i class="bx bx-home-alt"></i><span>Home</span></a>
                 <a href="movies.html" class="nav-link"><i class="bx bx-film"></i><span>Movies</span></a>
-                <a href="tvshows.html" class="nav-link"><i class="bx bx-tv"></i><span>TV Shows</span></a>
+                <a href="tvshows.html" class="nav-link active"><i class="bx bx-tv"></i><span>TV Shows</span></a>
                 <a href="watchlist.html" class="nav-link"><i class="bx bx-bookmark"></i><span>Watchlist</span></a>
                 <a href="contact.html" class="nav-link"><i class="bx bx-envelope"></i><span>Contact</span></a>
             </div>
@@ -39,81 +39,72 @@
     <div class="mobile-nav">
         <a href="../index.html" class="nav-link"><i class="bx bx-home-alt"></i><span>Home</span></a>
         <a href="movies.html" class="nav-link"><i class="bx bx-film"></i><span>Movies</span></a>
-        <a href="tvshows.html" class="nav-link"><i class="bx bx-tv"></i><span>TV Shows</span></a>
+        <a href="tvshows.html" class="nav-link active"><i class="bx bx-tv"></i><span>TV Shows</span></a>
         <a href="watchlist.html" class="nav-link"><i class="bx bx-bookmark"></i><span>Watchlist</span></a>
         <a href="contact.html" class="nav-link"><i class="bx bx-envelope"></i><span>Contact</span></a>
     </div>
 
-    <!-- 1. Header -->
-    <section class="page-hero">
-        <h1 class="page-hero-title">Reviews</h1>
-        <p class="page-hero-subtitle">Read and write reviews for your favorite movies and shows</p>
-    </section>
-
-    <!-- 2. Write Review Form -->
-    <section class="section" style="padding-top:0;">
-        <div class="container" style="max-width:700px;">
-            <div class="glass-panel reveal" style="padding:var(--space-2xl);">
-                <h2 style="font-size:var(--fs-xl);font-weight:700;margin-bottom:var(--space-lg);">Write a Review</h2>
-                <form id="review-form">
-                    <div class="form-group">
-                        <label class="form-label">Movie / TV Show Title</label>
-                        <input type="text" class="form-input" placeholder="e.g. The Dark Knight" id="review-title"
-                            required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Your Rating</label>
-                        <div id="review-star-widget" style="margin-top:var(--space-sm);"></div>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Your Review</label>
-                        <textarea class="form-input" placeholder="Share your thoughts about the movie..."
-                            id="review-text" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary"><i class="bx bx-send"></i> Submit Review</button>
-                </form>
+    <!-- 1. Show Hero -->
+    <section class="detail-hero" id="detail-hero">
+        <div class="detail-hero-bg" id="detail-bg"></div>
+        <div class="container">
+            <div class="detail-hero-content" id="detail-content">
+                <div class="spinner"></div>
             </div>
         </div>
     </section>
 
-    <!-- 3. User Reviews -->
+    <!-- 2. Show Metadata -->
+    <section class="section" style="padding-top:var(--space-xl);">
+        <div class="container">
+            <div class="detail-info-grid" id="info-grid"></div>
+        </div>
+    </section>
+
+    <!-- 3. Cast -->
     <section class="section" style="background:var(--bg-secondary);">
         <div class="container">
             <div class="section-header-row reveal">
-                <div class="section-title"><span class="accent-dot"></span> Your Reviews</div>
+                <div class="section-title"><span class="accent-dot"></span> Cast</div>
             </div>
-            <div class="review-grid" id="user-reviews"></div>
+            <div class="cast-scroll" id="cast-scroll"></div>
         </div>
     </section>
 
-    <!-- 4. Top Reviewed Movies (from API) -->
+    <!-- 4. Trailers -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-title"><span class="accent-dot"></span> Trailers</div>
+            </div>
+            <div id="trailers-container"
+                style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:var(--space-lg);">
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Reviews -->
+    <section class="section" style="background:var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header-row reveal">
+                <div class="section-title"><span class="accent-dot"></span> Reviews</div>
+            </div>
+            <div style="margin-bottom:var(--space-xl);">
+                <h3 style="font-size:var(--fs-sm);color:var(--text-secondary);margin-bottom:var(--space-md);">Your
+                    Rating</h3>
+                <div id="user-rating-widget"></div>
+            </div>
+            <div class="review-grid" id="reviews-grid"></div>
+        </div>
+    </section>
+
+    <!-- 6. Similar Shows -->
     <section class="section">
         <div class="container">
             <div class="section-header-row reveal">
-                <div class="section-title"><span class="accent-dot"></span> Highly Reviewed Movies</div>
+                <div class="section-title"><span class="accent-dot"></span> Similar Shows</div>
             </div>
-            <div class="hscroll" id="top-reviewed-scroll"></div>
-        </div>
-    </section>
-
-    <!-- 5. Review Stats -->
-    <section class="section" style="background:var(--bg-secondary);">
-        <div class="container">
-            <div class="section-header reveal">
-                <div class="section-title"><span class="accent-dot"></span> Your Stats</div>
-            </div>
-            <div class="stats-grid" style="max-width:600px;">
-                <div class="stat-card reveal">
-                    <div class="stat-icon"><i class="bx bx-edit"></i></div>
-                    <div class="stat-number" id="review-count">0</div>
-                    <div class="stat-label">Reviews Written</div>
-                </div>
-                <div class="stat-card reveal">
-                    <div class="stat-icon"><i class="bx bx-star"></i></div>
-                    <div class="stat-number" id="review-avg">0</div>
-                    <div class="stat-label">Avg Rating Given</div>
-                </div>
-            </div>
+            <div class="hscroll" id="similar-scroll"></div>
         </div>
     </section>
 
@@ -128,8 +119,7 @@
                         href="tvshows.html">TV Shows</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Account</h4><a href="profile.html">Profile</a><a href="watchlist.html">Watchlist</a><a
-                        href="ratings.html">Ratings</a>
+                    <h4>Account</h4><a href="profile.html">Profile</a><a href="watchlist.html">Watchlist</a>
                 </div>
                 <div class="footer-col">
                     <h4>Legal</h4><a href="#">Terms</a><a href="#">Privacy</a>
@@ -142,13 +132,18 @@
         </div>
     </footer>
 
+    <div class="modal-overlay" id="trailer-modal">
+        <div class="modal-content"><button class="modal-close"><i class="bx bx-x"></i></button><iframe
+                id="trailer-iframe" allowfullscreen allow="autoplay"></iframe></div>
+    </div>
+
     <script src="../js/api.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/watchlist.js"></script>
     <script src="../js/rating.js"></script>
     <script src="../js/search.js"></script>
     <script src="../js/animation.js"></script>
-    <script src="../js/reviews-page.js"></script>
+    <script src="../js/tv-details-page.js"></script>
 </body>
 
 </html>

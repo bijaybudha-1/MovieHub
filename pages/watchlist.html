@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MovieHub — Reviews</title>
+    <title>MovieHub — Watchlist</title>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/components.css">
@@ -20,7 +20,8 @@
                 <a href="../index.html" class="nav-link"><i class="bx bx-home-alt"></i><span>Home</span></a>
                 <a href="movies.html" class="nav-link"><i class="bx bx-film"></i><span>Movies</span></a>
                 <a href="tvshows.html" class="nav-link"><i class="bx bx-tv"></i><span>TV Shows</span></a>
-                <a href="watchlist.html" class="nav-link"><i class="bx bx-bookmark"></i><span>Watchlist</span></a>
+                <a href="watchlist.html" class="nav-link active"><i
+                        class="bx bx-bookmark"></i><span>Watchlist</span></a>
                 <a href="contact.html" class="nav-link"><i class="bx bx-envelope"></i><span>Contact</span></a>
             </div>
             <div class="nav-right">
@@ -40,80 +41,61 @@
         <a href="../index.html" class="nav-link"><i class="bx bx-home-alt"></i><span>Home</span></a>
         <a href="movies.html" class="nav-link"><i class="bx bx-film"></i><span>Movies</span></a>
         <a href="tvshows.html" class="nav-link"><i class="bx bx-tv"></i><span>TV Shows</span></a>
-        <a href="watchlist.html" class="nav-link"><i class="bx bx-bookmark"></i><span>Watchlist</span></a>
+        <a href="watchlist.html" class="nav-link active"><i class="bx bx-bookmark"></i><span>Watchlist</span></a>
         <a href="contact.html" class="nav-link"><i class="bx bx-envelope"></i><span>Contact</span></a>
     </div>
 
-    <!-- 1. Header -->
+    <!-- 1. Hero Header -->
     <section class="page-hero">
-        <h1 class="page-hero-title">Reviews</h1>
-        <p class="page-hero-subtitle">Read and write reviews for your favorite movies and shows</p>
+        <h1 class="page-hero-title">My Watchlist</h1>
+        <p class="page-hero-subtitle">Movies and shows you want to watch</p>
     </section>
 
-    <!-- 2. Write Review Form -->
+    <!-- 2. Stats -->
     <section class="section" style="padding-top:0;">
-        <div class="container" style="max-width:700px;">
-            <div class="glass-panel reveal" style="padding:var(--space-2xl);">
-                <h2 style="font-size:var(--fs-xl);font-weight:700;margin-bottom:var(--space-lg);">Write a Review</h2>
-                <form id="review-form">
-                    <div class="form-group">
-                        <label class="form-label">Movie / TV Show Title</label>
-                        <input type="text" class="form-input" placeholder="e.g. The Dark Knight" id="review-title"
-                            required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Your Rating</label>
-                        <div id="review-star-widget" style="margin-top:var(--space-sm);"></div>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Your Review</label>
-                        <textarea class="form-input" placeholder="Share your thoughts about the movie..."
-                            id="review-text" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary"><i class="bx bx-send"></i> Submit Review</button>
-                </form>
+        <div class="container">
+            <div class="stats-grid" style="max-width:600px;">
+                <div class="stat-card reveal">
+                    <div class="stat-icon"><i class="bx bx-bookmark"></i></div>
+                    <div class="stat-number" id="wl-count">0</div>
+                    <div class="stat-label">In Watchlist</div>
+                </div>
+                <div class="stat-card reveal">
+                    <div class="stat-icon"><i class="bx bx-heart"></i></div>
+                    <div class="stat-number" id="fav-count">0</div>
+                    <div class="stat-label">Favorites</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. User Reviews -->
+    <!-- 3. Watchlist Grid -->
     <section class="section" style="background:var(--bg-secondary);">
         <div class="container">
             <div class="section-header-row reveal">
-                <div class="section-title"><span class="accent-dot"></span> Your Reviews</div>
+                <div class="section-title"><span class="accent-dot"></span> Watchlist</div>
             </div>
-            <div class="review-grid" id="user-reviews"></div>
+            <div class="watchlist-preview-grid" id="watchlist-grid"></div>
         </div>
     </section>
 
-    <!-- 4. Top Reviewed Movies (from API) -->
+    <!-- 4. Favorites Grid -->
     <section class="section">
         <div class="container">
             <div class="section-header-row reveal">
-                <div class="section-title"><span class="accent-dot"></span> Highly Reviewed Movies</div>
+                <div class="section-title"><span class="accent-dot"></span> Favorites</div>
             </div>
-            <div class="hscroll" id="top-reviewed-scroll"></div>
+            <div class="watchlist-preview-grid" id="favorites-grid"></div>
         </div>
     </section>
 
-    <!-- 5. Review Stats -->
+    <!-- 5. Recommendations -->
     <section class="section" style="background:var(--bg-secondary);">
         <div class="container">
-            <div class="section-header reveal">
-                <div class="section-title"><span class="accent-dot"></span> Your Stats</div>
+            <div class="section-header-row reveal">
+                <div class="section-title"><span class="accent-dot"></span> Recommended For You</div>
             </div>
-            <div class="stats-grid" style="max-width:600px;">
-                <div class="stat-card reveal">
-                    <div class="stat-icon"><i class="bx bx-edit"></i></div>
-                    <div class="stat-number" id="review-count">0</div>
-                    <div class="stat-label">Reviews Written</div>
-                </div>
-                <div class="stat-card reveal">
-                    <div class="stat-icon"><i class="bx bx-star"></i></div>
-                    <div class="stat-number" id="review-avg">0</div>
-                    <div class="stat-label">Avg Rating Given</div>
-                </div>
-            </div>
+            <div class="hscroll" id="rec-scroll"></div>
         </div>
     </section>
 
@@ -148,7 +130,7 @@
     <script src="../js/rating.js"></script>
     <script src="../js/search.js"></script>
     <script src="../js/animation.js"></script>
-    <script src="../js/reviews-page.js"></script>
+    <script src="../js/watchlist-page.js"></script>
 </body>
 
 </html>

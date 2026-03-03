@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MovieHub — Browse Movies</title>
+  <meta name="description" content="Browse popular, top-rated, and upcoming movies on MovieHub.">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-logo">MovieHub</a>
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link"><i class="bx bx-home-alt"></i><span>Home</span></a>
+        <a href="movies.html" class="nav-link active"><i class="bx bx-film"></i><span>Movies</span></a>
+        <a href="tvshows.html" class="nav-link"><i class="bx bx-tv"></i><span>TV Shows</span></a>
+        <a href="watchlist.html" class="nav-link"><i class="bx bx-bookmark"></i><span>Watchlist</span></a>
+        <a href="contact.html" class="nav-link"><i class="bx bx-envelope"></i><span>Contact</span></a>
+      </div>
+      <div class="nav-right">
+        <div class="nav-search-wrapper">
+          <div class="nav-search"><i class="bx bx-search"></i><input type="text" class="search-input"
+              placeholder="Search movies, shows..."></div>
+        </div>
+        <button class="theme-toggle" title="Toggle theme"><i class="bx bx-sun"></i></button>
+        <a href="profile.html" class="nav-profile"><img
+            src="https://ui-avatars.com/api/?name=User&background=e50914&color=fff&size=36" alt="Profile"></a>
+        <div class="nav-hamburger"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-nav">
+    <a href="../index.html" class="nav-link"><i class="bx bx-home-alt"></i><span>Home</span></a>
+    <a href="movies.html" class="nav-link active"><i class="bx bx-film"></i><span>Movies</span></a>
+    <a href="tvshows.html" class="nav-link"><i class="bx bx-tv"></i><span>TV Shows</span></a>
+    <a href="watchlist.html" class="nav-link"><i class="bx bx-bookmark"></i><span>Watchlist</span></a>
+    <a href="contact.html" class="nav-link"><i class="bx bx-envelope"></i><span>Contact</span></a>
+  </div>
+
+  <!-- 1. Page Hero Banner -->
+  <section class="page-hero">
+    <h1 class="page-hero-title">Movies</h1>
+    <p class="page-hero-subtitle">Explore thousands of movies — from blockbusters to hidden gems</p>
+  </section>
+
+  <!-- 2. Search + Filter + Sort Bar -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="filter-bar reveal">
+        <div class="nav-search-wrapper" style="flex:1;min-width:200px;">
+          <div class="nav-search" style="width:100%;border-radius:var(--radius-md);">
+            <i class="bx bx-search"></i>
+            <input type="text" class="search-input" placeholder="Search movies..." id="movie-search">
+          </div>
+        </div>
+        <select class="filter-select" id="genre-filter">
+          <option value="">All Genres</option>
+        </select>
+        <select class="filter-select" id="sort-select">
+          <option value="popularity.desc">Popular</option>
+          <option value="vote_average.desc">Top Rated</option>
+          <option value="release_date.desc">Newest</option>
+          <option value="revenue.desc">Revenue</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Movie Grid -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="movie-grid" id="movies-grid"></div>
+      <div class="spinner" id="loading-spinner" style="display:none;"></div>
+    </div>
+  </section>
+
+  <!-- 4. Pagination -->
+  <section>
+    <div class="container">
+      <div class="pagination" id="pagination"></div>
+    </div>
+  </section>
+
+  <!-- 5. Recommended Section -->
+  <section class="section" style="background:var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header-row reveal">
+        <div class="section-title"><span class="accent-dot"></span> Recommended For You</div>
+      </div>
+      <div class="hscroll" id="recommended-scroll"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><a href="../index.html" class="nav-logo">MovieHub</a>
+          <p>Your ultimate destination for discovering movies, TV shows, and entertainment.</p>
+          <div class="footer-social"><a href="#"><i class="bx bxl-twitter"></i></a><a href="#"><i
+                class="bx bxl-instagram"></i></a><a href="#"><i class="bx bxl-facebook"></i></a><a
+              href="https://github.com/bijaybudha-1" target="_blank"><i class="bx bxl-github"></i></a></div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4><a href="../index.html">Home</a><a href="movies.html">Movies</a><a href="tvshows.html">TV
+            Shows</a><a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Account</h4><a href="profile.html">Profile</a><a href="watchlist.html">Watchlist</a><a
+            href="ratings.html">Ratings</a><a href="reviews.html">Reviews</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4><a href="#">Terms of Service</a><a href="#">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="footer-year"></span> MovieHub. All rights reserved.</p>
+        <p>Developed by <a href="https://github.com/bijaybudha-1" target="_blank">Bijay Budha</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="trailer-modal">
+    <div class="modal-content"><button class="modal-close"><i class="bx bx-x"></i></button><iframe id="trailer-iframe"
+        allowfullscreen allow="autoplay"></iframe></div>
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/watchlist.js"></script>
+  <script src="../js/rating.js"></script>
+  <script src="../js/search.js"></script>
+  <script src="../js/animation.js"></script>
+    <script src="../js/movies-page.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,248 @@
+/* ============================================================
+   MovieHub 2026 — Responsive Styles
+   ============================================================ */
+
+/* ── Max 1440px ────────────────────────────────────────────── */
+@media (max-width: 1440px) {
+  :root { --container-max: 1200px; }
+}
+
+/* ── Max 1200px ────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  :root {
+    --fs-5xl: 3.5rem;
+    --fs-4xl: 2.75rem;
+    --fs-3xl: 2rem;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+  }
+  .detail-poster { width: 220px; }
+  .movie-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+}
+
+/* ── Max 1024px ────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  :root {
+    --fs-5xl: 3rem;
+    --fs-4xl: 2.5rem;
+  }
+  .hero { min-height: 70vh; }
+  .hero-content { max-width: 500px; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .detail-hero-content { gap: var(--space-xl); }
+  .detail-poster { width: 200px; }
+  .genre-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}
+
+/* ── Max 768px (Tablet) ────────────────────────────────────── */
+@media (max-width: 768px) {
+  :root {
+    --fs-5xl: 2.5rem;
+    --fs-4xl: 2rem;
+    --fs-3xl: 1.75rem;
+    --fs-2xl: 1.5rem;
+    --container-padding: 1rem;
+    --space-4xl: 4rem;
+  }
+
+  body { padding-top: 64px; }
+
+  /* Navbar */
+  .navbar .container { height: 64px; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-search { width: 200px; }
+  .nav-search:focus-within { width: 220px; }
+
+  /* Hero */
+  .hero { min-height: 60vh; }
+  .hero-content { max-width: 100%; padding: var(--space-xl) 0; }
+  .hero-slide::after {
+    background: linear-gradient(
+      0deg,
+      rgba(10,10,15,0.95) 0%,
+      rgba(10,10,15,0.7) 50%,
+      rgba(10,10,15,0.4) 100%
+    );
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+  .footer-bottom { flex-direction: column; text-align: center; }
+
+  /* Detail Page */
+  .detail-hero { min-height: auto; padding-top: var(--space-2xl); }
+  .detail-hero-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .detail-poster { width: 180px; }
+  .detail-title { font-size: var(--fs-2xl); }
+  .detail-meta { justify-content: center; }
+  .detail-genre-tags { justify-content: center; }
+  .detail-actions { justify-content: center; }
+
+  /* Grids */
+  .movie-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: var(--space-md);
+  }
+  .genre-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .upcoming-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+
+  /* Profile */
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--space-xl);
+  }
+  .profile-avatar-lg { width: 100px; height: 100px; }
+
+  /* Filter Bar */
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .filter-bar .form-input { max-width: 100%; }
+
+  /* Pagination */
+  .pagination { flex-wrap: wrap; }
+
+  /* Detail info grid */
+  .detail-info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Auth */
+  .auth-card { padding: var(--space-xl); }
+}
+
+/* ── Max 576px (Mobile) ────────────────────────────────────── */
+@media (max-width: 576px) {
+  :root {
+    --fs-5xl: 2rem;
+    --fs-4xl: 1.75rem;
+    --fs-2xl: 1.35rem;
+    --space-4xl: 3rem;
+    --space-3xl: 2.5rem;
+  }
+
+  /* Nav */
+  .nav-search { display: none; }
+  .theme-toggle { width: 32px; height: 32px; font-size: 0.95rem; }
+  .nav-profile img { width: 32px; height: 32px; }
+
+  /* Hero */
+  .hero { min-height: 50vh; }
+  .hero-buttons { flex-direction: column; width: 100%; }
+  .hero-buttons .btn { width: 100%; justify-content: center; }
+
+  /* Cards */
+  .hscroll > * { flex: 0 0 160px; }
+  .movie-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+  }
+  .movie-card-info { padding: var(--space-sm); }
+  .movie-card-title { font-size: var(--fs-xs); }
+
+  /* Genres */
+  .genre-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+  .genre-card { padding: var(--space-md); }
+
+  /* Stats */
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+  .stat-card { padding: var(--space-md); }
+
+  /* Detail */
+  .detail-poster { width: 140px; }
+  .detail-info-grid { grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+
+  /* Section titles */
+  .section-title { font-size: var(--fs-xl); }
+  .page-hero-title { font-size: var(--fs-2xl); }
+
+  /* Newsletter */
+  .newsletter { padding: var(--space-2xl) var(--space-md); }
+  .newsletter-form { flex-direction: column; }
+  .newsletter-form .btn { width: 100%; }
+
+  /* Contact */
+  .contact-grid { gap: var(--space-xl); }
+
+  /* Auth */
+  .auth-card {
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+  }
+  .social-btns { flex-direction: column; }
+
+  /* Upcoming */
+  .upcoming-grid { grid-template-columns: 1fr; }
+
+  /* Watchlist preview */
+  .watchlist-preview-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Max 480px (Small Mobile) ──────────────────────────────── */
+@media (max-width: 480px) {
+  :root {
+    --fs-5xl: 1.75rem;
+    --fs-4xl: 1.5rem;
+    --container-padding: 0.75rem;
+  }
+  .movie-grid { grid-template-columns: repeat(2, 1fr); }
+  .genre-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid { grid-template-columns: 1fr; }
+  .detail-info-grid { grid-template-columns: 1fr; }
+  .tab-filters { gap: var(--space-xs); }
+  .tab-btn { padding: var(--space-xs) var(--space-md); font-size: var(--fs-xs); }
+  .section { padding: var(--space-2xl) 0; }
+}
+
+/* ── Touch enhancements ────────────────────────────────────── */
+@media (hover: none) and (pointer: coarse) {
+  .movie-card:hover { transform: none; box-shadow: none; }
+  .movie-card-overlay { opacity: 1; background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, transparent 40%); }
+  .hscroll { scroll-snap-type: x mandatory; }
+}
+
+/* ── High resolution ───────────────────────────────────────── */
+@media (min-width: 1600px) {
+  :root { --container-max: 1500px; }
+}
+
+/* ── Prefers reduced motion ────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal, .reveal-left, .reveal-right, .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
