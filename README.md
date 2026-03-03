@@ -89,7 +89,7 @@ The project showcases advanced frontend development skills including API integra
 ## 📸 Project Preview
 
 ### Homepage
-![Homepage Screenshot](docs/screenshots/Homepage.png)
+![Homepage Screenshot](docs/screenshots/Home.png)
 *Main landing page featuring trending movies and navigation*
 
 ### Home Section
