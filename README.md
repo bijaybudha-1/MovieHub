@@ -140,12 +140,39 @@ The project showcases advanced frontend development skills including API integra
 ```
 
 MovieHub/
+├── index.html
+├── README.md
 │
-├── index.html                          # 🏠 Homepage
+├── .vscode/
+│   └── settings.json
 │
-├── pages/                              # 📄 All HTML Pages
-│   ├── login.html
-│   ├── register.html
+├── css/
+│   ├── style.css
+│   ├── components.css
+│   ├── animations.css
+│   └── responsive.css
+│
+├── js/
+│   ├── main.js
+│   ├── api.js
+│   ├── home.js
+│   ├── animation.js
+│   ├── search.js
+│   ├── rating.js
+│   ├── watchlist.js
+│   ├── movies-page.js
+│   ├── movie-details-page.js
+│   ├── tvshows-page.js
+│   ├── tv-details-page.js
+│   ├── ratings-page.js
+│   ├── reviews-page.js
+│   ├── watchlist-page.js
+│   ├── profile-page.js
+│   ├── login-page.js
+│   ├── register-page.js
+│   └── contact-page.js
+│
+├── pages/
 │   ├── movies.html
 │   ├── movie-details.html
 │   ├── tvshows.html
@@ -154,74 +181,24 @@ MovieHub/
 │   ├── reviews.html
 │   ├── watchlist.html
 │   ├── profile.html
+│   ├── login.html
+│   ├── register.html
 │   └── contact.html
 │
-├── js/                                 # ⚙️ JavaScript (Main Logic)
-│   ├── main.js
-│   ├── api.js
-│   ├── home.js
-│   ├── movies-page.js
-│   ├── movie-details-page.js
-│   ├── tvshows-page.js
-│   ├── tv-details-page.js
-│   ├── ratings-page.js
-│   ├── reviews-page.js
-│   ├── watchlist.js
-│   ├── watchlist-page.js
-│   ├── profile-page.js
-│   ├── login-page.js
-│   ├── register-page.js
-│   ├── contact-page.js
-│   ├── search.js
-│   ├── rating.js
-│   └── animation.js
-│
-├── css/                                # 🎨 Stylesheets (Main)
-│   ├── style.css
-│   ├── components.css
-│   ├── responsive.css
-│   └── animations.css
-│
-├── assets/                             # 📦 Static Assets
-│   ├── CSS/
-│   │   └── style.css
-│   ├── js/
-│   │   ├── main.js
-│   │   ├── movieApi.js
-│   │   ├── movieDetails.js
-│   │   ├── seriesApi.js
-│   │   ├── seriesDetails.js
-│   │   ├── tvShowsApi.js
-│   │   ├── tvShowsDetails.js
-│   │   ├── profile.js
-│   │   ├── profile-fixed.js
-│   │   ├── form-validation.js
-│   │   ├── include.js
-│   │   ├── rating.js
-│   │   └── slider.js
-│   └── images/
-│       ├── image.png
-│       ├── avatar-images.avif
-│       └── login-bg-images.jpg
-│
-├── docs/                               # 📸 Screenshots & Docs
-│   └── screenshots/
-│       ├── homepage.png
-│       ├── login.png
-│       ├── register.png
-│       ├── movie-page.png
-│       ├── movie-details.png
-│       ├── series-details.png
-│       ├── tv-shows.png.png
-│       ├── watchlist.png
-│       ├── profile.png
-│       ├── mobile-home.png
-│       └── mobile-movies.png
-│
-├── movies.html                         # (root-level duplicate)
-├── .vscode/
-│   └── settings.json
-└── README.md
+└── docs/
+    └── screenshots/
+        ├── Home.png
+        ├── Moviepage.png
+        ├── MovieDetailspage.png
+        ├── tv-shows.png
+        ├── rating.png
+        ├── watchlist.png
+        ├── profile.png
+        ├── login.png
+        ├── register.png
+        ├── mobile1.png
+        ├── mobile2.png
+        └── mobile3.png
 
 ```
 
