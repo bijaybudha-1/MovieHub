@@ -4,19 +4,24 @@
 
 /* ── Scroll Reveal with IntersectionObserver ───────────────── */
 function initScrollReveal() {
-  const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+  const reveals = document.querySelectorAll(
+    ".reveal, .reveal-left, .reveal-right, .reveal-scale",
+  );
   if (!reveals.length) return;
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
+  );
 
-  reveals.forEach(el => observer.observe(el));
+  reveals.forEach((el) => observer.observe(el));
 }
 
 /* ── Particle Background System ────────────────────────────── */
@@ -24,7 +29,7 @@ class ParticleSystem {
   constructor(canvasId) {
     this.canvas = document.getElementById(canvasId);
     if (!this.canvas) return;
-    this.ctx = this.canvas.getContext('2d');
+    this.ctx = this.canvas.getContext("2d");
     this.particles = [];
     this.mouse = { x: 0, y: 0 };
     this.animationId = null;
@@ -42,7 +47,10 @@ class ParticleSystem {
   }
 
   createParticles() {
-    const count = Math.min(80, Math.floor((this.canvas.width * this.canvas.height) / 12000));
+    const count = Math.min(
+      80,
+      Math.floor((this.canvas.width * this.canvas.height) / 12000),
+    );
     this.particles = [];
     for (let i = 0; i < count; i++) {
       this.particles.push({
@@ -51,18 +59,18 @@ class ParticleSystem {
         vx: (Math.random() - 0.5) * 0.5,
         vy: (Math.random() - 0.5) * 0.5,
         size: Math.random() * 2 + 0.5,
-        alpha: Math.random() * 0.4 + 0.1
+        alpha: Math.random() * 0.4 + 0.1,
       });
     }
   }
 
   bindEvents() {
-    window.addEventListener('resize', () => {
+    window.addEventListener("resize", () => {
       this.resize();
       this.createParticles();
     });
 
-    this.canvas.parentElement.addEventListener('mousemove', (e) => {
+    this.canvas.parentElement.addEventListener("mousemove", (e) => {
       const rect = this.canvas.getBoundingClientRect();
       this.mouse.x = e.clientX - rect.left;
       this.mouse.y = e.clientY - rect.top;
@@ -123,61 +131,68 @@ class ParticleSystem {
 
 /* ── Counter Animation ─────────────────────────────────────── */
 function animateCounters() {
-  const counters = document.querySelectorAll('.count-up');
+  const counters = document.querySelectorAll(".count-up");
   if (!counters.length) return;
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const target = parseInt(el.getAttribute('data-count') || el.textContent, 10);
-        const duration = 1500;
-        const start = performance.now();
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(
+            el.getAttribute("data-count") || el.textContent,
+            10,
+          );
+          const duration = 1500;
+          const start = performance.now();
 
-        function update(now) {
-          const progress = Math.min((now - start) / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-          el.textContent = Math.round(target * eased);
-          if (progress < 1) requestAnimationFrame(update);
+          function update(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+            el.textContent = Math.round(target * eased);
+            if (progress < 1) requestAnimationFrame(update);
+          }
+          requestAnimationFrame(update);
+          observer.unobserve(el);
         }
-        requestAnimationFrame(update);
-        observer.unobserve(el);
-      }
-    });
-  }, { threshold: 0.3 });
+      });
+    },
+    { threshold: 0.3 },
+  );
 
-  counters.forEach(c => observer.observe(c));
+  counters.forEach((c) => observer.observe(c));
 }
 
 /* ── Tilt Effect for Cards ─────────────────────────────────── */
 function initTiltCards() {
-  const cards = document.querySelectorAll('.tilt-card');
-  cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
+  const cards = document.querySelectorAll(".tilt-card");
+  cards.forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
-      const rotateX = (y - centerY) / centerY * -6;
-      const rotateY = (x - centerX) / centerX * 6;
+      const rotateX = ((y - centerY) / centerY) * -6;
+      const rotateY = ((x - centerX) / centerX) * 6;
       card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
     });
 
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) scale(1)';
+    card.addEventListener("mouseleave", () => {
+      card.style.transform =
+        "perspective(800px) rotateX(0) rotateY(0) scale(1)";
     });
   });
 }
 
 /* ── Initialize All Animations ─────────────────────────────── */
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   initScrollReveal();
   animateCounters();
   initTiltCards();
 
   // Init particles if hero canvas exists
-  if (document.getElementById('particle-canvas')) {
-    new ParticleSystem('particle-canvas');
+  if (document.getElementById("particle-canvas")) {
+    new ParticleSystem("particle-canvas");
   }
 });
