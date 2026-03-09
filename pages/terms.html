@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MovieHub - Sign In</title>
+    <title>MovieHub - Terms of Service</title>
+    <meta name="description" content="Terms of Service for MovieHub." />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
@@ -15,6 +16,7 @@
   </head>
 
   <body>
+    <!-- Navbar -->
     <nav class="navbar">
       <div class="container">
         <a href="../index.html" class="nav-logo">MovieHub</a>
@@ -39,7 +41,24 @@
           >
         </div>
         <div class="nav-right">
-          <button class="theme-toggle"><i class="bx bx-sun"></i></button>
+          <div class="nav-search-wrapper">
+            <div class="nav-search">
+              <i class="bx bx-search"></i
+              ><input
+                type="text"
+                class="search-input"
+                placeholder="Search movies, shows..."
+              />
+            </div>
+          </div>
+          <button class="theme-toggle" title="Toggle theme">
+            <i class="bx bx-sun"></i>
+          </button>
+          <a href="profile.html" class="nav-profile"
+            ><img
+              src="https://ui-avatars.com/api/?name=User&background=e50914&color=fff&size=36"
+              alt="Profile"
+          /></a>
           <div class="nav-hamburger">
             <span></span><span></span><span></span>
           </div>
@@ -67,174 +86,134 @@
       >
     </div>
 
-    <!-- Auth Section -->
-    <section class="auth-section">
-      <div class="auth-bg"></div>
-      <div class="container" style="max-width: 480px">
-        <div class="auth-card reveal-scale">
-          <div class="auth-header">
-            <a
-              href="../index.html"
-              class="nav-logo"
-              style="
-                font-size: var(--fs-2xl);
-                margin-bottom: var(--space-sm);
-                display: inline-block;
-              "
-              >MovieHub</a
-            >
-            <h1 style="font-size: var(--fs-xl); font-weight: 700">
-              Welcome Back
-            </h1>
-            <p style="color: var(--text-secondary); font-size: var(--fs-sm)">
-              Sign in to access your watchlist, ratings, and more
-            </p>
-          </div>
+    <!-- 1. Page Hero Banner -->
+    <section class="page-hero">
+      <h1 class="page-hero-title">Terms of Service</h1>
+      <p class="page-hero-subtitle">Last Updated: March 2026</p>
+    </section>
 
-          <form id="login-form">
-            <div class="form-group">
-              <label class="form-label">Email Address</label>
-              <input
-                type="email"
-                class="form-input"
-                placeholder="you@example.com"
-                required
-                id="login-email"
-              />
-            </div>
-            <div class="form-group">
-              <label class="form-label">Password</label>
-              <div style="position: relative">
-                <input
-                  type="password"
-                  class="form-input"
-                  placeholder="Enter your password"
-                  required
-                  id="login-password"
-                />
-                <button
-                  type="button"
-                  class="password-toggle"
-                  id="toggle-password"
-                  style="
-                    position: absolute;
-                    right: 12px;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    background: none;
-                    border: none;
-                    color: var(--text-muted);
-                    cursor: pointer;
-                    font-size: 1.2rem;
-                  "
-                >
-                  <i class="bx bx-hide"></i>
-                </button>
-              </div>
-            </div>
-            <div
-              style="
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-bottom: var(--space-lg);
-                font-size: var(--fs-sm);
-              "
-            >
-              <label
-                style="
-                  display: flex;
-                  align-items: center;
-                  gap: var(--space-xs);
-                  cursor: pointer;
-                "
-              >
-                <input type="checkbox" style="accent-color: var(--primary)" />
-                Remember me
-              </label>
-              <a href="#" style="color: var(--primary); text-decoration: none"
-                >Forgot password?</a
-              >
-            </div>
-            <button
-              type="submit"
-              class="btn btn-primary btn-lg"
-              style="width: 100%"
-            >
-              <i class="bx bx-log-in"></i> Sign In
-            </button>
-          </form>
-
-          <div
-            class="divider"
-            style="
-              display: flex;
-              align-items: center;
-              gap: var(--space-md);
-              margin: var(--space-xl) 0;
-            "
-          >
-            <hr
-              style="
-                flex: 1;
-                border: none;
-                border-top: 1px solid var(--border-color);
-              "
-            />
-            <span style="color: var(--text-muted); font-size: var(--fs-xs)"
-              >OR</span
-            >
-            <hr
-              style="
-                flex: 1;
-                border: none;
-                border-top: 1px solid var(--border-color);
-              "
-            />
-          </div>
-
-          <div class="social-btns">
-            <button
-              class="social-btn google"
-              onclick="
-                showToast('Google sign-in not available in demo', 'info')
-              "
-            >
-              <i class="bx bxl-google"></i> Continue with Google
-            </button>
-            <button
-              class="social-btn github"
-              onclick="
-                showToast('GitHub sign-in not available in demo', 'info')
-              "
-            >
-              <i class="bx bxl-github"></i> Continue with GitHub
-            </button>
-          </div>
-
+    <!-- 2. Content -->
+    <section class="section">
+      <div class="container" style="max-width: 800px">
+        <div class="reveal">
+          <h3>1. Acceptance of Terms</h3>
           <p
             style="
-              text-align: center;
-              margin-top: var(--space-xl);
-              font-size: var(--fs-sm);
+              margin-top: var(--space-md);
               color: var(--text-secondary);
+              line-height: 1.8;
+              margin-bottom: var(--space-xl);
             "
           >
-            Don't have an account?
-            <a
-              href="register.html"
-              style="
-                color: var(--primary);
-                font-weight: 600;
-                text-decoration: none;
-              "
-              >Sign Up</a
-            >
+            By accessing and using MovieHub, you agree to comply with and be
+            bound by these Terms of Service. If you do not agree to these terms,
+            please do not use our services.
+          </p>
+
+          <h3>2. Data Sources</h3>
+          <p
+            style="
+              margin-top: var(--space-md);
+              color: var(--text-secondary);
+              line-height: 1.8;
+              margin-bottom: var(--space-xl);
+            "
+          >
+            MovieHub uses the TMDB API but is not endorsed or certified by TMDB.
+            All movie metadata, images, and trailers are provided by TMDB.
+            MovieHub is an academic project and does not claim ownership of the
+            media content displayed.
+          </p>
+
+          <h3>3. User Conduct</h3>
+          <p
+            style="
+              margin-top: var(--space-md);
+              color: var(--text-secondary);
+              line-height: 1.8;
+              margin-bottom: var(--space-xl);
+            "
+          >
+            Users are responsible for their own interactions on the platform.
+            Any misuse of the search engine, watchlist features, or community
+            reviews may result in local data being reset.
+          </p>
+
+          <h3>4. No Guarantee</h3>
+          <p
+            style="
+              margin-top: var(--space-md);
+              color: var(--text-secondary);
+              line-height: 1.8;
+              margin-bottom: var(--space-xl);
+            "
+          >
+            As MovieHub is a "Vanilla" stack demo, we do not guarantee 100%
+            uptime or data persistence. Data stored in LocalStorage is subject
+            to browser settings and clearing of cache.
+          </p>
+
+          <h3>5. User Eligibility</h3>
+          <p
+            style="
+              margin-top: var(--space-md);
+              color: var(--text-secondary);
+              line-height: 1.8;
+              margin-bottom: var(--space-xl);
+            "
+          >
+            You must be at least 13 years of age to use MovieHub. By using our
+            services, you represent and warrant that you meet this age
+            requirement.
+          </p>
+
+          <h3>6. Intellectual Property</h3>
+          <p
+            style="
+              margin-top: var(--space-md);
+              color: var(--text-secondary);
+              line-height: 1.8;
+              margin-bottom: var(--space-xl);
+            "
+          >
+            All custom graphics, logos, and UI designs on MovieHub are the
+            intellectual property of the developers. Movie metadata and images
+            are provided by TMDB.
+          </p>
+
+          <h3>7. Termination of Access</h3>
+          <p
+            style="
+              margin-top: var(--space-md);
+              color: var(--text-secondary);
+              line-height: 1.8;
+              margin-bottom: var(--space-xl);
+            "
+          >
+            We reserve the right to terminate or suspend access to our service
+            immediately, without prior notice or liability, for any reason
+            whatsoever.
+          </p>
+
+          <h3>8. Contact</h3>
+          <p
+            style="
+              margin-top: var(--space-md);
+              color: var(--text-secondary);
+              line-height: 1.8;
+              margin-bottom: var(--space-xl);
+            "
+          >
+            If you have any questions about these Terms, please contact us
+            through the
+            <a href="contact.html" style="color: var(--primary)">Contact Page</a
+            >.
           </p>
         </div>
       </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
       <div class="container">
         <div class="footer-grid">
@@ -304,9 +283,7 @@
 
     <script src="../js/api.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/watchlist.js"></script>
-    <script src="../js/rating.js"></script>
+    <script src="../js/search.js"></script>
     <script src="../js/animation.js"></script>
-    <script src="../js/login-page.js"></script>
   </body>
 </html>

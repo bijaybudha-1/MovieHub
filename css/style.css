@@ -241,6 +241,7 @@ select {
   display: flex;
   align-items: center;
   gap: var(--space-md);
+  margin-bottom: var(--space-lg);
 }
 .section-title .accent-dot {
   width: 8px;
@@ -261,6 +262,7 @@ select {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: var(--space-md);
+  margin-bottom: var(--space-xl);
 }
 
 /* ── View All Link ─────────────────────────────────────────── */
@@ -877,20 +879,37 @@ select {
 }
 .movie-card-actions {
   display: flex;
-  gap: var(--space-sm);
+  gap: var(--space-md);
+  justify-content: center;
+  width: 100%;
 }
 .movie-card-actions .btn-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  width: 42px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #fff;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .movie-card-actions .btn-icon:hover {
   background: var(--primary);
   border-color: var(--primary);
+  transform: scale(1.15) translateY(-2px);
+  box-shadow: 0 5px 15px rgba(229, 9, 20, 0.4);
+}
+.movie-card-actions .btn-icon.active {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+.action-favorite:hover i {
+  color: #fff;
+}
+.action-favorite.active i {
+  color: #fff;
 }
 .card-rating {
   position: absolute;
@@ -1031,22 +1050,23 @@ textarea.form-input {
   color: #3b82f6;
 }
 
-/* ── Modals ────────────────────────────────────────────────── */
+/* ── Modals & Overlays ─────────────────────────────────────── */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.85);
+  background: var(--bg-overlay);
   backdrop-filter: blur(8px);
   z-index: var(--z-modal);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  pointer-events: none;
+  visibility: hidden;
   transition: var(--transition-base);
 }
 .modal-overlay.active {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
 }
 .modal-content {
@@ -1154,26 +1174,6 @@ textarea.form-input {
   background: var(--primary);
   color: #fff;
   border-color: var(--primary);
-}
-
-/* ── Empty State ───────────────────────────────────────────── */
-.empty-state {
-  text-align: center;
-  padding: var(--space-4xl) var(--space-xl);
-}
-.empty-state i {
-  font-size: 4rem;
-  color: var(--text-muted);
-  margin-bottom: var(--space-lg);
-}
-.empty-state h3 {
-  font-size: var(--fs-xl);
-  margin-bottom: var(--space-sm);
-}
-.empty-state p {
-  color: var(--text-secondary);
-  font-size: var(--fs-sm);
-  margin-bottom: var(--space-xl);
 }
 
 /* ── Loading Skeleton ──────────────────────────────────────── */
@@ -1456,24 +1456,6 @@ textarea.form-input {
   position: absolute;
   width: 100%;
   height: 100%;
-}
-/* ── Modals & Overlays ─────────────────────────────────────── */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: var(--bg-overlay);
-  backdrop-filter: blur(8px);
-  z-index: var(--z-modal);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: var(--transition-base);
-}
-.modal-overlay.active {
-  opacity: 1;
-  visibility: visible;
 }
 .modal-content {
   background: var(--bg-elevated);

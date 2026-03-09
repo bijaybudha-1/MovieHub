@@ -73,11 +73,18 @@ function renderWatchlistGrid(containerId) {
   const list = getWatchlist();
   if (list.length === 0) {
     container.innerHTML = `
-      <div class="empty-state">
-        <i class="bx bx-bookmark"></i>
-        <h3>Your watchlist is empty</h3>
-        <p>Start adding movies and shows you want to watch!</p>
-        <a href="index.html" class="btn btn-primary"><i class="bx bx-home"></i> Browse Movies</a>
+      <div class="empty-state reveal">
+        <div class="empty-state-icon">
+          <i class="bx bx-bookmark"></i>
+        </div>
+        <div class="empty-state-content">
+          <h3>Your watchlist is empty</h3>
+          <p>Explore thousands of movies and TV shows and add them to your watchlist to keep track of what you want to watch!</p>
+          <div class="empty-state-actions">
+            <a href="movies.html" class="btn btn-primary"><i class="bx bx-film"></i> Explore Movies</a>
+            <a href="tvshows.html" class="btn btn-outline"><i class="bx bx-tv"></i> Browse Shows</a>
+          </div>
+        </div>
       </div>
     `;
     return;
@@ -120,11 +127,17 @@ function renderFavoritesGrid(containerId) {
   const list = getFavorites();
   if (list.length === 0) {
     container.innerHTML = `
-      <div class="empty-state">
-        <i class="bx bx-heart"></i>
-        <h3>No favorites yet</h3>
-        <p>Mark movies and shows as favorites to see them here!</p>
-        <a href="index.html" class="btn btn-primary"><i class="bx bx-home"></i> Browse Movies</a>
+      <div class="empty-state reveal">
+        <div class="empty-state-icon">
+          <i class="bx bx-heart"></i>
+        </div>
+        <div class="empty-state-content">
+          <h3>No favorites yet</h3>
+          <p>Found something you absolutely love? Mark it as a favorite to easily find it again and help us improve your recommendations!</p>
+          <div class="empty-state-actions">
+            <a href="index.html" class="btn btn-primary">Start Discovering</a>
+          </div>
+        </div>
       </div>
     `;
     return;

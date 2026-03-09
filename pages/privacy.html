@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MovieHub - Sign In</title>
+    <title>MovieHub - Privacy Policy</title>
+    <meta name="description" content="Privacy Policy for MovieHub." />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
@@ -15,6 +16,7 @@
   </head>
 
   <body>
+    <!-- Navbar -->
     <nav class="navbar">
       <div class="container">
         <a href="../index.html" class="nav-logo">MovieHub</a>
@@ -39,7 +41,24 @@
           >
         </div>
         <div class="nav-right">
-          <button class="theme-toggle"><i class="bx bx-sun"></i></button>
+          <div class="nav-search-wrapper">
+            <div class="nav-search">
+              <i class="bx bx-search"></i
+              ><input
+                type="text"
+                class="search-input"
+                placeholder="Search movies, shows..."
+              />
+            </div>
+          </div>
+          <button class="theme-toggle" title="Toggle theme">
+            <i class="bx bx-sun"></i>
+          </button>
+          <a href="profile.html" class="nav-profile"
+            ><img
+              src="https://ui-avatars.com/api/?name=User&background=e50914&color=fff&size=36"
+              alt="Profile"
+          /></a>
           <div class="nav-hamburger">
             <span></span><span></span><span></span>
           </div>
@@ -67,174 +86,140 @@
       >
     </div>
 
-    <!-- Auth Section -->
-    <section class="auth-section">
-      <div class="auth-bg"></div>
-      <div class="container" style="max-width: 480px">
-        <div class="auth-card reveal-scale">
-          <div class="auth-header">
-            <a
-              href="../index.html"
-              class="nav-logo"
-              style="
-                font-size: var(--fs-2xl);
-                margin-bottom: var(--space-sm);
-                display: inline-block;
-              "
-              >MovieHub</a
-            >
-            <h1 style="font-size: var(--fs-xl); font-weight: 700">
-              Welcome Back
-            </h1>
-            <p style="color: var(--text-secondary); font-size: var(--fs-sm)">
-              Sign in to access your watchlist, ratings, and more
-            </p>
-          </div>
+    <!-- 1. Page Hero Banner -->
+    <section class="page-hero">
+      <h1 class="page-hero-title">Privacy Policy</h1>
+      <p class="page-hero-subtitle">Your Privacy is Our Priority</p>
+    </section>
 
-          <form id="login-form">
-            <div class="form-group">
-              <label class="form-label">Email Address</label>
-              <input
-                type="email"
-                class="form-input"
-                placeholder="you@example.com"
-                required
-                id="login-email"
-              />
-            </div>
-            <div class="form-group">
-              <label class="form-label">Password</label>
-              <div style="position: relative">
-                <input
-                  type="password"
-                  class="form-input"
-                  placeholder="Enter your password"
-                  required
-                  id="login-password"
-                />
-                <button
-                  type="button"
-                  class="password-toggle"
-                  id="toggle-password"
-                  style="
-                    position: absolute;
-                    right: 12px;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    background: none;
-                    border: none;
-                    color: var(--text-muted);
-                    cursor: pointer;
-                    font-size: 1.2rem;
-                  "
-                >
-                  <i class="bx bx-hide"></i>
-                </button>
-              </div>
-            </div>
-            <div
-              style="
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-bottom: var(--space-lg);
-                font-size: var(--fs-sm);
-              "
-            >
-              <label
-                style="
-                  display: flex;
-                  align-items: center;
-                  gap: var(--space-xs);
-                  cursor: pointer;
-                "
-              >
-                <input type="checkbox" style="accent-color: var(--primary)" />
-                Remember me
-              </label>
-              <a href="#" style="color: var(--primary); text-decoration: none"
-                >Forgot password?</a
-              >
-            </div>
-            <button
-              type="submit"
-              class="btn btn-primary btn-lg"
-              style="width: 100%"
-            >
-              <i class="bx bx-log-in"></i> Sign In
-            </button>
-          </form>
-
-          <div
-            class="divider"
-            style="
-              display: flex;
-              align-items: center;
-              gap: var(--space-md);
-              margin: var(--space-xl) 0;
-            "
-          >
-            <hr
-              style="
-                flex: 1;
-                border: none;
-                border-top: 1px solid var(--border-color);
-              "
-            />
-            <span style="color: var(--text-muted); font-size: var(--fs-xs)"
-              >OR</span
-            >
-            <hr
-              style="
-                flex: 1;
-                border: none;
-                border-top: 1px solid var(--border-color);
-              "
-            />
-          </div>
-
-          <div class="social-btns">
-            <button
-              class="social-btn google"
-              onclick="
-                showToast('Google sign-in not available in demo', 'info')
-              "
-            >
-              <i class="bx bxl-google"></i> Continue with Google
-            </button>
-            <button
-              class="social-btn github"
-              onclick="
-                showToast('GitHub sign-in not available in demo', 'info')
-              "
-            >
-              <i class="bx bxl-github"></i> Continue with GitHub
-            </button>
-          </div>
-
+    <!-- 2. Content -->
+    <section class="section">
+      <div class="container" style="max-width: 800px">
+        <div class="reveal">
+          <h3>1. Information Collection</h3>
           <p
             style="
-              text-align: center;
-              margin-top: var(--space-xl);
-              font-size: var(--fs-sm);
+              margin-top: var(--space-md);
               color: var(--text-secondary);
+              line-height: 1.8;
+              margin-bottom: var(--space-xl);
             "
           >
-            Don't have an account?
+            MovieHub is a client-side application. We do not collect or store
+            your personal data on our servers. Any "user profile" information,
+            watchlists, or ratings you create are stored exclusively in your
+            browser's <strong>LocalStorage</strong>.
+          </p>
+
+          <h3>2. How We Use Data</h3>
+          <p
+            style="
+              margin-top: var(--space-md);
+              color: var(--text-secondary);
+              line-height: 1.8;
+              margin-bottom: var(--space-xl);
+            "
+          >
+            The data stored in your browser is used solely to provide
+            personalized features like your Watchlist, Favorites, and Rating
+            History. We do not have access to this data, and it is never shared
+            with third parties.
+          </p>
+
+          <h3>3. Third-Party Services</h3>
+          <p
+            style="
+              margin-top: var(--space-md);
+              color: var(--text-secondary);
+              line-height: 1.8;
+              margin-bottom: var(--space-xl);
+            "
+          >
+            We fetch cinematic metadata from the TMDB API. When you browse
+            MovieHub, your browser makes direct requests to TMDB servers. Please
+            refer to
             <a
-              href="register.html"
-              style="
-                color: var(--primary);
-                font-weight: 600;
-                text-decoration: none;
-              "
-              >Sign Up</a
+              href="https://www.themoviedb.org/privacy-policy"
+              target="_blank"
+              style="color: var(--primary)"
+              >TMDB's Privacy Policy</a
             >
+            for more information on how they handle data.
+          </p>
+
+          <h3>4. Cookies</h3>
+          <p
+            style="
+              margin-top: var(--space-md);
+              color: var(--text-secondary);
+              line-height: 1.8;
+              margin-bottom: var(--space-xl);
+            "
+          >
+            MovieHub uses LocalStorage as an alternative to cookies for
+            maintaining your dashboard state. You can clear this data at any
+            time by clearing your browser's site data or cache.
+          </p>
+
+          <h3>5. Cookies and Tracking</h3>
+          <p
+            style="
+              margin-top: var(--space-md);
+              color: var(--text-secondary);
+              line-height: 1.8;
+              margin-bottom: var(--space-xl);
+            "
+          >
+            While we don't use server-side cookies, we use browser session
+            storage to remember your theme preferences and login status. This
+            data never leaves your device.
+          </p>
+
+          <h3>6. Third-Party Links</h3>
+          <p
+            style="
+              margin-top: var(--space-md);
+              color: var(--text-secondary);
+              line-height: 1.8;
+              margin-bottom: var(--space-xl);
+            "
+          >
+            Our service may contain links to external sites (like IMDb or
+            YouTube). We are not responsible for the content or privacy
+            practices of these third-party websites.
+          </p>
+
+          <h3>7. Data Security</h3>
+          <p
+            style="
+              margin-top: var(--space-md);
+              color: var(--text-secondary);
+              line-height: 1.8;
+              margin-bottom: var(--space-xl);
+            "
+          >
+            We implement industry-standard best practices for our frontend
+            security. However, no method of electronic storage is 100% secure.
+            Protect your device to keep your local data safe.
+          </p>
+
+          <h3>8. Policy Updates</h3>
+          <p
+            style="
+              margin-top: var(--space-md);
+              color: var(--text-secondary);
+              line-height: 1.8;
+              margin-bottom: var(--space-xl);
+            "
+          >
+            We may update this policy periodically. The latest version will
+            always be available on this page with the "Last Updated" date.
           </p>
         </div>
       </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
       <div class="container">
         <div class="footer-grid">
@@ -304,9 +289,7 @@
 
     <script src="../js/api.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/watchlist.js"></script>
-    <script src="../js/rating.js"></script>
+    <script src="../js/search.js"></script>
     <script src="../js/animation.js"></script>
-    <script src="../js/login-page.js"></script>
   </body>
 </html>

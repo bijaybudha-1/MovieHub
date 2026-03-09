@@ -1,133 +1,221 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MovieHub - My Ratings</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MovieHub — My Ratings</title>
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/components.css">
-    <link rel="stylesheet" href="../css/animations.css">
-    <link rel="stylesheet" href="../css/responsive.css">
-</head>
-
-<body>
+  <body>
     <nav class="navbar">
-        <div class="container">
-            <a href="../index.html" class="nav-logo">MovieHub</a>
-            <div class="nav-links">
-                <a href="../index.html" class="nav-link"><i class="bx bx-home-alt"></i><span>Home</span></a>
-                <a href="movies.html" class="nav-link"><i class="bx bx-film"></i><span>Movies</span></a>
-                <a href="tvshows.html" class="nav-link"><i class="bx bx-tv"></i><span>TV Shows</span></a>
-                <a href="watchlist.html" class="nav-link"><i class="bx bx-bookmark"></i><span>Watchlist</span></a>
-                <a href="contact.html" class="nav-link"><i class="bx bx-envelope"></i><span>Contact</span></a>
-            </div>
-            <div class="nav-right">
-                <div class="nav-search-wrapper">
-                    <div class="nav-search"><i class="bx bx-search"></i><input type="text" class="search-input"
-                            placeholder="Search..."></div>
-                </div>
-                <button class="theme-toggle"><i class="bx bx-sun"></i></button>
-                <a href="profile.html" class="nav-profile"><img
-                        src="https://ui-avatars.com/api/?name=User&background=e50914&color=fff&size=36"
-                        alt="Profile"></a>
-                <div class="nav-hamburger"><span></span><span></span><span></span></div>
-            </div>
+      <div class="container">
+        <a href="../index.html" class="nav-logo">MovieHub</a>
+        <div class="nav-links">
+          <a href="../index.html" class="nav-link"
+            ><i class="bx bx-home-alt"></i><span>Home</span></a
+          >
+          <a href="movies.html" class="nav-link"
+            ><i class="bx bx-film"></i><span>Movies</span></a
+          >
+          <a href="tvshows.html" class="nav-link"
+            ><i class="bx bx-tv"></i><span>TV Shows</span></a
+          >
+          <a href="watchlist.html" class="nav-link"
+            ><i class="bx bx-bookmark"></i><span>Watchlist</span></a
+          >
+          <a href="news.html" class="nav-link"
+            ><i class="bx bx-news"></i><span>News</span></a
+          >
+          <a href="contact.html" class="nav-link"
+            ><i class="bx bx-envelope"></i><span>Contact</span></a
+          >
         </div>
+        <div class="nav-right">
+          <div class="nav-search-wrapper">
+            <div class="nav-search">
+              <i class="bx bx-search"></i
+              ><input
+                type="text"
+                class="search-input"
+                placeholder="Search..."
+              />
+            </div>
+          </div>
+          <button class="theme-toggle"><i class="bx bx-sun"></i></button>
+          <a href="profile.html" class="nav-profile"
+            ><img
+              src="https://ui-avatars.com/api/?name=User&background=e50914&color=fff&size=36"
+              alt="Profile"
+          /></a>
+          <div class="nav-hamburger">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
     </nav>
     <div class="mobile-nav">
-        <a href="../index.html" class="nav-link"><i class="bx bx-home-alt"></i><span>Home</span></a>
-        <a href="movies.html" class="nav-link"><i class="bx bx-film"></i><span>Movies</span></a>
-        <a href="tvshows.html" class="nav-link"><i class="bx bx-tv"></i><span>TV Shows</span></a>
-        <a href="watchlist.html" class="nav-link"><i class="bx bx-bookmark"></i><span>Watchlist</span></a>
-        <a href="contact.html" class="nav-link"><i class="bx bx-envelope"></i><span>Contact</span></a>
+      <a href="../index.html" class="nav-link"
+        ><i class="bx bx-home-alt"></i><span>Home</span></a
+      >
+      <a href="movies.html" class="nav-link"
+        ><i class="bx bx-film"></i><span>Movies</span></a
+      >
+      <a href="tvshows.html" class="nav-link"
+        ><i class="bx bx-tv"></i><span>TV Shows</span></a
+      >
+      <a href="watchlist.html" class="nav-link"
+        ><i class="bx bx-bookmark"></i><span>Watchlist</span></a
+      >
+      <a href="news.html" class="nav-link"
+        ><i class="bx bx-news"></i><span>News</span></a
+      >
+      <a href="contact.html" class="nav-link"
+        ><i class="bx bx-envelope"></i><span>Contact</span></a
+      >
     </div>
 
     <!-- 1. Header -->
     <section class="page-hero">
-        <h1 class="page-hero-title">My Ratings</h1>
-        <p class="page-hero-subtitle">Track and manage all your movie and show ratings</p>
+      <h1 class="page-hero-title">My Ratings</h1>
+      <p class="page-hero-subtitle">
+        Track and manage all your movie and show ratings
+      </p>
     </section>
 
     <!-- 2. Rating Stats Summary -->
-    <section class="section" style="padding-top:0;">
-        <div class="container">
-            <div class="stats-grid" style="max-width:800px;">
-                <div class="stat-card reveal">
-                    <div class="stat-icon"><i class="bx bx-star"></i></div>
-                    <div class="stat-number" id="total-rated">0</div>
-                    <div class="stat-label">Total Rated</div>
-                </div>
-                <div class="stat-card reveal">
-                    <div class="stat-icon"><i class="bx bx-bar-chart-alt-2"></i></div>
-                    <div class="stat-number" id="avg-rating">0</div>
-                    <div class="stat-label">Average Rating</div>
-                </div>
-                <div class="stat-card reveal">
-                    <div class="stat-icon"><i class="bx bx-trophy"></i></div>
-                    <div class="stat-number" id="highest-rating">0</div>
-                    <div class="stat-label">Highest Rating</div>
-                </div>
-            </div>
+    <section class="section" style="padding-top: 0">
+      <div class="container">
+        <div class="stats-grid" style="max-width: 800px">
+          <div class="stat-card reveal">
+            <div class="stat-icon"><i class="bx bx-star"></i></div>
+            <div class="stat-number" id="total-rated">0</div>
+            <div class="stat-label">Total Rated</div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="stat-icon"><i class="bx bx-bar-chart-alt-2"></i></div>
+            <div class="stat-number" id="avg-rating">0</div>
+            <div class="stat-label">Average Rating</div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="stat-icon"><i class="bx bx-trophy"></i></div>
+            <div class="stat-number" id="highest-rating">0</div>
+            <div class="stat-label">Highest Rating</div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- 3. Rating Distribution Chart -->
-    <section class="section" style="background:var(--bg-secondary);">
-        <div class="container">
-            <div class="section-header reveal">
-                <div class="section-title"><span class="accent-dot"></span> Rating Distribution</div>
-            </div>
-            <div style="max-width:500px;">
-                <div class="rating-distribution" id="rating-distribution"></div>
-            </div>
+    <section class="section" style="background: var(--bg-secondary)">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-title">
+            <span class="accent-dot"></span> Rating Distribution
+          </div>
         </div>
+        <div style="max-width: 500px">
+          <div class="rating-distribution" id="rating-distribution"></div>
+        </div>
+      </div>
     </section>
 
     <!-- 4. Rated Movies Grid -->
     <section class="section">
-        <div class="container">
-            <div class="section-header-row reveal">
-                <div class="section-title"><span class="accent-dot"></span> All Ratings</div>
-            </div>
-            <div class="watchlist-preview-grid" id="ratings-grid"></div>
+      <div class="container">
+        <div class="section-header-row reveal">
+          <div class="section-title">
+            <span class="accent-dot"></span> All Ratings
+          </div>
         </div>
+        <div class="watchlist-preview-grid" id="ratings-grid"></div>
+      </div>
     </section>
 
     <!-- 5. Recommendations -->
-    <section class="section" style="background:var(--bg-secondary);">
-        <div class="container">
-            <div class="section-header-row reveal">
-                <div class="section-title"><span class="accent-dot"></span> You Might Also Like</div>
-            </div>
-            <div class="hscroll" id="rec-scroll"></div>
+    <section class="section" style="background: var(--bg-secondary)">
+      <div class="container">
+        <div class="section-header-row reveal">
+          <div class="section-title">
+            <span class="accent-dot"></span> You Might Also Like
+          </div>
         </div>
+        <div class="hscroll" id="rec-scroll"></div>
+      </div>
     </section>
 
     <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand"><a href="../index.html" class="nav-logo">MovieHub</a>
-                    <p>Your destination for movies and entertainment.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Navigation</h4><a href="../index.html">Home</a><a href="movies.html">Movies</a><a
-                        href="tvshows.html">TV Shows</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Account</h4><a href="profile.html">Profile</a><a href="watchlist.html">Watchlist</a><a
-                        href="ratings.html">Ratings</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Legal</h4><a href="#">Terms</a><a href="#">Privacy</a>
-                </div>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="../index.html" class="nav-logo">MovieHub</a>
+            <p>
+              Your ultimate destination for discovering movies, TV shows, and
+              entertainment. Powered by TMDB.
+            </p>
+            <div class="footer-social">
+              <a href="#" title="Twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" title="Instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" title="Facebook"><i class="bx bxl-facebook"></i></a>
+              <a
+                href="https://github.com/bijaybudha-1"
+                target="_blank"
+                title="GitHub"
+                ><i class="bx bxl-github"></i
+              ></a>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; <span id="footer-year"></span> MovieHub.</p>
-                <p>By <a href="https://github.com/bijaybudha-1" target="_blank">Bijay Budha</a></p>
-            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <a href="../index.html">Home</a>
+            <a href="movies.html">Movies</a>
+            <a href="tvshows.html">TV Shows</a>
+            <a href="news.html">Latest News</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+          <div class="footer-col">
+            <h4>Information</h4>
+            <a href="about.html">About MovieHub</a>
+            <a href="faq.html">FAQ</a>
+            <a href="reviews.html">Community Reviews</a>
+            <a href="ratings.html">Global Ratings</a>
+          </div>
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="profile.html">Your Profile</a>
+            <a href="watchlist.html">Your Watchlist</a>
+            <a href="movies.html">Top Rated Films</a>
+            <a href="tvshows.html">Popular Shows</a>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">DMCA Notice</a>
+          </div>
         </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; <span id="footer-year"></span> MovieHub. All rights reserved.
+          </p>
+          <p>
+            Developed by
+            <a href="https://github.com/bijaybudha-1" target="_blank"
+              >Bijay Budha</a
+            >
+            &bull; Powered by
+            <a href="https://www.themoviedb.org/" target="_blank">TMDB</a>
+          </p>
+        </div>
+      </div>
     </footer>
 
     <script src="../js/api.js"></script>
@@ -137,6 +225,5 @@
     <script src="../js/search.js"></script>
     <script src="../js/animation.js"></script>
     <script src="../js/ratings-page.js"></script>
-</body>
-
+  </body>
 </html>

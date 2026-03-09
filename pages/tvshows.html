@@ -1,139 +1,326 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MovieHub - TV Shows</title>
+    <meta
+      name="description"
+      content="Browse popular and top-rated TV shows on MovieHub."
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MovieHub — TV Shows</title>
-    <meta name="description" content="Browse popular and top-rated TV shows on MovieHub.">
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/components.css">
-    <link rel="stylesheet" href="../css/animations.css">
-    <link rel="stylesheet" href="../css/responsive.css">
-</head>
-
-<body>
+  <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <div class="container">
-            <a href="../index.html" class="nav-logo">MovieHub</a>
-            <div class="nav-links">
-                <a href="../index.html" class="nav-link"><i class="bx bx-home-alt"></i><span>Home</span></a>
-                <a href="movies.html" class="nav-link"><i class="bx bx-film"></i><span>Movies</span></a>
-                <a href="tvshows.html" class="nav-link active"><i class="bx bx-tv"></i><span>TV Shows</span></a>
-                <a href="watchlist.html" class="nav-link"><i class="bx bx-bookmark"></i><span>Watchlist</span></a>
-                <a href="contact.html" class="nav-link"><i class="bx bx-envelope"></i><span>Contact</span></a>
-            </div>
-            <div class="nav-right">
-                <div class="nav-search-wrapper">
-                    <div class="nav-search"><i class="bx bx-search"></i><input type="text" class="search-input"
-                            placeholder="Search..."></div>
-                </div>
-                <button class="theme-toggle"><i class="bx bx-sun"></i></button>
-                <a href="profile.html" class="nav-profile"><img
-                        src="https://ui-avatars.com/api/?name=User&background=e50914&color=fff&size=36"
-                        alt="Profile"></a>
-                <div class="nav-hamburger"><span></span><span></span><span></span></div>
-            </div>
+      <div class="container">
+        <a href="../index.html" class="nav-logo">MovieHub</a>
+        <div class="nav-links">
+          <a href="../index.html" class="nav-link"
+            ><i class="bx bx-home-alt"></i><span>Home</span></a
+          >
+          <a href="movies.html" class="nav-link"
+            ><i class="bx bx-film"></i><span>Movies</span></a
+          >
+          <a href="tvshows.html" class="nav-link active"
+            ><i class="bx bx-tv"></i><span>TV Shows</span></a
+          >
+          <a href="watchlist.html" class="nav-link"
+            ><i class="bx bx-bookmark"></i><span>Watchlist</span></a
+          >
+          <a href="news.html" class="nav-link"
+            ><i class="bx bx-news"></i><span>News</span></a
+          >
+          <a href="contact.html" class="nav-link"
+            ><i class="bx bx-envelope"></i><span>Contact</span></a
+          >
         </div>
+        <div class="nav-right">
+          <div class="nav-search-wrapper">
+            <div class="nav-search">
+              <i class="bx bx-search"></i
+              ><input
+                type="text"
+                class="search-input"
+                placeholder="Search..."
+              />
+            </div>
+          </div>
+          <button class="theme-toggle"><i class="bx bx-sun"></i></button>
+          <a href="profile.html" class="nav-profile"
+            ><img
+              src="https://ui-avatars.com/api/?name=User&background=e50914&color=fff&size=36"
+              alt="Profile"
+          /></a>
+          <div class="nav-hamburger">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
     </nav>
     <div class="mobile-nav">
-        <a href="../index.html" class="nav-link"><i class="bx bx-home-alt"></i><span>Home</span></a>
-        <a href="movies.html" class="nav-link"><i class="bx bx-film"></i><span>Movies</span></a>
-        <a href="tvshows.html" class="nav-link active"><i class="bx bx-tv"></i><span>TV Shows</span></a>
-        <a href="watchlist.html" class="nav-link"><i class="bx bx-bookmark"></i><span>Watchlist</span></a>
-        <a href="contact.html" class="nav-link"><i class="bx bx-envelope"></i><span>Contact</span></a>
+      <a href="../index.html" class="nav-link"
+        ><i class="bx bx-home-alt"></i><span>Home</span></a
+      >
+      <a href="movies.html" class="nav-link"
+        ><i class="bx bx-film"></i><span>Movies</span></a
+      >
+      <a href="tvshows.html" class="nav-link active"
+        ><i class="bx bx-tv"></i><span>TV Shows</span></a
+      >
+      <a href="watchlist.html" class="nav-link"
+        ><i class="bx bx-bookmark"></i><span>Watchlist</span></a
+      >
+      <a href="news.html" class="nav-link"
+        ><i class="bx bx-news"></i><span>News</span></a
+      >
+      <a href="contact.html" class="nav-link"
+        ><i class="bx bx-envelope"></i><span>Contact</span></a
+      >
     </div>
 
     <!-- 1. TV Hero -->
     <section class="page-hero">
-        <h1 class="page-hero-title">TV Shows</h1>
-        <p class="page-hero-subtitle">Binge-worthy series, trending TV, and must-watch episodes</p>
+      <h1 class="page-hero-title">TV Shows</h1>
+      <p class="page-hero-subtitle">
+        Binge-worthy series, trending TV, and must-watch episodes
+      </p>
     </section>
 
     <!-- 2. Filter Navigation -->
-    <section class="section" style="padding-top:0;">
-        <div class="container">
-            <div class="filter-bar reveal">
-                <div class="nav-search-wrapper" style="flex:1;min-width:200px;">
-                    <div class="nav-search" style="width:100%;border-radius:var(--radius-md);">
-                        <i class="bx bx-search"></i>
-                        <input type="text" class="search-input" placeholder="Search TV shows..." id="tv-search">
-                    </div>
-                </div>
-                <select class="filter-select" id="tv-genre-filter">
-                    <option value="">All Genres</option>
-                </select>
-                <select class="filter-select" id="tv-sort">
-                    <option value="popularity.desc">Popular</option>
-                    <option value="vote_average.desc">Top Rated</option>
-                    <option value="first_air_date.desc">Newest</option>
-                </select>
+    <section class="section" style="padding-top: 0">
+      <div class="container">
+        <div class="filter-bar reveal">
+          <div class="nav-search-wrapper" style="flex: 1; min-width: 200px">
+            <div
+              class="nav-search"
+              style="width: 100%; border-radius: var(--radius-md)"
+            >
+              <i class="bx bx-search"></i>
+              <input
+                type="text"
+                class="search-input"
+                placeholder="Search TV shows..."
+                id="tv-search"
+              />
             </div>
+          </div>
+          <select class="filter-select" id="tv-genre-filter">
+            <option value="">All Genres</option>
+          </select>
+          <select class="filter-select" id="tv-sort">
+            <option value="popularity.desc">Popular</option>
+            <option value="vote_average.desc">Top Rated</option>
+            <option value="first_air_date.desc">Newest</option>
+          </select>
         </div>
+      </div>
     </section>
 
     <!-- 3. Series Grid -->
-    <section class="section" style="padding-top:0;">
-        <div class="container">
-            <div class="movie-grid" id="tv-grid"></div>
-            <div class="spinner" id="tv-spinner" style="display:none;"></div>
-        </div>
+    <section class="section" style="padding-top: 0">
+      <div class="container">
+        <div class="movie-grid" id="tv-grid"></div>
+        <div class="spinner" id="tv-spinner" style="display: none"></div>
+      </div>
+    </section>
+
+    <!-- 4. Pagination -->
+    <section>
+      <div class="container">
+        <div class="pagination" id="tv-pagination"></div>
+      </div>
     </section>
 
     <!-- 4. Popular Episodes / Trending TV (horizontal scroll) -->
-    <section class="section" style="background:var(--bg-secondary);">
-        <div class="container">
-            <div class="section-header-row reveal">
-                <div class="section-title"><span class="accent-dot"></span> Trending This Week</div>
-            </div>
-            <div class="hscroll" id="trending-tv-scroll"></div>
+    <section class="section" style="background: var(--bg-secondary)">
+      <div class="container">
+        <div class="section-header-row reveal">
+          <div class="section-title">
+            <span class="accent-dot"></span> Trending This Week
+          </div>
         </div>
+        <div class="hscroll-wrapper">
+          <button class="scroll-btn prev" id="trending-tv-prev">
+            <i class="bx bx-chevron-left"></i>
+          </button>
+          <div class="hscroll" id="trending-tv-scroll"></div>
+          <button class="scroll-btn next" id="trending-tv-next">
+            <i class="bx bx-chevron-right"></i>
+          </button>
+        </div>
+      </div>
     </section>
 
     <!-- 5. Recommendation -->
     <section class="section">
-        <div class="container">
-            <div class="section-header-row reveal">
-                <div class="section-title"><span class="accent-dot"></span> Top Rated Series</div>
-            </div>
-            <div class="hscroll" id="top-rated-tv-scroll"></div>
+      <div class="container">
+        <div class="section-header-row reveal">
+          <div class="section-title">
+            <span class="accent-dot"></span> Top Rated Series
+          </div>
         </div>
+        <div class="hscroll-wrapper">
+          <button class="scroll-btn prev" id="top-rated-tv-prev">
+            <i class="bx bx-chevron-left"></i>
+          </button>
+          <div class="hscroll" id="top-rated-tv-scroll"></div>
+          <button class="scroll-btn next" id="top-rated-tv-next">
+            <i class="bx bx-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Binge-Worthy Series -->
+    <section class="section" style="background: var(--bg-secondary)">
+      <div class="container">
+        <div class="section-header-row reveal">
+          <div class="section-title">
+            <span class="accent-dot"></span> Binge-Worthy Series
+          </div>
+        </div>
+        <div class="movie-grid" id="binge-grid"></div>
+      </div>
+    </section>
+
+    <!-- 7. Streaming Originals -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header-row reveal">
+          <div class="section-title">
+            <span class="accent-dot"></span> Streaming Originals
+          </div>
+        </div>
+        <div class="hscroll-wrapper">
+          <button class="scroll-btn prev" id="originals-prev">
+            <i class="bx bx-chevron-left"></i>
+          </button>
+          <div class="hscroll" id="originals-scroll"></div>
+          <button class="scroll-btn next" id="originals-next">
+            <i class="bx bx-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. TV Throwbacks -->
+    <section class="section" style="background: var(--bg-secondary)">
+      <div class="container">
+        <div class="section-header-row reveal">
+          <div class="section-title">
+            <span class="accent-dot"></span> TV Throwbacks
+          </div>
+        </div>
+        <div class="hscroll" id="throwbacks-scroll"></div>
+      </div>
+    </section>
+
+    <!-- 9. Critics' Choice -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header-row reveal">
+          <div class="section-title">
+            <span class="accent-dot"></span> Critics' Choice
+          </div>
+        </div>
+        <div class="movie-grid" id="critics-grid"></div>
+      </div>
+    </section>
+
+    <!-- 10. Animation Station -->
+    <section class="section" style="background: var(--bg-secondary)">
+      <div class="container">
+        <div class="section-header-row reveal">
+          <div class="section-title">
+            <span class="accent-dot"></span> Animation Station
+          </div>
+        </div>
+        <div class="hscroll" id="animation-scroll"></div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand"><a href="../index.html" class="nav-logo">MovieHub</a>
-                    <p>Your ultimate destination for movies and entertainment.</p>
-                    <div class="footer-social"><a href="#"><i class="bx bxl-twitter"></i></a><a href="#"><i
-                                class="bx bxl-instagram"></i></a><a href="https://github.com/bijaybudha-1"
-                            target="_blank"><i class="bx bxl-github"></i></a></div>
-                </div>
-                <div class="footer-col">
-                    <h4>Navigation</h4><a href="../index.html">Home</a><a href="movies.html">Movies</a><a
-                        href="tvshows.html">TV Shows</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Account</h4><a href="profile.html">Profile</a><a href="watchlist.html">Watchlist</a><a
-                        href="ratings.html">Ratings</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Legal</h4><a href="#">Terms</a><a href="#">Privacy</a>
-                </div>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="../index.html" class="nav-logo">MovieHub</a>
+            <p>
+              Your ultimate destination for discovering movies, TV shows, and
+              entertainment. Powered by TMDB.
+            </p>
+            <div class="footer-social">
+              <a href="#" title="Twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" title="Instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" title="Facebook"><i class="bx bxl-facebook"></i></a>
+              <a
+                href="https://github.com/bijaybudha-1"
+                target="_blank"
+                title="GitHub"
+                ><i class="bx bxl-github"></i
+              ></a>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; <span id="footer-year"></span> MovieHub.</p>
-                <p>By <a href="https://github.com/bijaybudha-1" target="_blank">Bijay Budha</a></p>
-            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <a href="../index.html">Home</a>
+            <a href="movies.html">Movies</a>
+            <a href="tvshows.html">TV Shows</a>
+            <a href="news.html">Latest News</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+          <div class="footer-col">
+            <h4>Information</h4>
+            <a href="about.html">About MovieHub</a>
+            <a href="faq.html">FAQ</a>
+            <a href="reviews.html">Community Reviews</a>
+            <a href="ratings.html">Global Ratings</a>
+          </div>
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="profile.html">Your Profile</a>
+            <a href="watchlist.html">Your Watchlist</a>
+            <a href="movies.html">Top Rated Films</a>
+            <a href="tvshows.html">Popular Shows</a>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">DMCA Notice</a>
+          </div>
         </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; <span id="footer-year"></span> MovieHub. All rights reserved.
+          </p>
+          <p>
+            Developed by
+            <a href="https://github.com/bijaybudha-1" target="_blank"
+              >Bijay Budha</a
+            >
+            &bull; Powered by
+            <a href="https://www.themoviedb.org/" target="_blank">TMDB</a>
+          </p>
+        </div>
+      </div>
     </footer>
 
     <div class="modal-overlay" id="trailer-modal">
-        <div class="modal-content"><button class="modal-close"><i class="bx bx-x"></i></button><iframe
-                id="trailer-iframe" allowfullscreen allow="autoplay"></iframe></div>
+      <div class="modal-content">
+        <button class="modal-close"><i class="bx bx-x"></i></button
+        ><iframe id="trailer-iframe" allowfullscreen allow="autoplay"></iframe>
+      </div>
     </div>
 
     <script src="../js/api.js"></script>
@@ -143,6 +330,5 @@
     <script src="../js/search.js"></script>
     <script src="../js/animation.js"></script>
     <script src="../js/tvshows-page.js"></script>
-</body>
-
+  </body>
 </html>

@@ -47,7 +47,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             </div>
             <div class="hero-buttons">
               <a href="pages/movie-details.html?id=${m.id}" class="btn btn-primary btn-lg"><i class="bx bx-play"></i> View Details</a>
-              <button class="btn btn-outline btn-lg action-watchlist" data-id="${m.id}" data-title="${m.title || m.name}" data-poster="${getImageUrl(m.poster_path)}"><i class="bx bx-bookmark"></i> Watchlist</button>
+              <button class="btn btn-outline btn-lg action-watchlist" data-id="${m.id}" data-title="${m.title || m.name}" data-poster="${getImageUrl(m.poster_path)}" data-type="movie"><i class="bx bx-bookmark"></i> Watchlist</button>
+              <button class="btn btn-outline btn-lg action-favorite" data-id="${m.id}" data-title="${m.title || m.name}" data-poster="${getImageUrl(m.poster_path)}" data-type="movie"><i class="bx bx-heart"></i> Favorite</button>
             </div>
           `;
     }
@@ -76,17 +77,64 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // ── Trending Section ──
+  const trendingContainer = document.getElementById("trending-scroll");
+  let trendingInterval;
+
   async function loadTrending(timeWindow = "day") {
     const data = await getTrending("movie", timeWindow);
-    const container = document.getElementById("trending-scroll");
-    if (data && data.results) {
-      container.innerHTML = data.results
+    if (data && data.results && trendingContainer) {
+      trendingContainer.innerHTML = data.results
         .slice(0, 15)
         .map((m) => buildMovieCard(m, "movie"))
         .join("");
       initScrollReveal();
+      startTrendingAutoScroll();
     }
   }
+
+  function startTrendingAutoScroll() {
+    if (trendingInterval) clearInterval(trendingInterval);
+    trendingInterval = setInterval(() => {
+      if (!trendingContainer) return;
+      const scrollAmount = 300; // Average card width + gap
+      if (
+        trendingContainer.scrollLeft + trendingContainer.clientWidth >=
+        trendingContainer.scrollWidth - 10
+      ) {
+        trendingContainer.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        trendingContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    }, 2000);
+  }
+
+  // Pause on hover
+  if (trendingContainer) {
+    trendingContainer.addEventListener("mouseenter", () =>
+      clearInterval(trendingInterval),
+    );
+    trendingContainer.addEventListener("mouseleave", () =>
+      startTrendingAutoScroll(),
+    );
+
+    // Manual Nav
+    const prevBtn = document.getElementById("trending-prev");
+    const nextBtn = document.getElementById("trending-next");
+    if (prevBtn && nextBtn) {
+      const scrollAmount = 300;
+      prevBtn.addEventListener("click", () => {
+        trendingContainer.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+        clearInterval(trendingInterval);
+        startTrendingAutoScroll(); // Resume auto-scroll after interaction
+      });
+      nextBtn.addEventListener("click", () => {
+        trendingContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
+        clearInterval(trendingInterval);
+        startTrendingAutoScroll();
+      });
+    }
+  }
+
   loadTrending("day");
 
   document.querySelectorAll("[data-trending]").forEach((btn) => {
@@ -253,6 +301,16 @@ document.addEventListener("DOMContentLoaded", async () => {
               <a href="pages/movie-details.html?id=${m.id}" class="upcoming-card-poster">
                 <img src="${getImageUrl(m.backdrop_path || m.poster_path, "w780")}" alt="${m.title}" loading="lazy">
                 <span class="upcoming-countdown"><i class="bx bx-time-five"></i> ${countdown}</span>
+                <div class="movie-card-overlay">
+                  <div class="movie-card-actions">
+                    <button class="btn-icon action-watchlist" title="Add to Watchlist" data-id="${m.id}" data-title="${m.title}" data-poster="${getImageUrl(m.poster_path)}" data-type="movie">
+                      <i class="bx bx-bookmark"></i>
+                    </button>
+                    <button class="btn-icon action-favorite" title="Favorite" data-id="${m.id}" data-title="${m.title}" data-poster="${getImageUrl(m.poster_path)}" data-type="movie">
+                      <i class="bx bx-heart"></i>
+                    </button>
+                  </div>
+                </div>
               </a>
               <div class="upcoming-card-info">
                 <h3>${m.title}</h3>

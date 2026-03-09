@@ -18,12 +18,23 @@ document.getElementById("toggle-password").addEventListener("click", () => {
 // Form submit
 document.getElementById("login-form").addEventListener("submit", (e) => {
   e.preventDefault();
+
   const email = document.getElementById("login-email").value;
   const password = document.getElementById("login-password").value;
-  if (email && password.length >= 6) {
+
+  // Get users from localStorage
+  const users = JSON.parse(localStorage.getItem("moviehub_users") || "[]");
+
+  // Find user
+  const user = users.find((u) => u.email === email && u.password === password);
+
+  if (user) {
+    // Set current user
+    localStorage.setItem("moviehub_currentUser", JSON.stringify(user));
+
     showToast("Welcome back!", "success");
     setTimeout(() => (window.location.href = "../index.html"), 1500);
   } else {
-    showToast("Please enter valid credentials", "error");
+    showToast("Invalid email or password", "error");
   }
 });

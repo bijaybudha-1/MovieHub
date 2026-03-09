@@ -13,14 +13,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* ── Authentication & Authorization ────────────────────────── */
 function isLoggedIn() {
-  return localStorage.getItem("moviehub_user") !== null;
+  return localStorage.getItem("moviehub_currentUser") !== null;
 }
 
 function initAuthStatus() {
   const profile = document.querySelector(".nav-profile img");
+  const profileLink = document.querySelector(".nav-profile");
+
   if (profile && isLoggedIn()) {
-    const user = JSON.parse(localStorage.getItem("moviehub_user"));
-    profile.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=e50914&color=fff&size=36`;
+    const user = JSON.parse(localStorage.getItem("moviehub_currentUser"));
+    profile.src =
+      user.avatar ||
+      `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=e50914&color=fff&size=36`;
+    if (profileLink) profileLink.title = `Logged in as ${user.name}`;
+  } else if (profileLink) {
+    // If not logged in, clicking profile should go to login
+    profileLink.href = getPageBase() + "login.html";
   }
 }
 
@@ -244,10 +252,10 @@ function buildMovieCard(item, type = "movie") {
         </div>
         <div class="movie-card-overlay">
           <div class="movie-card-actions">
-            <button class="btn-icon action-watchlist" title="Add to Watchlist" data-id="${item.id}" data-title="${title}" data-poster="${poster}" onclick="event.preventDefault();event.stopPropagation();">
+            <button class="btn-icon action-watchlist" title="Add to Watchlist" data-id="${item.id}" data-title="${title}" data-poster="${poster}" data-type="${type}">
               <i class="bx bx-bookmark"></i>
             </button>
-            <button class="btn-icon action-favorite" title="Favorite" data-id="${item.id}" data-title="${title}" data-poster="${poster}" onclick="event.preventDefault();event.stopPropagation();">
+            <button class="btn-icon action-favorite" title="Favorite" data-id="${item.id}" data-title="${title}" data-poster="${poster}" data-type="${type}">
               <i class="bx bx-heart"></i>
             </button>
           </div>
@@ -265,13 +273,15 @@ function buildMovieCard(item, type = "movie") {
 document.addEventListener("click", (e) => {
   const wlBtn = e.target.closest(".action-watchlist");
   if (wlBtn) {
+    e.preventDefault();
+    e.stopPropagation();
     if (!requireAuth()) return;
-    const { id, title, poster } = wlBtn.dataset;
+    const { id, title, poster, type } = wlBtn.dataset;
     const list = safeParse("moviehub_watchlist");
     if (list.find((m) => String(m.id) === String(id))) {
       showToast(`"${title}" is already in your watchlist`, "info");
     } else {
-      list.unshift({ id, title, poster_path: poster });
+      list.unshift({ id, title, poster_path: poster, type: type || "movie" });
       safeWrite("moviehub_watchlist", list);
       showToast(`Added "${title}" to watchlist`, "success");
     }
@@ -280,13 +290,15 @@ document.addEventListener("click", (e) => {
 
   const favBtn = e.target.closest(".action-favorite");
   if (favBtn) {
+    e.preventDefault();
+    e.stopPropagation();
     if (!requireAuth()) return;
-    const { id, title, poster } = favBtn.dataset;
+    const { id, title, poster, type } = favBtn.dataset;
     const list = safeParse("moviehub_favorites");
     if (list.find((m) => String(m.id) === String(id))) {
       showToast(`"${title}" is already in favorites`, "info");
     } else {
-      list.unshift({ id, title, poster_path: poster });
+      list.unshift({ id, title, poster_path: poster, type: type || "movie" });
       safeWrite("moviehub_favorites", list);
       showToast(`Added "${title}" to favorites`, "success");
     }
@@ -309,3 +321,42 @@ document.addEventListener("click", (e) => {
   btn.appendChild(ripple);
   setTimeout(() => ripple.remove(), 600);
 });
+
+/* ── Scroll Button Helper ──────────────────────────────────── */
+function setupScrollButtons(containerId, prevBtnId, nextBtnId) {
+  const container = document.getElementById(containerId);
+  const prevBtn = document.getElementById(prevBtnId);
+  const nextBtn = document.getElementById(nextBtnId);
+
+  if (!container || !prevBtn || !nextBtn) return;
+
+  const scrollAmount = 400;
+
+  prevBtn.addEventListener("click", () => {
+    container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+  });
+
+  nextBtn.addEventListener("click", () => {
+    container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  });
+
+  // Handle button visibility based on scroll position
+  const updateButtons = () => {
+    const isStart = container.scrollLeft <= 10;
+    const isEnd =
+      container.scrollLeft + container.clientWidth >=
+      container.scrollWidth - 10;
+
+    prevBtn.style.opacity = isStart ? "0" : "1";
+    prevBtn.style.pointerEvents = isStart ? "none" : "auto";
+
+    nextBtn.style.opacity = isEnd ? "0" : "1";
+    nextBtn.style.pointerEvents = isEnd ? "none" : "auto";
+  };
+
+  container.addEventListener("scroll", updateButtons, { passive: true });
+  window.addEventListener("resize", updateButtons);
+
+  // Initial check
+  updateButtons();
+}

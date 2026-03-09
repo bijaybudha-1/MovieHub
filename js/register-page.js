@@ -3,19 +3,22 @@
    ============================================================ */
 
 // Toggle password
-document.getElementById("toggle-reg-password").addEventListener("click", () => {
-  const input = document.getElementById("reg-password");
-  const icon = document
-    .getElementById("toggle-reg-password")
-    .querySelector("i");
-  if (input.type === "password") {
-    input.type = "text";
-    icon.className = "bx bx-show";
-  } else {
-    input.type = "password";
-    icon.className = "bx bx-hide";
-  }
-});
+const toggleBtn = (btnId, inputId) => {
+  document.getElementById(btnId).addEventListener("click", () => {
+    const input = document.getElementById(inputId);
+    const icon = document.getElementById(btnId).querySelector("i");
+    if (input.type === "password") {
+      input.type = "text";
+      icon.className = "bx bx-show";
+    } else {
+      input.type = "password";
+      icon.className = "bx bx-hide";
+    }
+  });
+};
+
+toggleBtn("toggle-reg-password", "reg-password");
+toggleBtn("toggle-reg-confirm", "reg-confirm");
 
 // Password strength
 document.getElementById("reg-password").addEventListener("input", (e) => {
@@ -46,16 +49,52 @@ document.getElementById("reg-password").addEventListener("input", (e) => {
 // Form submit
 document.getElementById("register-form").addEventListener("submit", (e) => {
   e.preventDefault();
+
+  const name = document.getElementById("reg-name").value;
+  const email = document.getElementById("reg-email").value;
+  const username = document.getElementById("reg-username").value;
   const password = document.getElementById("reg-password").value;
   const confirm = document.getElementById("reg-confirm").value;
+
   if (password !== confirm) {
     showToast("Passwords do not match", "error");
     return;
   }
+
   if (password.length < 8) {
     showToast("Password must be at least 8 characters", "error");
     return;
   }
+
+  // Get existing users
+  const users = JSON.parse(localStorage.getItem("moviehub_users") || "[]");
+
+  // Check if email or username exists
+  if (users.find((u) => u.email === email)) {
+    showToast("Email already registered", "error");
+    return;
+  }
+  if (users.find((u) => u.username === username)) {
+    showToast("Username already taken", "error");
+    return;
+  }
+
+  // Create new user
+  const newUser = {
+    name,
+    email,
+    username,
+    password, // In a real app, this should be hashed
+    joinDate: new Date().toISOString(),
+    avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=e50914&color=fff&size=128`,
+  };
+
+  users.push(newUser);
+  localStorage.setItem("moviehub_users", JSON.stringify(users));
+
+  // Auto-login
+  localStorage.setItem("moviehub_currentUser", JSON.stringify(newUser));
+
   showToast("Account created successfully!", "success");
   setTimeout(() => (window.location.href = "../index.html"), 1500);
 });

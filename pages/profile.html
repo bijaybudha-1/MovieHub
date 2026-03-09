@@ -1,182 +1,333 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MovieHub - Profile</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MovieHub — Profile</title>
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/components.css">
-    <link rel="stylesheet" href="../css/animations.css">
-    <link rel="stylesheet" href="../css/responsive.css">
-</head>
-
-<body>
+  <body>
     <nav class="navbar">
-        <div class="container">
-            <a href="../index.html" class="nav-logo">MovieHub</a>
-            <div class="nav-links">
-                <a href="../index.html" class="nav-link"><i class="bx bx-home-alt"></i><span>Home</span></a>
-                <a href="movies.html" class="nav-link"><i class="bx bx-film"></i><span>Movies</span></a>
-                <a href="tvshows.html" class="nav-link"><i class="bx bx-tv"></i><span>TV Shows</span></a>
-                <a href="watchlist.html" class="nav-link"><i class="bx bx-bookmark"></i><span>Watchlist</span></a>
-                <a href="contact.html" class="nav-link"><i class="bx bx-envelope"></i><span>Contact</span></a>
-            </div>
-            <div class="nav-right">
-                <div class="nav-search-wrapper">
-                    <div class="nav-search"><i class="bx bx-search"></i><input type="text" class="search-input"
-                            placeholder="Search..."></div>
-                </div>
-                <button class="theme-toggle"><i class="bx bx-sun"></i></button>
-                <a href="profile.html" class="nav-profile"><img
-                        src="https://ui-avatars.com/api/?name=User&background=e50914&color=fff&size=36"
-                        alt="Profile"></a>
-                <div class="nav-hamburger"><span></span><span></span><span></span></div>
-            </div>
+      <div class="container">
+        <a href="../index.html" class="nav-logo">MovieHub</a>
+        <div class="nav-links">
+          <a href="../index.html" class="nav-link"
+            ><i class="bx bx-home-alt"></i><span>Home</span></a
+          >
+          <a href="movies.html" class="nav-link"
+            ><i class="bx bx-film"></i><span>Movies</span></a
+          >
+          <a href="tvshows.html" class="nav-link"
+            ><i class="bx bx-tv"></i><span>TV Shows</span></a
+          >
+          <a href="watchlist.html" class="nav-link"
+            ><i class="bx bx-bookmark"></i><span>Watchlist</span></a
+          >
+          <a href="news.html" class="nav-link"
+            ><i class="bx bx-news"></i><span>News</span></a
+          >
+          <a href="contact.html" class="nav-link"
+            ><i class="bx bx-envelope"></i><span>Contact</span></a
+          >
         </div>
+        <div class="nav-right">
+          <div class="nav-search-wrapper">
+            <div class="nav-search">
+              <i class="bx bx-search"></i
+              ><input
+                type="text"
+                class="search-input"
+                placeholder="Search..."
+              />
+            </div>
+          </div>
+          <button class="theme-toggle"><i class="bx bx-sun"></i></button>
+          <a href="profile.html" class="nav-profile"
+            ><img
+              src="https://ui-avatars.com/api/?name=User&background=e50914&color=fff&size=36"
+              alt="Profile"
+          /></a>
+          <div class="nav-hamburger">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
     </nav>
     <div class="mobile-nav">
-        <a href="../index.html" class="nav-link"><i class="bx bx-home-alt"></i><span>Home</span></a>
-        <a href="movies.html" class="nav-link"><i class="bx bx-film"></i><span>Movies</span></a>
-        <a href="tvshows.html" class="nav-link"><i class="bx bx-tv"></i><span>TV Shows</span></a>
-        <a href="watchlist.html" class="nav-link"><i class="bx bx-bookmark"></i><span>Watchlist</span></a>
-        <a href="contact.html" class="nav-link"><i class="bx bx-envelope"></i><span>Contact</span></a>
+      <a href="../index.html" class="nav-link"
+        ><i class="bx bx-home-alt"></i><span>Home</span></a
+      >
+      <a href="movies.html" class="nav-link"
+        ><i class="bx bx-film"></i><span>Movies</span></a
+      >
+      <a href="tvshows.html" class="nav-link"
+        ><i class="bx bx-tv"></i><span>TV Shows</span></a
+      >
+      <a href="watchlist.html" class="nav-link"
+        ><i class="bx bx-bookmark"></i><span>Watchlist</span></a
+      >
+      <a href="news.html" class="nav-link"
+        ><i class="bx bx-news"></i><span>News</span></a
+      >
+      <a href="contact.html" class="nav-link"
+        ><i class="bx bx-envelope"></i><span>Contact</span></a
+      >
     </div>
 
     <!-- 1. Profile Header Card -->
     <section class="section">
-        <div class="container">
-            <div class="profile-header reveal">
-                <img src="https://ui-avatars.com/api/?name=Bijay+Budha&background=e50914&color=fff&size=120&font-size=0.4"
-                    alt="Profile" class="profile-avatar-lg">
-                <div class="profile-details">
-                    <h1>Bijay Budha</h1>
-                    <p class="username">@bijaybudha</p>
-                    <p class="member-since"><i class="bx bx-calendar"></i> Member since January 2026</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="profile-header reveal">
+          <img
+            src="https://ui-avatars.com/api/?name=Bijay+Budha&background=e50914&color=fff&size=120&font-size=0.4"
+            alt="Profile"
+            class="profile-avatar-lg"
+          />
+          <div class="profile-details">
+            <h1 id="user-display-name">Bijay Budha</h1>
+            <p class="username" id="user-display-username">@bijaybudha</p>
+            <p class="member-since">
+              <i class="bx bx-calendar"></i> Member since
+              <span id="user-member-since">January 2026</span>
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- 2. Dashboard Analytics -->
-    <section class="section" style="padding-top:0;">
-        <div class="container">
-            <div class="section-header reveal">
-                <div class="section-title"><span class="accent-dot"></span> Dashboard</div>
-            </div>
-            <div class="stats-grid" id="stats-grid">
-                <div class="stat-card reveal delay-1">
-                    <div class="stat-icon"><i class="bx bx-bookmark"></i></div>
-                    <div class="stat-number count-up" id="stat-watchlist" data-count="0">0</div>
-                    <div class="stat-label">Watchlist</div>
-                </div>
-                <div class="stat-card reveal delay-2">
-                    <div class="stat-icon"><i class="bx bx-star"></i></div>
-                    <div class="stat-number count-up" id="stat-rated" data-count="0">0</div>
-                    <div class="stat-label">Rated</div>
-                </div>
-                <div class="stat-card reveal delay-3">
-                    <div class="stat-icon"><i class="bx bx-heart"></i></div>
-                    <div class="stat-number count-up" id="stat-favorites" data-count="0">0</div>
-                    <div class="stat-label">Favorites</div>
-                </div>
-                <div class="stat-card reveal delay-4">
-                    <div class="stat-icon"><i class="bx bx-bar-chart-alt-2"></i></div>
-                    <div class="stat-number" id="stat-avg">0</div>
-                    <div class="stat-label">Avg Rating</div>
-                </div>
-            </div>
+    <section class="section" style="padding-top: 0">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-title">
+            <span class="accent-dot"></span> Dashboard
+          </div>
         </div>
+        <div class="stats-grid" id="stats-grid">
+          <div class="stat-card reveal delay-1">
+            <div class="stat-icon"><i class="bx bx-bookmark"></i></div>
+            <div
+              class="stat-number count-up"
+              id="stat-watchlist"
+              data-count="0"
+            >
+              0
+            </div>
+            <div class="stat-label">Watchlist</div>
+          </div>
+          <div class="stat-card reveal delay-2">
+            <div class="stat-icon"><i class="bx bx-star"></i></div>
+            <div class="stat-number count-up" id="stat-rated" data-count="0">
+              0
+            </div>
+            <div class="stat-label">Rated</div>
+          </div>
+          <div class="stat-card reveal delay-3">
+            <div class="stat-icon"><i class="bx bx-heart"></i></div>
+            <div
+              class="stat-number count-up"
+              id="stat-favorites"
+              data-count="0"
+            >
+              0
+            </div>
+            <div class="stat-label">Favorites</div>
+          </div>
+          <div class="stat-card reveal delay-4">
+            <div class="stat-icon"><i class="bx bx-bar-chart-alt-2"></i></div>
+            <div class="stat-number" id="stat-avg">0</div>
+            <div class="stat-label">Avg Rating</div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- 3. Watchlist Section -->
-    <section class="section" style="background:var(--bg-secondary);">
-        <div class="container">
-            <div class="section-header-row reveal">
-                <div class="section-title"><span class="accent-dot"></span> My Watchlist</div>
-                <a href="watchlist.html" class="view-all">View All <i class="bx bx-right-arrow-alt"></i></a>
-            </div>
-            <div class="watchlist-preview-grid" id="profile-watchlist"></div>
+    <section class="section" style="background: var(--bg-secondary)">
+      <div class="container">
+        <div class="section-header-row reveal">
+          <div class="section-title">
+            <span class="accent-dot"></span> My Watchlist
+          </div>
+          <a href="watchlist.html" class="view-all"
+            >View All <i class="bx bx-right-arrow-alt"></i
+          ></a>
         </div>
+        <div class="watchlist-preview-grid" id="profile-watchlist"></div>
+      </div>
     </section>
 
     <!-- 4. Rated Movies -->
     <section class="section">
-        <div class="container">
-            <div class="section-header-row reveal">
-                <div class="section-title"><span class="accent-dot"></span> My Ratings</div>
-                <a href="ratings.html" class="view-all">View All <i class="bx bx-right-arrow-alt"></i></a>
-            </div>
-            <div class="watchlist-preview-grid" id="profile-ratings"></div>
+      <div class="container">
+        <div class="section-header-row reveal">
+          <div class="section-title">
+            <span class="accent-dot"></span> My Ratings
+          </div>
+          <a href="ratings.html" class="view-all"
+            >View All <i class="bx bx-right-arrow-alt"></i
+          ></a>
         </div>
+        <div class="watchlist-preview-grid" id="profile-ratings"></div>
+      </div>
     </section>
 
     <!-- 5. Account Settings -->
-    <section class="section" style="background:var(--bg-secondary);">
-        <div class="container">
-            <div class="section-header reveal">
-                <div class="section-title"><span class="accent-dot"></span> Settings</div>
-            </div>
-            <div class="settings-section reveal">
-                <h3>Preferences</h3>
-                <div class="settings-row">
-                    <label>Dark Mode</label>
-                    <div class="toggle-switch"><input type="checkbox" id="dark-mode-toggle" checked><label
-                            class="toggle-slider" for="dark-mode-toggle"></label></div>
-                </div>
-                <div class="settings-row">
-                    <label>Email Notifications</label>
-                    <div class="toggle-switch"><input type="checkbox" id="email-notif" checked><label
-                            class="toggle-slider" for="email-notif"></label></div>
-                </div>
-                <div class="settings-row">
-                    <label>Smooth Scrolling</label>
-                    <div class="toggle-switch"><input type="checkbox" id="smooth-scroll-toggle" checked><label
-                            class="toggle-slider" for="smooth-scroll-toggle"></label></div>
-                </div>
-            </div>
-            <div class="settings-section reveal">
-                <h3>Account</h3>
-                <div class="settings-row"><label>Email</label><span
-                        style="color:var(--text-secondary);font-size:var(--fs-sm);">bijay@example.com</span></div>
-                <div class="settings-row"><label>Username</label><span
-                        style="color:var(--text-secondary);font-size:var(--fs-sm);">@bijaybudha</span></div>
-                <div class="settings-row">
-                    <label>Clear All Data</label>
-                    <button class="btn btn-sm btn-outline"
-                        style="color:var(--rating-low);border-color:var(--rating-low);"
-                        onclick="if(confirm('Clear all saved data?')){localStorage.clear();showToast('All data cleared','success');setTimeout(()=>location.reload(),1000);}">
-                        <i class="bx bx-trash"></i> Clear
-                    </button>
-                </div>
-            </div>
+    <section class="section" style="background: var(--bg-secondary)">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-title">
+            <span class="accent-dot"></span> Settings
+          </div>
         </div>
+        <div class="settings-section reveal">
+          <h3>Preferences</h3>
+          <div class="settings-row">
+            <label>Dark Mode</label>
+            <div class="toggle-switch">
+              <input type="checkbox" id="dark-mode-toggle" checked /><label
+                class="toggle-slider"
+                for="dark-mode-toggle"
+              ></label>
+            </div>
+          </div>
+          <div class="settings-row">
+            <label>Email Notifications</label>
+            <div class="toggle-switch">
+              <input type="checkbox" id="email-notif" checked /><label
+                class="toggle-slider"
+                for="email-notif"
+              ></label>
+            </div>
+          </div>
+          <div class="settings-row">
+            <label>Smooth Scrolling</label>
+            <div class="toggle-switch">
+              <input type="checkbox" id="smooth-scroll-toggle" checked /><label
+                class="toggle-slider"
+                for="smooth-scroll-toggle"
+              ></label>
+            </div>
+          </div>
+        </div>
+        <div class="settings-section reveal">
+          <h3>Account</h3>
+          <div class="settings-row">
+            <label>Email</label
+            ><span
+              id="user-display-email"
+              style="color: var(--text-secondary); font-size: var(--fs-sm)"
+              >bijay@example.com</span
+            >
+          </div>
+          <div class="settings-row">
+            <label>Username</label
+            ><span
+              id="user-display-username-small"
+              style="color: var(--text-secondary); font-size: var(--fs-sm)"
+              >@bijaybudha</span
+            >
+          </div>
+          <div class="settings-row">
+            <label>Clear All Activity</label>
+            <button
+              class="btn btn-sm btn-outline"
+              id="clear-data-btn"
+              style="color: var(--rating-low); border-color: var(--rating-low)"
+            >
+              <i class="bx bx-trash"></i> Clear
+            </button>
+          </div>
+          <div
+            class="settings-row"
+            style="
+              border-top: 1px solid var(--border-color);
+              padding-top: var(--space-md);
+              margin-top: var(--space-md);
+            "
+          >
+            <label>Logout</label>
+            <button class="btn btn-sm btn-primary" id="logout-btn">
+              <i class="bx bx-log-out"></i> Logout
+            </button>
+          </div>
+        </div>
+      </div>
     </section>
 
     <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand"><a href="../index.html" class="nav-logo">MovieHub</a>
-                    <p>Your destination for movies and entertainment.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Navigation</h4><a href="../index.html">Home</a><a href="movies.html">Movies</a><a
-                        href="tvshows.html">TV Shows</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Account</h4><a href="profile.html">Profile</a><a href="watchlist.html">Watchlist</a><a
-                        href="ratings.html">Ratings</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Legal</h4><a href="#">Terms</a><a href="#">Privacy</a>
-                </div>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="../index.html" class="nav-logo">MovieHub</a>
+            <p>
+              Your ultimate destination for discovering movies, TV shows, and
+              entertainment. Powered by TMDB.
+            </p>
+            <div class="footer-social">
+              <a href="#" title="Twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" title="Instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" title="Facebook"><i class="bx bxl-facebook"></i></a>
+              <a
+                href="https://github.com/bijaybudha-1"
+                target="_blank"
+                title="GitHub"
+                ><i class="bx bxl-github"></i
+              ></a>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; <span id="footer-year"></span> MovieHub.</p>
-                <p>By <a href="https://github.com/bijaybudha-1" target="_blank">Bijay Budha</a></p>
-            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <a href="../index.html">Home</a>
+            <a href="movies.html">Movies</a>
+            <a href="tvshows.html">TV Shows</a>
+            <a href="news.html">Latest News</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+          <div class="footer-col">
+            <h4>Information</h4>
+            <a href="about.html">About MovieHub</a>
+            <a href="faq.html">FAQ</a>
+            <a href="reviews.html">Community Reviews</a>
+            <a href="ratings.html">Global Ratings</a>
+          </div>
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="profile.html">Your Profile</a>
+            <a href="watchlist.html">Your Watchlist</a>
+            <a href="movies.html">Top Rated Films</a>
+            <a href="tvshows.html">Popular Shows</a>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">DMCA Notice</a>
+          </div>
         </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; <span id="footer-year"></span> MovieHub. All rights reserved.
+          </p>
+          <p>
+            Developed by
+            <a href="https://github.com/bijaybudha-1" target="_blank"
+              >Bijay Budha</a
+            >
+            &bull; Powered by
+            <a href="https://www.themoviedb.org/" target="_blank">TMDB</a>
+          </p>
+        </div>
+      </div>
     </footer>
 
     <script src="../js/api.js"></script>
@@ -186,6 +337,5 @@
     <script src="../js/search.js"></script>
     <script src="../js/animation.js"></script>
     <script src="../js/profile-page.js"></script>
-</body>
-
+  </body>
 </html>

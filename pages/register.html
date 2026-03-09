@@ -1,133 +1,416 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MovieHub - Create Account</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MovieHub — Create Account</title>
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/components.css">
-    <link rel="stylesheet" href="../css/animations.css">
-    <link rel="stylesheet" href="../css/responsive.css">
-</head>
-
-<body>
+  <body>
     <nav class="navbar">
-        <div class="container">
-            <a href="../index.html" class="nav-logo">MovieHub</a>
-            <div class="nav-links">
-                <a href="../index.html" class="nav-link"><i class="bx bx-home-alt"></i><span>Home</span></a>
-                <a href="movies.html" class="nav-link"><i class="bx bx-film"></i><span>Movies</span></a>
-                <a href="tvshows.html" class="nav-link"><i class="bx bx-tv"></i><span>TV Shows</span></a>
-            </div>
-            <div class="nav-right">
-                <button class="theme-toggle"><i class="bx bx-sun"></i></button>
-                <div class="nav-hamburger"><span></span><span></span><span></span></div>
-            </div>
+      <div class="container">
+        <a href="../index.html" class="nav-logo">MovieHub</a>
+        <div class="nav-links">
+          <a href="../index.html" class="nav-link"
+            ><i class="bx bx-home-alt"></i><span>Home</span></a
+          >
+          <a href="movies.html" class="nav-link"
+            ><i class="bx bx-film"></i><span>Movies</span></a
+          >
+          <a href="tvshows.html" class="nav-link"
+            ><i class="bx bx-tv"></i><span>TV Shows</span></a
+          >
+          <a href="watchlist.html" class="nav-link"
+            ><i class="bx bx-bookmark"></i><span>Watchlist</span></a
+          >
+          <a href="news.html" class="nav-link"
+            ><i class="bx bx-news"></i><span>News</span></a
+          >
+          <a href="contact.html" class="nav-link"
+            ><i class="bx bx-envelope"></i><span>Contact</span></a
+          >
         </div>
+        <div class="nav-right">
+          <button class="theme-toggle"><i class="bx bx-sun"></i></button>
+          <div class="nav-hamburger">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
     </nav>
     <div class="mobile-nav">
-        <a href="../index.html" class="nav-link"><i class="bx bx-home-alt"></i><span>Home</span></a>
-        <a href="movies.html" class="nav-link"><i class="bx bx-film"></i><span>Movies</span></a>
-        <a href="tvshows.html" class="nav-link"><i class="bx bx-tv"></i><span>TV Shows</span></a>
+      <a href="../index.html" class="nav-link"
+        ><i class="bx bx-home-alt"></i><span>Home</span></a
+      >
+      <a href="movies.html" class="nav-link"
+        ><i class="bx bx-film"></i><span>Movies</span></a
+      >
+      <a href="tvshows.html" class="nav-link"
+        ><i class="bx bx-tv"></i><span>TV Shows</span></a
+      >
+      <a href="watchlist.html" class="nav-link"
+        ><i class="bx bx-bookmark"></i><span>Watchlist</span></a
+      >
+      <a href="news.html" class="nav-link"
+        ><i class="bx bx-news"></i><span>News</span></a
+      >
+      <a href="contact.html" class="nav-link"
+        ><i class="bx bx-envelope"></i><span>Contact</span></a
+      >
     </div>
 
     <!-- Auth Section -->
     <section class="auth-section">
-        <div class="auth-bg"></div>
-        <div class="container" style="max-width:480px;">
-            <div class="auth-card reveal-scale">
-                <div class="auth-header">
-                    <a href="../index.html" class="nav-logo"
-                        style="font-size:var(--fs-2xl);margin-bottom:var(--space-sm);display:inline-block;">MovieHub</a>
-                    <h1 style="font-size:var(--fs-xl);font-weight:700;">Create Account</h1>
-                    <p style="color:var(--text-secondary);font-size:var(--fs-sm);">Join MovieHub to track your favorite
-                        movies and shows</p>
-                </div>
+      <div class="auth-bg"></div>
+      <div class="container" style="max-width: 480px">
+        <div class="auth-card reveal-scale">
+          <div class="auth-header">
+            <a
+              href="../index.html"
+              class="nav-logo"
+              style="
+                font-size: var(--fs-2xl);
+                margin-bottom: var(--space-sm);
+                display: inline-block;
+              "
+              >MovieHub</a
+            >
+            <h1 style="font-size: var(--fs-xl); font-weight: 700">
+              Create Account
+            </h1>
+            <p style="color: var(--text-secondary); font-size: var(--fs-sm)">
+              Join MovieHub to track your favorite movies and shows
+            </p>
+          </div>
 
-                <form id="register-form">
-                    <div class="form-group">
-                        <label class="form-label">Full Name</label>
-                        <input type="text" class="form-input" placeholder="John Doe" required id="reg-name">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Email Address</label>
-                        <input type="email" class="form-input" placeholder="you@example.com" required id="reg-email">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Username</label>
-                        <input type="text" class="form-input" placeholder="@cooluser" required id="reg-username">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Password</label>
-                        <div style="position:relative;">
-                            <input type="password" class="form-input" placeholder="Minimum 8 characters" required
-                                id="reg-password" minlength="8">
-                            <button type="button" class="password-toggle" id="toggle-reg-password"
-                                style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1.2rem;">
-                                <i class="bx bx-hide"></i>
-                            </button>
-                        </div>
-                        <div class="password-strength" id="pw-strength" style="margin-top:var(--space-xs);">
-                            <div class="strength-bars" style="display:flex;gap:4px;">
-                                <div class="strength-bar"
-                                    style="flex:1;height:4px;border-radius:2px;background:var(--border-color);transition:0.3s;">
-                                </div>
-                                <div class="strength-bar"
-                                    style="flex:1;height:4px;border-radius:2px;background:var(--border-color);transition:0.3s;">
-                                </div>
-                                <div class="strength-bar"
-                                    style="flex:1;height:4px;border-radius:2px;background:var(--border-color);transition:0.3s;">
-                                </div>
-                                <div class="strength-bar"
-                                    style="flex:1;height:4px;border-radius:2px;background:var(--border-color);transition:0.3s;">
-                                </div>
-                            </div>
-                            <span class="strength-text"
-                                style="font-size:var(--fs-xs);color:var(--text-muted);margin-top:4px;display:block;"></span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Confirm Password</label>
-                        <input type="password" class="form-input" placeholder="Repeat your password" required
-                            id="reg-confirm">
-                    </div>
-                    <label
-                        style="display:flex;align-items:flex-start;gap:var(--space-xs);margin-bottom:var(--space-lg);font-size:var(--fs-sm);cursor:pointer;">
-                        <input type="checkbox" required style="accent-color:var(--primary);margin-top:3px;">
-                        <span>I agree to the <a href="#" style="color:var(--primary);text-decoration:none;">Terms of
-                                Service</a> and <a href="#" style="color:var(--primary);text-decoration:none;">Privacy
-                                Policy</a></span>
-                    </label>
-                    <button type="submit" class="btn btn-primary btn-lg" style="width:100%;"><i
-                            class="bx bx-user-plus"></i> Create Account</button>
-                </form>
-
-                <div class="divider"
-                    style="display:flex;align-items:center;gap:var(--space-md);margin:var(--space-xl) 0;">
-                    <hr style="flex:1;border:none;border-top:1px solid var(--border-color);">
-                    <span style="color:var(--text-muted);font-size:var(--fs-xs);">OR</span>
-                    <hr style="flex:1;border:none;border-top:1px solid var(--border-color);">
-                </div>
-
-                <div class="social-btns">
-                    <button class="btn btn-outline" style="width:100%;"
-                        onclick="showToast('Google sign-up not available in demo','info')"><i class="bx bxl-google"></i>
-                        Sign up with Google</button>
-                    <button class="btn btn-outline" style="width:100%;"
-                        onclick="showToast('GitHub sign-up not available in demo','info')"><i class="bx bxl-github"></i>
-                        Sign up with GitHub</button>
-                </div>
-
-                <p
-                    style="text-align:center;margin-top:var(--space-xl);font-size:var(--fs-sm);color:var(--text-secondary);">
-                    Already have an account? <a href="login.html"
-                        style="color:var(--primary);font-weight:600;text-decoration:none;">Sign In</a>
-                </p>
+          <form id="register-form">
+            <div class="form-group">
+              <label class="form-label">Full Name</label>
+              <input
+                type="text"
+                class="form-input"
+                placeholder="John Doe"
+                required
+                id="reg-name"
+              />
             </div>
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input
+                type="email"
+                class="form-input"
+                placeholder="you@example.com"
+                required
+                id="reg-email"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Username</label>
+              <input
+                type="text"
+                class="form-input"
+                placeholder="@cooluser"
+                required
+                id="reg-username"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Password</label>
+              <div style="position: relative">
+                <input
+                  type="password"
+                  class="form-input"
+                  placeholder="Minimum 8 characters"
+                  required
+                  id="reg-password"
+                  minlength="8"
+                />
+                <button
+                  type="button"
+                  class="password-toggle"
+                  id="toggle-reg-password"
+                  style="
+                    position: absolute;
+                    right: 12px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: none;
+                    border: none;
+                    color: var(--text-muted);
+                    cursor: pointer;
+                    font-size: 1.2rem;
+                  "
+                >
+                  <i class="bx bx-hide"></i>
+                </button>
+              </div>
+              <div
+                class="password-strength"
+                id="pw-strength"
+                style="margin-top: var(--space-xs)"
+              >
+                <div class="strength-bars" style="display: flex; gap: 4px">
+                  <div
+                    class="strength-bar"
+                    style="
+                      flex: 1;
+                      height: 4px;
+                      border-radius: 2px;
+                      background: var(--border-color);
+                      transition: 0.3s;
+                    "
+                  ></div>
+                  <div
+                    class="strength-bar"
+                    style="
+                      flex: 1;
+                      height: 4px;
+                      border-radius: 2px;
+                      background: var(--border-color);
+                      transition: 0.3s;
+                    "
+                  ></div>
+                  <div
+                    class="strength-bar"
+                    style="
+                      flex: 1;
+                      height: 4px;
+                      border-radius: 2px;
+                      background: var(--border-color);
+                      transition: 0.3s;
+                    "
+                  ></div>
+                  <div
+                    class="strength-bar"
+                    style="
+                      flex: 1;
+                      height: 4px;
+                      border-radius: 2px;
+                      background: var(--border-color);
+                      transition: 0.3s;
+                    "
+                  ></div>
+                </div>
+                <span
+                  class="strength-text"
+                  style="
+                    font-size: var(--fs-xs);
+                    color: var(--text-muted);
+                    margin-top: 4px;
+                    display: block;
+                  "
+                ></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Confirm Password</label>
+              <div style="position: relative">
+                <input
+                  type="password"
+                  class="form-input"
+                  placeholder="Repeat your password"
+                  required
+                  id="reg-confirm"
+                />
+                <button
+                  type="button"
+                  class="password-toggle"
+                  id="toggle-reg-confirm"
+                  style="
+                    position: absolute;
+                    right: 12px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: none;
+                    border: none;
+                    color: var(--text-muted);
+                    cursor: pointer;
+                    font-size: 1.2rem;
+                  "
+                >
+                  <i class="bx bx-hide"></i>
+                </button>
+              </div>
+            </div>
+            <label
+              style="
+                display: flex;
+                align-items: flex-start;
+                gap: var(--space-xs);
+                margin-bottom: var(--space-lg);
+                font-size: var(--fs-sm);
+                cursor: pointer;
+              "
+            >
+              <input
+                type="checkbox"
+                required
+                style="accent-color: var(--primary); margin-top: 3px"
+              />
+              <span
+                >I agree to the
+                <a href="#" style="color: var(--primary); text-decoration: none"
+                  >Terms of Service</a
+                >
+                and
+                <a href="#" style="color: var(--primary); text-decoration: none"
+                  >Privacy Policy</a
+                ></span
+              >
+            </label>
+            <button
+              type="submit"
+              class="btn btn-primary btn-lg"
+              style="width: 100%"
+            >
+              <i class="bx bx-user-plus"></i> Create Account
+            </button>
+          </form>
+
+          <div
+            class="divider"
+            style="
+              display: flex;
+              align-items: center;
+              gap: var(--space-md);
+              margin: var(--space-xl) 0;
+            "
+          >
+            <hr
+              style="
+                flex: 1;
+                border: none;
+                border-top: 1px solid var(--border-color);
+              "
+            />
+            <span style="color: var(--text-muted); font-size: var(--fs-xs)"
+              >OR</span
+            >
+            <hr
+              style="
+                flex: 1;
+                border: none;
+                border-top: 1px solid var(--border-color);
+              "
+            />
+          </div>
+
+          <div class="social-btns">
+            <button
+              class="social-btn google"
+              onclick="
+                showToast('Google sign-up not available in demo', 'info')
+              "
+            >
+              <i class="bx bxl-google"></i> Sign up with Google
+            </button>
+            <button
+              class="social-btn github"
+              onclick="
+                showToast('GitHub sign-up not available in demo', 'info')
+              "
+            >
+              <i class="bx bxl-github"></i> Sign up with GitHub
+            </button>
+          </div>
+
+          <p
+            style="
+              text-align: center;
+              margin-top: var(--space-xl);
+              font-size: var(--fs-sm);
+              color: var(--text-secondary);
+            "
+          >
+            Already have an account?
+            <a
+              href="login.html"
+              style="
+                color: var(--primary);
+                font-weight: 600;
+                text-decoration: none;
+              "
+              >Sign In</a
+            >
+          </p>
         </div>
+      </div>
     </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="../index.html" class="nav-logo">MovieHub</a>
+            <p>
+              Your ultimate destination for discovering movies, TV shows, and
+              entertainment. Powered by TMDB.
+            </p>
+            <div class="footer-social">
+              <a href="#" title="Twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" title="Instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" title="Facebook"><i class="bx bxl-facebook"></i></a>
+              <a
+                href="https://github.com/bijaybudha-1"
+                target="_blank"
+                title="GitHub"
+                ><i class="bx bxl-github"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <a href="../index.html">Home</a>
+            <a href="movies.html">Movies</a>
+            <a href="tvshows.html">TV Shows</a>
+            <a href="news.html">Latest News</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+          <div class="footer-col">
+            <h4>Information</h4>
+            <a href="about.html">About MovieHub</a>
+            <a href="faq.html">FAQ</a>
+            <a href="reviews.html">Community Reviews</a>
+            <a href="ratings.html">Global Ratings</a>
+          </div>
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="profile.html">Your Profile</a>
+            <a href="watchlist.html">Your Watchlist</a>
+            <a href="movies.html">Top Rated Films</a>
+            <a href="tvshows.html">Popular Shows</a>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">DMCA Notice</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; <span id="footer-year"></span> MovieHub. All rights reserved.
+          </p>
+          <p>
+            Developed by
+            <a href="https://github.com/bijaybudha-1" target="_blank"
+              >Bijay Budha</a
+            >
+            &bull; Powered by
+            <a href="https://www.themoviedb.org/" target="_blank">TMDB</a>
+          </p>
+        </div>
+      </div>
+    </footer>
 
     <script src="../js/api.js"></script>
     <script src="../js/main.js"></script>
@@ -135,6 +418,5 @@
     <script src="../js/rating.js"></script>
     <script src="../js/animation.js"></script>
     <script src="../js/register-page.js"></script>
-</body>
-
+  </body>
 </html>

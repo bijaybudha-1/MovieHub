@@ -362,10 +362,22 @@
   }
 }
 
-/* ── High resolution ───────────────────────────────────────── */
+/* ── High resolution (Desktop/Laptops) ────────────────────── */
 @media (min-width: 1600px) {
   :root {
-    --container-max: 1500px;
+    --container-max: 1540px;
+    --fs-base: 1.1rem;
+  }
+}
+
+/* ── Extreme resolution (2K/4K Monitors) ──────────────────── */
+@media (min-width: 2500px) {
+  :root {
+    --container-max: 2200px;
+    --fs-base: 1.25rem;
+    --fs-5xl: 5.5rem;
+    --fs-4xl: 4.5rem;
+    --space-4xl: 8rem;
   }
 }
 

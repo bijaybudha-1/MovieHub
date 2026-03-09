@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MovieHub - About Us</title>
+    <meta
+      name="description"
+      content="Learn more about MovieHub, our mission to bridge the gap between cinephiles and global cinematic metadata."
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="../index.html" class="nav-logo">MovieHub</a>
+        <div class="nav-links">
+          <a href="../index.html" class="nav-link"
+            ><i class="bx bx-home-alt"></i><span>Home</span></a
+          >
+          <a href="movies.html" class="nav-link"
+            ><i class="bx bx-film"></i><span>Movies</span></a
+          >
+          <a href="tvshows.html" class="nav-link"
+            ><i class="bx bx-tv"></i><span>TV Shows</span></a
+          >
+          <a href="watchlist.html" class="nav-link"
+            ><i class="bx bx-bookmark"></i><span>Watchlist</span></a
+          >
+          <a href="news.html" class="nav-link"
+            ><i class="bx bx-news"></i><span>News</span></a
+          >
+          <a href="contact.html" class="nav-link"
+            ><i class="bx bx-envelope"></i><span>Contact</span></a
+          >
+        </div>
+        <div class="nav-right">
+          <div class="nav-search-wrapper">
+            <div class="nav-search">
+              <i class="bx bx-search"></i
+              ><input
+                type="text"
+                class="search-input"
+                placeholder="Search movies, shows..."
+              />
+            </div>
+          </div>
+          <button class="theme-toggle" title="Toggle theme">
+            <i class="bx bx-sun"></i>
+          </button>
+          <a href="profile.html" class="nav-profile"
+            ><img
+              src="https://ui-avatars.com/api/?name=User&background=e50914&color=fff&size=36"
+              alt="Profile"
+          /></a>
+          <div class="nav-hamburger">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="mobile-nav">
+      <a href="../index.html" class="nav-link"
+        ><i class="bx bx-home-alt"></i><span>Home</span></a
+      >
+      <a href="movies.html" class="nav-link"
+        ><i class="bx bx-film"></i><span>Movies</span></a
+      >
+      <a href="tvshows.html" class="nav-link"
+        ><i class="bx bx-tv"></i><span>TV Shows</span></a
+      >
+      <a href="watchlist.html" class="nav-link"
+        ><i class="bx bx-bookmark"></i><span>Watchlist</span></a
+      >
+      <a href="news.html" class="nav-link"
+        ><i class="bx bx-news"></i><span>News</span></a
+      >
+      <a href="contact.html" class="nav-link"
+        ><i class="bx bx-envelope"></i><span>Contact</span></a
+      >
+    </div>
+
+    <!-- 1. Page Hero Banner -->
+    <section class="page-hero">
+      <h1 class="page-hero-title">About MovieHub</h1>
+      <p class="page-hero-subtitle">
+        Bridging the gap between cinema enthusiasts and global metadata
+      </p>
+    </section>
+
+    <!-- 2. Mission & Vison -->
+    <section class="section">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="reveal">
+            <div class="section-title">
+              <span class="accent-dot"></span> Our Mission
+            </div>
+            <p
+              style="
+                margin-top: var(--space-md);
+                color: var(--text-secondary);
+                font-size: var(--fs-md);
+                line-height: 1.8;
+              "
+            >
+              At MovieHub, we believe that discovering your next favorite movie
+              shouldn't be a chore. Our mission is to provide a seamless,
+              premium, and data-rich environment where cinephiles can explore,
+              rate, and track films from across the globe.
+            </p>
+            <p
+              style="
+                margin-top: var(--space-md);
+                color: var(--text-secondary);
+                font-size: var(--fs-md);
+                line-height: 1.8;
+              "
+            >
+              By leveraging the power of the TMDB API and modern web
+              technologies, we've built a platform that combines technical
+              excellence with aesthetic beauty, ensuring that the magic of
+              cinema begins before you even press play.
+            </p>
+          </div>
+          <div class="reveal delay-1">
+            <div class="section-title">
+              <span class="accent-dot"></span> The MovieHub Story
+            </div>
+            <p
+              style="
+                margin-top: var(--space-md);
+                color: var(--text-secondary);
+                font-size: var(--fs-md);
+                line-height: 1.8;
+              "
+            >
+              What started as an academic project at Techspire College has
+              evolved into a comprehensive film information system. We
+              recognized the "Discovery Friction" that users face
+              today—navigating fragmented interfaces just to find basic movie
+              info.
+            </p>
+            <p
+              style="
+                margin-top: var(--space-md);
+                color: var(--text-secondary);
+                font-size: var(--fs-md);
+                line-height: 1.8;
+              "
+            >
+              MovieHub solves this by centralizing high-fidelity imagery,
+              trailers, cast lists, and community reviews into a single,
+              lightning-fast application.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Core Values Stats (using stat-card style) -->
+    <section class="section" style="background: var(--bg-secondary)">
+      <div class="container">
+        <div
+          class="section-header reveal text-center"
+          style="text-align: center"
+        >
+          <div class="section-title" style="justify-content: center">
+            <span class="accent-dot"></span> Our Impact
+          </div>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card reveal delay-1">
+            <div class="stat-icon"><i class="bx bx-film"></i></div>
+            <div class="stat-number">800K+</div>
+            <div class="stat-label">Movies Indexed</div>
+          </div>
+          <div class="stat-card reveal delay-2">
+            <div class="stat-icon"><i class="bx bx-tv"></i></div>
+            <div class="stat-number">150K+</div>
+            <div class="stat-label">TV Series</div>
+          </div>
+          <div class="stat-card reveal delay-3">
+            <div class="stat-icon"><i class="bx bx-group"></i></div>
+            <div class="stat-number">2M+</div>
+            <div class="stat-label">Cast & Crew</div>
+          </div>
+          <div class="stat-card reveal delay-4">
+            <div class="stat-icon"><i class="bx bx-bolt-circle"></i></div>
+            <div class="stat-number">90+</div>
+            <div class="stat-label">Lighthouse Score</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. The Team -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-title">
+            <span class="accent-dot"></span> Meet the Team
+          </div>
+          <p class="section-subtitle">The passionate minds behind MovieHub</p>
+        </div>
+        <div class="team-bento">
+          <!-- Member 1: Bijay (Lead) -->
+          <div class="bento-card lead reveal delay-1">
+            <img
+              src="../images/bijay.jpg"
+              alt="Bijay Budha"
+              class="bento-image"
+            />
+            <div class="bento-overlay">
+              <div class="bento-content">
+                <span class="bento-role">Founder & Chief Architect</span>
+                <h4>Bijay Budha</h4>
+                <p class="bento-bio">
+                  Leading the technical vision and engineering excellence of the
+                  MovieHub ecosystem.
+                </p>
+                <div class="bento-social">
+                  <a href="https://github.com/bijaybudha-1" target="_blank"
+                    ><i class="bx bxl-github"></i
+                  ></a>
+                  <a href="#"><i class="bx bxl-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Member 2: Alex (Tall) -->
+          <div class="bento-card tall reveal delay-2">
+            <img
+              src="../images/Bhupendra.png"
+              alt="Bhupendra Kusari"
+              class="bento-image"
+            />
+            <div class="bento-overlay">
+              <div class="bento-content">
+                <span class="bento-role">Creative Director</span>
+                <h4>Bhupendra Kusari</h4>
+                <p class="bento-bio">
+                  Designing immersive cinematic interfaces and motion systems.
+                </p>
+                <div class="bento-social">
+                  <a href="#"><i class="bx bxl-dribbble"></i></a>
+                  <a href="#"><i class="bx bxl-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Member 3: Sarah -->
+          <div class="bento-card reveal delay-3">
+            <img
+              src="../images/diwakar.jpeg"
+              alt="Diwakar Humagain"
+              class="bento-image"
+            />
+            <div class="bento-overlay">
+              <div class="bento-content">
+                <span class="bento-role">Data Engine Lead</span>
+                <h4>Diwakar Humagain</h4>
+                <p class="bento-bio">
+                  Architecting high-frequency metadata pipelines.
+                </p>
+                <div class="bento-social">
+                  <a href="#"><i class="bx bxl-github"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Member 4: James -->
+          <div class="bento-card reveal delay-4">
+            <img
+              src="../images/gagan.jpeg"
+              alt="Gagan Shrestha"
+              class="bento-image"
+            />
+            <div class="bento-overlay">
+              <div class="bento-content">
+                <span class="bento-role">Security & Scaling</span>
+                <h4>Gagan Shrestha</h4>
+                <p class="bento-bio">Ensuring global platform resilience.</p>
+                <div class="bento-social">
+                  <a href="#"><i class="bx bxl-github"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Our Core Values -->
+    <section class="section" style="background: var(--bg-secondary)">
+      <div class="container">
+        <div
+          class="section-header reveal text-center"
+          style="text-align: center"
+        >
+          <div class="section-title" style="justify-content: center">
+            <span class="accent-dot"></span> Our Core Values
+          </div>
+          <p class="section-subtitle">What drives us every day</p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card reveal delay-1">
+            <div class="stat-icon"><i class="bx bx-check-shield"></i></div>
+            <h3>Reliability</h3>
+            <p
+              style="
+                font-size: var(--fs-sm);
+                color: var(--text-muted);
+                text-align: center;
+                margin-top: var(--space-xs);
+              "
+            >
+              Providing accurate and timely movie metadata.
+            </p>
+          </div>
+          <div class="stat-card reveal delay-2">
+            <div class="stat-icon"><i class="bx bx-palette"></i></div>
+            <h3>Creativity</h3>
+            <p
+              style="
+                font-size: var(--fs-sm);
+                color: var(--text-muted);
+                text-align: center;
+                margin-top: var(--space-xs);
+              "
+            >
+              Designing interfaces that inspire cinematic wonder.
+            </p>
+          </div>
+          <div class="stat-card reveal delay-3">
+            <div class="stat-icon"><i class="bx bx-globe"></i></div>
+            <h3>Globalism</h3>
+            <p
+              style="
+                font-size: var(--fs-sm);
+                color: var(--text-muted);
+                text-align: center;
+                margin-top: var(--space-xs);
+              "
+            >
+              Celebrating diverse stories from every corner of the world.
+            </p>
+          </div>
+          <div class="stat-card reveal delay-4">
+            <div class="stat-icon"><i class="bx bx-user-voice"></i></div>
+            <h3>Community</h3>
+            <p
+              style="
+                font-size: var(--fs-sm);
+                color: var(--text-muted);
+                text-align: center;
+                margin-top: var(--space-xs);
+              "
+            >
+              Listening to our users to build a better experience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="../index.html" class="nav-logo">MovieHub</a>
+            <p>
+              Your ultimate destination for discovering movies, TV shows, and
+              entertainment. Powered by TMDB.
+            </p>
+            <div class="footer-social">
+              <a href="#" title="Twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" title="Instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" title="Facebook"><i class="bx bxl-facebook"></i></a>
+              <a
+                href="https://github.com/bijaybudha-1"
+                target="_blank"
+                title="GitHub"
+                ><i class="bx bxl-github"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <a href="../index.html">Home</a>
+            <a href="movies.html">Movies</a>
+            <a href="tvshows.html">TV Shows</a>
+            <a href="news.html">Latest News</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+          <div class="footer-col">
+            <h4>Information</h4>
+            <a href="about.html">About MovieHub</a>
+            <a href="faq.html">FAQ</a>
+            <a href="reviews.html">Community Reviews</a>
+            <a href="ratings.html">Global Ratings</a>
+          </div>
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="profile.html">Your Profile</a>
+            <a href="watchlist.html">Your Watchlist</a>
+            <a href="movies.html">Top Rated Films</a>
+            <a href="tvshows.html">Popular Shows</a>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">DMCA Notice</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; <span id="footer-year"></span> MovieHub. All rights reserved.
+          </p>
+          <p>
+            Developed by
+            <a href="https://github.com/bijaybudha-1" target="_blank"
+              >Bijay Budha</a
+            >
+            &bull; Powered by
+            <a href="https://www.themoviedb.org/" target="_blank">TMDB</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/animation.js"></script>
+  </body>
+</html>

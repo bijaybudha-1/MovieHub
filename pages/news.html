@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MovieHub - Latest News</title>
+    <meta
+      name="description"
+      content="Stay updated with the latest movie news, celebrity spotlights, and entertainment updates on MovieHub."
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="../index.html" class="nav-logo">MovieHub</a>
+        <div class="nav-links">
+          <a href="../index.html" class="nav-link"
+            ><i class="bx bx-home-alt"></i><span>Home</span></a
+          >
+          <a href="movies.html" class="nav-link"
+            ><i class="bx bx-film"></i><span>Movies</span></a
+          >
+          <a href="tvshows.html" class="nav-link"
+            ><i class="bx bx-tv"></i><span>TV Shows</span></a
+          >
+          <a href="watchlist.html" class="nav-link"
+            ><i class="bx bx-bookmark"></i><span>Watchlist</span></a
+          >
+          <a href="news.html" class="nav-link active"
+            ><i class="bx bx-news"></i><span>News</span></a
+          >
+          <a href="contact.html" class="nav-link"
+            ><i class="bx bx-envelope"></i><span>Contact</span></a
+          >
+        </div>
+        <div class="nav-right">
+          <div class="nav-search-wrapper">
+            <div class="nav-search">
+              <i class="bx bx-search"></i
+              ><input
+                type="text"
+                class="search-input"
+                placeholder="Search movies, shows..."
+              />
+            </div>
+          </div>
+          <button class="theme-toggle" title="Toggle theme">
+            <i class="bx bx-sun"></i>
+          </button>
+          <a href="profile.html" class="nav-profile"
+            ><img
+              src="https://ui-avatars.com/api/?name=User&background=e50914&color=fff&size=36"
+              alt="Profile"
+          /></a>
+          <div class="nav-hamburger">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="mobile-nav">
+      <a href="../index.html" class="nav-link"
+        ><i class="bx bx-home-alt"></i><span>Home</span></a
+      >
+      <a href="movies.html" class="nav-link"
+        ><i class="bx bx-film"></i><span>Movies</span></a
+      >
+      <a href="tvshows.html" class="nav-link"
+        ><i class="bx bx-tv"></i><span>TV Shows</span></a
+      >
+      <a href="watchlist.html" class="nav-link"
+        ><i class="bx bx-bookmark"></i><span>Watchlist</span></a
+      >
+      <a href="news.html" class="nav-link active"
+        ><i class="bx bx-news"></i><span>News</span></a
+      >
+      <a href="contact.html" class="nav-link"
+        ><i class="bx bx-envelope"></i><span>Contact</span></a
+      >
+    </div>
+
+    <!-- 1. Page Hero Banner -->
+    <section class="page-hero">
+      <h1 class="page-hero-title">Latest News</h1>
+      <p class="page-hero-subtitle">
+        Breaking headlines from the world of entertainment
+      </p>
+    </section>
+
+    <!-- 2. News Grid -->
+    <section class="section">
+      <div class="container">
+        <div class="upcoming-grid">
+          <!-- News Item 1 -->
+          <article class="upcoming-card reveal">
+            <div class="upcoming-card-poster">
+              <img
+                src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=800"
+                alt="New Marvel Movie"
+              />
+              <div class="upcoming-countdown">Exclusive</div>
+            </div>
+            <div class="upcoming-card-info">
+              <p
+                style="
+                  color: var(--primary);
+                  font-size: var(--fs-xs);
+                  font-weight: 600;
+                  margin-bottom: var(--space-xs);
+                "
+              >
+                CINEMA NEWS
+              </p>
+              <h3>Marvel Studios Announces "The Next Era" of the MCU</h3>
+              <p>
+                A deep dive into the upcoming phases of the Marvel Cinematic
+                Universe and what fans can expect from the next decade of
+                superhero storytelling.
+              </p>
+              <a href="#" class="view-all" style="margin-top: var(--space-md)"
+                >Read Full Story <i class="bx bx-right-arrow-alt"></i
+              ></a>
+            </div>
+          </article>
+
+          <!-- News Item 2 -->
+          <article class="upcoming-card reveal delay-1">
+            <div class="upcoming-card-poster">
+              <img
+                src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800"
+                alt="Oscars 2026"
+              />
+              <div class="upcoming-countdown">Trending</div>
+            </div>
+            <div class="upcoming-card-info">
+              <p
+                style="
+                  color: var(--primary);
+                  font-size: var(--fs-xs);
+                  font-weight: 600;
+                  margin-bottom: var(--space-xs);
+                "
+              >
+                AWARDS
+              </p>
+              <h3>Oscars 2026: Predictions and Frontrunners</h3>
+              <p>
+                With the award season approaching, we analyze the top contenders
+                for Best Picture and Best Director in a year filled with
+                cinematic masterpieces.
+              </p>
+              <a href="#" class="view-all" style="margin-top: var(--space-md)"
+                >Read Full Story <i class="bx bx-right-arrow-alt"></i
+              ></a>
+            </div>
+          </article>
+
+          <!-- News Item 3 -->
+          <article class="upcoming-card reveal delay-2">
+            <div class="upcoming-card-poster">
+              <img src="../images/streaming-wars.png" alt="Streaming Wars" />
+            </div>
+            <div class="upcoming-card-info">
+              <p
+                style="
+                  color: var(--primary);
+                  font-size: var(--fs-xs);
+                  font-weight: 600;
+                  margin-bottom: var(--space-xs);
+                "
+              >
+                INDUSTRY
+              </p>
+              <h3>Streaming Wars: The Rise of Global Cinema</h3>
+              <p>
+                How international content is dominating streaming platforms and
+                changing the way global audiences consume entertainment in 2026.
+              </p>
+              <a href="#" class="view-all" style="margin-top: var(--space-md)"
+                >Read Full Story <i class="bx bx-right-arrow-alt"></i
+              ></a>
+            </div>
+          </article>
+
+          <!-- News Item 4 -->
+          <article class="upcoming-card reveal">
+            <div class="upcoming-card-poster">
+              <img
+                src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&q=80&w=800"
+                alt="Actor Spotlight"
+              />
+            </div>
+            <div class="upcoming-card-info">
+              <p
+                style="
+                  color: var(--primary);
+                  font-size: var(--fs-xs);
+                  font-weight: 600;
+                  margin-bottom: var(--space-xs);
+                "
+              >
+                CELEBRITY
+              </p>
+              <h3>Actor Spotlight: The Journey of a Rising Star</h3>
+              <p>
+                An exclusive interview with the year's breakout talent about
+                their preparation, challenges, and upcoming blockbuster
+                projects.
+              </p>
+              <a href="#" class="view-all" style="margin-top: var(--space-md)"
+                >Read Full Story <i class="bx bx-right-arrow-alt"></i
+              ></a>
+            </div>
+          </article>
+
+          <!-- News Item 5 -->
+          <article class="upcoming-card reveal delay-1">
+            <div class="upcoming-card-poster">
+              <img
+                src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&q=80&w=800"
+                alt="Festival News"
+              />
+            </div>
+            <div class="upcoming-card-info">
+              <p
+                style="
+                  color: var(--primary);
+                  font-size: var(--fs-xs);
+                  font-weight: 600;
+                  margin-bottom: var(--space-xs);
+                "
+              >
+                FESTIVALS
+              </p>
+              <h3>Cannes 2026: A Celebration of Independent Film</h3>
+              <p>
+                Highlights from this year's festival, showcasing the most
+                innovative and thought-provoking independent cinema from across
+                the world.
+              </p>
+              <a href="#" class="view-all" style="margin-top: var(--space-md)"
+                >Read Full Story <i class="bx bx-right-arrow-alt"></i
+              ></a>
+            </div>
+          </article>
+
+          <!-- News Item 6 -->
+          <article class="upcoming-card reveal delay-2">
+            <div class="upcoming-card-poster">
+              <img
+                src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=800"
+                alt="Tech News"
+              />
+            </div>
+            <div class="upcoming-card-info">
+              <p
+                style="
+                  color: var(--primary);
+                  font-size: var(--fs-xs);
+                  font-weight: 600;
+                  margin-bottom: var(--space-xs);
+                "
+              >
+                TECH
+              </p>
+              <h3>The Future of VFX: AI in Modern Filmmaking</h3>
+              <p>
+                How artificial intelligence is revolutionizing visual effects
+                and streamlining production pipelines for the next generation of
+                cinema.
+              </p>
+              <a href="#" class="view-all" style="margin-top: var(--space-md)"
+                >Read Full Story <i class="bx bx-right-arrow-alt"></i
+              ></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Entertainment Events Spotlight -->
+    <section class="section" style="background: var(--bg-secondary)">
+      <div class="container">
+        <div class="section-header reveal" style="text-align: center">
+          <div class="section-title" style="justify-content: center">
+            <span class="accent-dot"></span> Upcoming Events
+          </div>
+          <p class="section-subtitle">
+            Mark your calendars for these cinematic milestones
+          </p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card reveal delay-1">
+            <div class="stat-icon"><i class="bx bx-calendar-star"></i></div>
+            <h3>Sundance Festival</h3>
+            <p
+              style="
+                font-size: var(--fs-sm);
+                color: var(--text-muted);
+                text-align: center;
+              "
+            >
+              Jan 22 - Feb 1, 2026
+            </p>
+          </div>
+          <div class="stat-card reveal delay-2">
+            <div class="stat-icon"><i class="bx bx-trophy"></i></div>
+            <h3>Academy Awards</h3>
+            <p
+              style="
+                font-size: var(--fs-sm);
+                color: var(--text-muted);
+                text-align: center;
+              "
+            >
+              March 2, 2026
+            </p>
+          </div>
+          <div class="stat-card reveal delay-3">
+            <div class="stat-icon"><i class="bx bx-camera-movie"></i></div>
+            <h3>Cannes Film Festival</h3>
+            <p
+              style="
+                font-size: var(--fs-sm);
+                color: var(--text-muted);
+                text-align: center;
+              "
+            >
+              May 12 - 23, 2026
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Weekly Movie Roundup -->
+    <section class="section">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="reveal">
+            <div class="section-title">
+              <span class="accent-dot"></span> Weekly Roundup
+            </div>
+            <p
+              style="
+                margin-top: var(--space-md);
+                color: var(--text-secondary);
+                line-height: 1.8;
+              "
+            >
+              This week saw a record-breaking opening for the latest sci-fi
+              epic, while independent films dominated the streaming charts. Our
+              editors pick the top 5 must-watch trailers of the week.
+            </p>
+          </div>
+          <div
+            class="reveal delay-1"
+            style="
+              background: var(--bg-card);
+              padding: var(--space-xl);
+              border-radius: var(--radius-lg);
+              border: 1px solid var(--border-color);
+            "
+          >
+            <h4 style="margin-bottom: var(--space-sm)">Editor's Pick</h4>
+            <p
+              style="
+                font-size: var(--fs-md);
+                color: var(--text-secondary);
+                font-style: italic;
+              "
+            >
+              "2026 is shaping up to be the year of the 'Cyber-Noir' revival.
+              We're seeing aesthetic influences from the 80s blending with
+              modern AI-driven storytelling."
+            </p>
+            <p
+              style="
+                margin-top: var(--space-md);
+                color: var(--primary);
+                font-weight: 600;
+              "
+            >
+              — John Cinephile
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Stay Connected Section -->
+    <section class="section" style="background: var(--bg-secondary)">
+      <div class="container">
+        <div class="newsletter reveal-scale">
+          <h2>Stay in the Loop</h2>
+          <p>
+            Get the latest movie leaks, casting news, and exclusive previews
+            sent to your inbox.
+          </p>
+          <form
+            class="newsletter-form"
+            onsubmit="
+              event.preventDefault();
+              showToast('Subscribed to News!', 'success');
+              this.reset();
+            "
+          >
+            <input type="email" placeholder="Enter your email" required />
+            <button type="submit" class="btn btn-primary">Join Now</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="../index.html" class="nav-logo">MovieHub</a>
+            <p>
+              Your ultimate destination for discovering movies, TV shows, and
+              entertainment. Powered by TMDB.
+            </p>
+            <div class="footer-social">
+              <a href="#" title="Twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" title="Instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" title="Facebook"><i class="bx bxl-facebook"></i></a>
+              <a
+                href="https://github.com/bijaybudha-1"
+                target="_blank"
+                title="GitHub"
+                ><i class="bx bxl-github"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <a href="../index.html">Home</a>
+            <a href="movies.html">Movies</a>
+            <a href="tvshows.html">TV Shows</a>
+            <a href="news.html">Latest News</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+          <div class="footer-col">
+            <h4>Information</h4>
+            <a href="about.html">About MovieHub</a>
+            <a href="faq.html">FAQ</a>
+            <a href="reviews.html">Community Reviews</a>
+            <a href="ratings.html">Global Ratings</a>
+          </div>
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="profile.html">Your Profile</a>
+            <a href="watchlist.html">Your Watchlist</a>
+            <a href="movies.html">Top Rated Films</a>
+            <a href="tvshows.html">Popular Shows</a>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">DMCA Notice</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; <span id="footer-year"></span> MovieHub. All rights reserved.
+          </p>
+          <p>
+            Developed by
+            <a href="https://github.com/bijaybudha-1" target="_blank"
+              >Bijay Budha</a
+            >
+            &bull; Powered by
+            <a href="https://www.themoviedb.org/" target="_blank">TMDB</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/animation.js"></script>
+  </body>
+</html>
